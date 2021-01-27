@@ -1,0 +1,37 @@
+/* Classes */
+.titleName {
+  padding: 0 60px;
+}
+.navbar {
+  padding: 1rem 0 1rem;
+}
+
+.find {
+  padding: 8px 60px;
+}
+/* not something you want to do. Bootstrap navbar was blocking the change. */
+
+.find:hover {
+  color: #0d6efd !important;
+}
+
+.container-fluid {
+  padding: 0.5% 2%;
+}
+
+.nav-item {
+  padding: 0 5px;
+}
+
+.length {
+  height: 100px;
+}
+
+.fontawesome:hover {
+  color: #0d6efd;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 100px;
+}
