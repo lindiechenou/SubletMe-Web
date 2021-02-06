@@ -1,0 +1,42 @@
+.formed {
+  border-radius: 15px;
+  box-shadow: 0px 2px 2px rgb(13, 110, 253) !important;
+}
+
+.p-5 {
+  padding: 3rem;
+}
+.user {
+  width: 400px;
+  margin: 0 50px;
+}
+
+.user button {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 15px;
+}
+.user input {
+  border-radius: 15px;
+}
+
+hr {
+  height: 2px !important;
+}
+.small {
+  text-align: center;
+  text-decoration: none;
+}
+
+.small:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+@media screen and (max-width: 1400px) {
+  .user {
+    float: none;
+    width: 75%;
+  }
+}

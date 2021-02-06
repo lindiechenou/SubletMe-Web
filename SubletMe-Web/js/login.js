@@ -16,9 +16,14 @@ function login(password, email) {
 }
 
 function status() {
+  1;
   if (loggedIn) {
-    window.location = "../html/index.html";
+    window.location = "../index.html";
   } else {
     console.log("You are not in :(");
   }
+}
+
+function passwordReset() {
+  alert("Your link has been set");
 }
