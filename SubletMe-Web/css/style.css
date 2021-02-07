@@ -8,6 +8,69 @@
 .find {
   padding: 8px 60px;
 }
+/*for filters*/
+.fa-sort {
+  background: rgb(212, 211, 211);
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 6px;
+  margin-right: 5px;
+}
+.sorting {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.fa-dollar-sign {
+  background: rgb(212, 211, 211);
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 6px;
+  margin-right: 5px;
+}
+
+.price-range {
+  margin-bottom: 30px;
+}
+
+.fa-calendar-alt {
+  background: rgb(212, 211, 211);
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 6px;
+  margin-right: 5px;
+}
+.dates {
+  margin-bottom: 30px;
+}
+
+.start {
+  font-size: 15px;
+}
+
+.end {
+  font-size: 15px;
+}
+
+.fa-filter {
+  background: rgb(212, 211, 211);
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 6px;
+  margin-right: 5px;
+}
+.filters {
+  margin-bottom: 30px;
+}
+
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 
 .find:hover {

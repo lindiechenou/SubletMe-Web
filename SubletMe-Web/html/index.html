@@ -67,7 +67,61 @@
     <section id="colunms">
         <div class="row align-items-start">
             <div class="col-2 length">
-                <h3>Filter</h3>
+                <h5><b>SUBLETS NEAR</b></h5>
+                <!-- Sort by-->
+                <div class="sorting">
+                    <h5>
+                        <i class="fas fa-sort"></i>
+                        <b>Sort by:</b>
+                    </h5>
+                    <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio1">Price- High to Low </label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio2">Price- Low to High</label>
+                    </div>
+                </div>
+                <!-- Price Range -->
+                <div class="price-range">
+                    <h5 class="form-label">
+                        <i class="fas fa-dollar-sign"></i>
+                        <b>Price range</b>
+                    </h5>
+                    <input type="range" class="form-range" min="0" max="100" id="input-left" value = "25" data-popup-enabled="true" data-show-value="true"> 
+                    <input type="range" class="form-range" min="0" max="100" id="input-right" value = "75">
+                </div>
+                <!-- Dates Available -->
+                <div class='dates'>
+                    <h5>
+                        <i class="fas fa-calendar-alt"></i>
+                        <b>Lease Dates</b>
+                    </h5>
+                    <p class = "start">Start Date: <input type="date" id="start" name="start-date" required></p>
+                    <p class = "end">End Date: <input type="date" id="end" name="end-date" required></p>
+                </div>
+                <!-- Filters -->
+                <div class="filters">
+                    <h5 class='filters-label'>
+                        <i class="fas fa-filter"></i>
+                        <b>Filters:</b>
+                    </h5>
+                    <div class="form-check form-switch">
+                        <label class="form-check-label washer" for="flexSwitchCheckDefault">Washer/Dryer</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitch">
+                    </div> 
+                    <div class="form-check form-switch">
+                        <label class="form-check-label pool" for="flexSwitchCheckDefault">Pool</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitch">
+                    </div> 
+                    <div class="form-check form-switch">
+                        <label class="form-check-label pets" for="flexSwitchCheckDefault">Pets Allowed</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitch">
+                    </div> 
+                    <div class="form-check form-switch">
+                        <label class="form-check-label parking" for="flexSwitchCheckDefault">Free Parking</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitch">
+                    </div> 
+                </div>
             </div>
             <div class="col-4 length">
                 <h3>Address</h3>
