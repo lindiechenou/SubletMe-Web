@@ -1,6 +1,6 @@
 .formed {
   border-radius: 15px;
-  box-shadow: 0px 2px 2px rgb(13, 110, 253) !important;
+  box-shadow: 10px 5px 2px rgb(13, 110, 253);
 }
 
 .p-5 {
@@ -15,21 +15,22 @@
   margin-top: 10px;
   font-size: 20px;
   font-weight: bold;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 .user input {
-  border-radius: 15px;
+  border-radius: 20px;
+  border: 2px solid rgb(13, 110, 253);
 }
 
 hr {
   height: 2px !important;
 }
-.small {
+.large {
   text-align: center;
   text-decoration: none;
 }
 
-.small:hover {
+.large:hover {
   text-decoration: underline;
   color: black;
 }

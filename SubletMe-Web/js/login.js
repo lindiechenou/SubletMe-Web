@@ -16,7 +16,6 @@ function login(password, email) {
 }
 
 function status() {
-  1;
   if (loggedIn) {
     window.location = "../index.html";
   } else {
@@ -26,4 +25,8 @@ function status() {
 
 function passwordReset() {
   alert("Your link has been set");
+}
+
+function signUp() {
+  window.location = "../index.html";
 }
