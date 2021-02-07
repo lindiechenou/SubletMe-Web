@@ -17,8 +17,16 @@ function login(password, email) {
 
 function status() {
   if (loggedIn) {
-    window.location = "../html/index.html";
+    window.location = "../index.html";
   } else {
     console.log("You are not in :(");
   }
+}
+
+function passwordReset() {
+  alert("Your link has been set");
+}
+
+function signUp() {
+  window.location = "../index.html";
 }
