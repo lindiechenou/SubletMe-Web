@@ -60,10 +60,12 @@ html {
   border: 2px solid #ddd;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
+  margin: auto auto 10px auto;
   position: relative;
   text-align: center;
-  width: 550px;
+  height:200px;
+  width: 99%;
 }
 
 .placard-apt-2 {
@@ -71,14 +73,15 @@ html {
   border: 2px solid #ddd;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  margin-bottom: 20px;
+  margin: auto auto 10px auto;
   position: relative;
   text-align: center;
-  width: 550px;
+  height:200px;
+  width: 99%;
 }
 .placard-header {
   border-bottom: 1px solid #eee;
-  var(--bs-font-sans-serif)
+  var(--bs-font-sans-serif);
   font-weight: bold;
   letter-spacing: 0.25px;
   line-height: 1.4;
