@@ -1,0 +1,88 @@
+body {
+  background-color: #ffe4c4;
+}
+.login-form {
+  background-color: white;
+  margin: 50px auto;
+  width: 95%;
+  font-size: 15px;
+  min-height: 1000px;
+}
+.title {
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.property {
+  background-color: #faf2e9;
+  box-sizing: border-box;
+  width: 66%;
+  min-height: 500px;
+  margin: 20px auto;
+  font-family: "Open Sans", Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+}
+.subTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Open Sans", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+}
+.address {
+  width: 300px;
+  margin-bottom: 30px;
+}
+.addresslabel {
+  margin-bottom: 5px;
+}
+/* .check {
+  font-weight: 400;
+}
+input[type="checkbox"] {
+  border: 10px solid;
+  height: 18px;
+  width: 18px;
+}
+input[type="checkbox"]:hover {
+  background-color: blue;
+}
+.check:hover input {
+  background-color: blue;
+}
+.check-label {
+  font-size: 16px;
+  font-weight: 400;
+}
+.box:hover {
+  border-color: red;
+} */
+
+/* .check-box-group {
+  display: flex;
+  flex-direction: column;
+  /* background-color: blue; */
+
+/*
+.custom-checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.custom-checkbox .label {
+  font-size: 1.2em;
+  margin: 0 10px;
+}
+/* .custom-checkbox input:hover {
+  border-color: red;
+  border-radius: 3px;
+} 
+input[type="checkbox"] {
+  border-radius: 4px;
+  outline: 4px solid #1e5180;
+  height: 18px;
+  width: 18px;
+} */
