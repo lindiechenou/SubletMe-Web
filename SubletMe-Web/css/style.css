@@ -9,7 +9,8 @@
 .find {
   padding: 8px 60px;
 }
-/*for filters*/
+
+/************For Filters Column************/
 .fa-sort {
   background: rgb(212, 211, 211);
   padding-left: 12px;
@@ -98,6 +99,7 @@
   padding: 50px;
 }
 
+/************For Address Column************/
 /* Address additions */
 .srchBar input[type=text]{
   width: 50%;
