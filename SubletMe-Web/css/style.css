@@ -1,6 +1,7 @@
 /* Classes */
 .titleName {
   padding: 0 60px;
+  font-size: 30px;
 }
 .navbar {
   padding: 1rem 0 1rem;
@@ -95,4 +96,86 @@
 
 #colunms {
   padding: 50px;
+}
+
+/* Address additions */
+.srchBar input[type=text]{
+  width: 50%;
+  margin-bottom: 10px;
+  border: 4px solid #000;
+
+}
+
+#left {
+  height: 750px;
+  overflow: scroll;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.placard-apt-1 {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  /* margin-bottom: 40px; */
+  margin: auto auto 10px auto;
+  position: relative;
+  text-align: center;
+  height:200px;
+  width: 99%;
+}
+
+.placard-apt-2 {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin: auto auto 10px auto;
+  position: relative;
+  text-align: center;
+  height:200px;
+  width: 99%;
+}
+.placard-header {
+  border-bottom: 1px solid #eee;
+  var(--bs-font-sans-serif);
+  font-weight: bold;
+  letter-spacing: 0.25px;
+  line-height: 1.4;
+  padding: 12px 20px 10px;
+  text-align: left;
+}
+.placard-photo-1 {
+  background: url(https://images.rentable.co/35034/7837940/large.jpg) 50% 50%;
+  background-size: cover;
+  height: 130px;
+  width: 100%;
+  text-align: left;
+  z-index: 2;
+}
+
+.placard-photo-2 {
+  background: url(https://www.americancampus.com/assets/563-theprovince/SPS/Pricing%20Section/Province-Louisville-living-room3.jpg?ext=.jpg)
+    50% 50%;
+  background-size: cover;
+  height: 130px;
+  width: 100%;
+  text-align: left;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear {
+  overflow: auto;
 }
