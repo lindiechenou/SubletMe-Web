@@ -18,3 +18,6 @@ function myFunction() {
   console.log(end);
   document.getElementById("end").max = end;
 }
+function postProperty() {
+  window.location = "property.html";
+}

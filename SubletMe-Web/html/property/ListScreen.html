@@ -73,28 +73,64 @@
                     </select>
                 </div>
                 <div class="address">
-                    <label for="addressName" class="addresslabel">Start Lease</label>
+                    <label for="start" class="addresslabel">Start Lease</label>
                     <input class="form-control" type="date" id="start" required="required" onchange="myFunction()">
                 </div>
                 <div class="address">
-                    <label for="addressName" class="addresslabel">End Lease</label>
+                    <label for="end" class="addresslabel">End Lease</label>
                     <input class="form-control" type="date" id="end" required="required">
                 </div>
-                <!-- <div class="check-box-group">
-                    <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        <span class="label">Checkbox Label</span>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox">
+                        <span class="checkboxLabel">Men allowed</span>
                     </label>
-                </div> -->
-                <div class="input-group mb-3">
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox" value=""
-                            aria-label="Checkbox for following text input">
-                    </div>
-                    <input type="text" class="form-control" aria-label="Text input with checkbox">
                 </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox">
+                        <span class="checkboxLabel">Woman allowed</span>
+                    </label>
+                </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox">
+                        <span class="checkboxLabel">Pets allowed</span>
+                    </label>
+                </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox">
+                        <span class="checkboxLabel">Washer dryer</span>
+                    </label>
+                </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox">
+                        <span class="checkboxLabel">Pool available</span>
+                    </label>
+                </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox">
+                        <span class="checkboxLabel">Free parking</span>
+                    </label>
+                </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox">
+                        <span class="checkboxLabel">Fitness center</span>
+                    </label>
+                </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox">
+                        <span class="checkboxLabel">Is it furnished</span>
+                    </label>
+                </div>
+
             </div>
+            <button type="button" class="btn btn-primary" onClick='postProperty()'>Submit</button>
         </div>
 
     </div>
