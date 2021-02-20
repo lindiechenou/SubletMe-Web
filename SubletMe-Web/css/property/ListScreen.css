@@ -1,0 +1,68 @@
+body {
+  background-color: #8faec4;
+  /* height: 100vh; */
+  max-height: 100%;
+  overflow: scroll;
+}
+.login-form {
+  background-color: #f2f6f8;
+  margin: 50px auto;
+  width: 95%;
+  font-size: 15px;
+  /* max-height: auto; */
+  border-radius: 10px;
+}
+.title {
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+.property {
+  background-color: #f2f6f8;
+  box-sizing: border-box;
+  width: 66%;
+  /* min-height: 500px; */
+  margin: 20px auto;
+  font-family: "Open Sans", Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+}
+.subTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-family: "Open Sans", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+}
+.address {
+  width: 300px;
+  margin-bottom: 30px;
+}
+.addresslabel {
+  margin-bottom: 5px;
+}
+.input-group-text {
+  padding: 2px;
+  border: 0px;
+  background-color: white;
+}
+.form-check-input {
+  height: 18px;
+  width: 18px;
+  border: 1px solid #0095ff;
+  box-shadow: 0 0 3px 2px #0095ff;
+}
+.checkboxLabel {
+  padding-left: 10px;
+}
+.check {
+  width: 300px;
+  margin-bottom: 10px;
+}
+.btn {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 80%;
+}
