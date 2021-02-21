@@ -34,3 +34,21 @@ h1 {
   text-align: center;
   padding-top: 100px;
 }
+
+.addlist {
+  margin-top: 100px;
+  position: absolute;
+  left: 40%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 20%;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 900px) {
+  .addlist {
+    width: 30%;
+  }
+}
