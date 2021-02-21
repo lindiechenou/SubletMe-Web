@@ -12,6 +12,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./style.css">
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/93543d97f2.js"
@@ -84,9 +86,9 @@
                     </h5>
                     <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio1">Price- High to Low </label>
+                        <label class="btn btn-outline-primary radio" for="btnradio1">Price- High to Low </label>
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2">Price- Low to High</label>
+                        <label class="btn btn-outline-primary radio" for="btnradio2">Price- Low to High</label>
                     </div>
                 </div>
                 <!-- Price Range -->
@@ -95,9 +97,18 @@
                         <i class="fas fa-dollar-sign"></i>
                         <b>Price range</b>
                     </h5>
-                    <input type="range" id= "input-left" class="form-range" min="0" max="100" id="input-left" value = "25"> 
-                    <input type="range" id= "input-right" class="form-range" min="0" max="100" id="input-right" value = "75">
-                    <b>€ 10</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b>
+                    <div class="price-slider">
+                      <span class="price-input">
+                        <h5>Select Price Range</h5>
+                        <b>From</b> <input class="price-value" type="number" value="0" min="0" max="2000"/>
+                        <b>To</b> <input class="price-value" type="number" value="2000" min="0" max="2000"/>
+                      </span>
+                      <input value="0" min="0" max="2000" step="50" type="range"/>
+                      <input value="2000" min="0" max="2000" step="50" type="range"/>
+                      <svg width="75%" height="24">
+                        <line x1="4" y1="0" x2="300" y2="0" stroke="#212121" stroke-width="12" stroke-dasharray="1 10" margin-top="-7"></line>
+                      </svg>
+                    </div>
                 </div>
                 <!-- Dates Available -->
                 <div class='dates'>
@@ -204,5 +215,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/index.js" charset="utf-8"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script  src="function.js"></script>
   </body>
 </html>

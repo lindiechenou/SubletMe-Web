@@ -11,6 +11,12 @@
 }
 
 /************For Filters Column************/
+/***** Sort by *****/
+.sorting {
+  margin-top: 30px;
+  margin-bottom: 35px;
+}
+
 .fa-sort {
   background: rgb(212, 211, 211);
   padding-left: 12px;
@@ -19,10 +25,6 @@
   padding-bottom: 8px;
   border-radius: 6px;
   margin-right: 5px;
-}
-.sorting {
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 .fa-dollar-sign {
@@ -34,9 +36,75 @@
   border-radius: 6px;
   margin-right: 5px;
 }
-
+/* .radio {
+  background: none;
+  border: none;
+} */
+/***** Price Range *****/
 .price-range {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+}
+
+.price-slider {
+  width: 300px;
+  margin: auto;
+  text-align: left;
+  position: relative;
+  height: 6em;
+}
+
+/*aligns sliders*/
+.price-slider svg,
+.price-slider input[type=range] {
+  position: absolute; 
+  left: 0;
+  bottom: 0;
+}
+
+.price-slider input[type=number] {
+  border: 1px solid black;
+  text-align: center;
+  font-size: 15px;
+  width: 70px;
+}
+
+/*highlights input box in red when outside of range*/
+.price-slider input[type=number]:invalid,
+.price-slider input[type=number]:out-of-range {
+  border: 4px solid #e60023;
+}
+
+/*changes appearance of slider*/
+.price-slider input[type=range] {
+  -webkit-appearance: none;
+  width: 75%;
+  outline: none;
+}
+
+/* creates track that inputs slide on */
+.price-slider input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: #0d6efd;
+}
+
+/*adjust and edits sliders*/
+.price-slider input[type=range]::-webkit-slider-thumb {
+  z-index: 2;
+  position: relative;
+  border: 3px solid #0d6efd;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #ffffff;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+
+/***** Dates Available *****/
+.dates {
+  margin-bottom: 35px;
 }
 
 .fa-calendar-alt {
@@ -48,9 +116,6 @@
   border-radius: 6px;
   margin-right: 5px;
 }
-.dates {
-  margin-bottom: 30px;
-}
 
 .start {
   font-size: 15px;
@@ -58,6 +123,11 @@
 
 .end {
   font-size: 15px;
+}
+
+/***** Filters *****/
+.filters {
+  margin-bottom: 35px;
 }
 
 .fa-filter {
@@ -68,9 +138,6 @@
   padding-bottom: 8px;
   border-radius: 6px;
   margin-right: 5px;
-}
-.filters {
-  margin-bottom: 30px;
 }
 
 /* not something you want to do. Bootstrap navbar was blocking the change. */
