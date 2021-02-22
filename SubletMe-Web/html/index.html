@@ -12,6 +12,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./style.css">
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/93543d97f2.js"
@@ -63,11 +65,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-end" href="settings.html">
-                                <i class="fas fa-cog fontawesome"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-end" href="profile.html">
                                 <i class="far fa-user fontawesome"></i>
                             </a>
@@ -78,75 +75,138 @@
         </div>
     </section>
     <section id="colunms">
-      <div class="row align-items-start">
-        <div class="col-2 length">
-          <h3>Filter</h3>
-        </div>
-        <div class="col-4 length">
-          <!--h3>Address</h3 -->
-          <div class="search">
-            <!--div class="srchBar">
-              <input
-                type="text"
-                placeholder="Search Sublets Near You"
-                id="address"
-                name="user-address"
-                required
-              /-->
-            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-              <div class="input-group">
-                <input
-                  type="search"
-                  placeholder="Search for sublets near you"
-                  aria-describedby="button-addon1"
-                  class="form-control border-0 bg-light"
-                />
-                <div class="input-group-append">
-                  <button
-                    id="button-addon1"
-                    type="submit"
-                    class="btn btn-link text-primary"
-                  >
-                    <i class="fa fa-search"></i>
-                  </button>
+        <div class="row align-items-start">
+            <div class="col-2 length">
+                <h5><b>SUBLETS NEAR</b></h5>
+                <!-- Sort by-->
+                <div class="sorting">
+                    <h5>
+                        <i class="fas fa-sort"></i>
+                        <b>Sort by:</b>
+                    </h5>
+                    <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                        <label class="btn btn-outline-primary radio" for="btnradio1">Price- High to Low </label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary radio" for="btnradio2">Price- Low to High</label>
+                    </div>
+                </div>
+                <!-- Price Range -->
+                <div class="price-range">
+                    <h5 class="form-label">
+                        <i class="fas fa-dollar-sign"></i>
+                        <b>Price range</b>
+                    </h5>
+                    <div class="price-slider">
+                      <span class="price-input">
+                        <h5>Select Price Range</h5>
+                        <b>From</b> <input class="price-value" type="number" value="0" min="0" max="2000"/>
+                        <b>To</b> <input class="price-value" type="number" value="2000" min="0" max="2000"/>
+                      </span>
+                      <input value="0" min="0" max="2000" step="50" type="range"/>
+                      <input value="2000" min="0" max="2000" step="50" type="range"/>
+                      <svg width="75%" height="24">
+                        <line x1="4" y1="0" x2="300" y2="0" stroke="#212121" stroke-width="12" stroke-dasharray="1 10" margin-top="-7"></line>
+                      </svg>
+                    </div>
+                </div>
+                <!-- Dates Available -->
+                <div class='dates'>
+                    <h5>
+                        <i class="fas fa-calendar-alt"></i>
+                        <b>Lease Dates</b>
+                    </h5>
+                    <p class = "start">Start Date: <input type="date" id="start" name="start-date" required></p>
+                    <p class = "end">End Date: <input type="date" id="end" name="end-date" required></p>
+                </div>
+                <!-- Filters -->
+                <div class="filters">
+                    <h5 class='filters-label'>
+                        <i class="fas fa-filter"></i>
+                        <b>Filters:</b>
+                    </h5>
+                    <div class="form-check form-switch">
+                        <label class="form-check-label washer" for="flexSwitchCheckDefault">Washer/Dryer</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitch">
+                    </div> 
+                    <div class="form-check form-switch">
+                        <label class="form-check-label pool" for="flexSwitchCheckDefault">Pool</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitch">
+                    </div> 
+                    <div class="form-check form-switch">
+                        <label class="form-check-label pets" for="flexSwitchCheckDefault">Pets Allowed</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitch">
+                    </div> 
+                    <div class="form-check form-switch">
+                        <label class="form-check-label parking" for="flexSwitchCheckDefault">Free Parking</label>
+                        <input class="form-check-input" type="checkbox" id="flexSwitch">
+                    </div> 
+                </div>
+            </div>
+            <div class="col-4 length">
+              <div class="search">
+                <!--div class="srchBar">
+                  <input
+                    type="text"
+                    placeholder="Search Sublets Near You"
+                    id="address"
+                    name="user-address"
+                    required
+                  /-->
+                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                  <div class="input-group">
+                    <input
+                      type="search" 
+                      placeholder="Search for sublets near you"
+                      aria-describedby="button-addon1"
+                      class="form-control border-0 bg-light"
+                    />
+                    <div class="input-group-append">
+                      <button
+                        id="button-addon1"
+                        type="submit"
+                        class="btn btn-link text-primary"
+                      >
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div id="left">
+                  <div class="placard-apt-1">
+                    <div class="placard-header clear">
+                      <div class="left">
+                        <div>123 Main St.</div>
+                        <div>The Nine</div>
+                      </div>
+                      <div class="right">
+                        <div>1000 sq ft.</div>
+                        <div>Louisville,Ky</div>
+                      </div>
+                    </div>
+                    <div class="placard-photo-1 left"></div>
+                  </div>
+    
+                  <div class="placard-apt-2">
+                    <div class="placard-header clear">
+                      <div class="left">
+                        <div>195 4th St.</div>
+                        <div>The Province</div>
+                      </div>
+                      <div class="right">
+                        <div>1000 sq ft.</div>
+                        <div>Louisville,Ky</div>
+                      </div>
+                    </div>
+                    <div class="placard-photo-2 left"></div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div id="left">
-              <div class="placard-apt-1">
-                <div class="placard-header clear">
-                  <div class="left">
-                    <div>123 Main St.</div>
-                    <div>The Nine</div>
-                  </div>
-                  <div class="right">
-                    <div>1000 sq ft.</div>
-                    <div>Louisville,Ky</div>
-                  </div>
-                </div>
-                <div class="placard-photo-1 left"></div>
-              </div>
-
-              <div class="placard-apt-2">
-                <div class="placard-header clear">
-                  <div class="left">
-                    <div>195 4th St.</div>
-                    <div>The Province</div>
-                  </div>
-                  <div class="right">
-                    <div>1000 sq ft.</div>
-                    <div>Louisville,Ky</div>
-                  </div>
-                </div>
-                <div class="placard-photo-2 left"></div>
-              </div>
+            <div class="col-6 length">
+              <h3>Map</h3>
             </div>
-          </div>
         </div>
-        <div class="col-6 length">
-          <h3>Map</h3>
-        </div>
-      </div>
     </section>
 
     <script
@@ -155,5 +215,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/index.js" charset="utf-8"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script  src="function.js"></script>
   </body>
 </html>
