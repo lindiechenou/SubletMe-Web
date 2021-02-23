@@ -35,7 +35,11 @@
                 <div class="subTitle">Listing information</div>
                 <div class="address">
                     <label for="addressName" class="addresslabel">Property address</label>
-                    <input class="form-control" placeholder="Address" required="required" id="addressName">
+                    <input class="form-control" placeholder="Street Address" required="required" id="streetName"><input
+                        class="form-control" placeholder="City" required="required" id="cityName">
+                    <input class="form-control" placeholder="State" required="required" id="stateName">
+                    <input class="form-control" placeholder="Zipcode" required="required" id="zipcodeName">
+
                 </div>
                 <div class="address">
                     <label for="monthlyRent" class="addresslabel">Cost per Month</label>
@@ -48,28 +52,24 @@
                 <div class="address">
                     <label for="room-type" class="addresslabel">Room type:</label>
                     <select class="form-select" id="room-type">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="Private" selected>Private</option>
+                        <option value="Shared">Shared</option>
                     </select>
                 </div>
                 <div class="address">
                     <label for="housing-type" class="addresslabel">Housing type:</label>
                     <select class="form-select" id="housing-type">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="Apartment" selected>Apartment</option>
+                        <option value="House">House</option>
                     </select>
                 </div>
                 <div class="address">
                     <label for="roomates" class="addresslabel">Number of roomates</label>
                     <select class="form-select" id="roomates">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
+                        <option value="1" selected>One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
+                        <option value="4">Four</option>
                     </select>
                 </div>
                 <div class="address">
@@ -127,6 +127,18 @@
                         <input class="form-check-input mt-0" type="checkbox">
                         <span class="checkboxLabel">Is it furnished</span>
                     </label>
+                </div>
+                <div class="imgInput">
+                    <form action="/action_page.php">
+                        <label for="myfile">Select the Primary Image (.jpg) for Your Lease: </label>
+                        <input type="file" id="myfile" name="myfile" required="required">
+                    </form>
+                </div>
+                <div class="imgInput">
+                    <form action="/action_page.php">
+                        <label for="myfile">Select other Images (.jpg) you want other to see: </label>
+                        <input type="file" id="myfiles" name="myfile" required="required" multiple>
+                    </form>
                 </div>
 
             </div>

@@ -1,5 +1,6 @@
 body {
-  background-color: #8faec4;
+  /* background-color: #8faec4; */
+  background-color: #f2f6f8;
   /* height: 100vh; */
   max-height: 100%;
   overflow: scroll;
@@ -11,6 +12,7 @@ body {
   font-size: 15px;
   /* max-height: auto; */
   border-radius: 10px;
+  box-shadow: 2px 2px 7px 15px rgb(48, 131, 255);
 }
 .title {
   font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
@@ -65,4 +67,8 @@ body {
   padding: 10px;
   margin: 10px;
   margin-left: 80%;
+}
+
+.imgInput {
+  margin: 20px auto 10px;
 }
