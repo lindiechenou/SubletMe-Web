@@ -9,6 +9,15 @@
   padding: 8px 60px;
 }
 
+.dropdown-menu {
+  width: 250px;
+  left: -270%;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(235, 232, 232);
+  margin-left: 5px;
+}
 /******** For Profile *********/
 .profile-box {
   width: 800px;
