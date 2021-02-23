@@ -65,9 +65,10 @@
 
         <!-- Div align in the middle -->
         <div class="profile-form" style="margin-left:auto;margin-right:auto;text-align:center">
-            <h1 class="personal-info"><b>Personal Information</b></h1>
+            <p><h1 class="personal-info"><b>Personal Information</b></h1><button>Log Out</button></p>
             <div class="form-group">
                 <div class="input-group">
+                    <!--FistName LastName-->
                     <input type="text" class="information form-control" id="name" value="FirstName LastName" readonly>
                     <div class="input-group-addon">
                         <button class="edit-btn btn-primary btn-lg" id ="edit-btn1" onClick='editButton1()'>Edit</button>
@@ -77,6 +78,7 @@
             <hr class="line">
             <div class="form-group">
                 <div class="input-group">
+                    <!--Email-->
                     <input type="text" class="information form-control" id="email" value="email@university.edu" readonly>
                     <div class="input-group-addon">
                         <button class="edit-btn btn-primary btn-lg" id ="edit-btn2" onClick='editButton2()'>Edit</button>
@@ -86,6 +88,7 @@
             <hr class="line">
             <div class="form-group">
                 <div class="input-group">
+                    <!--School-->
                     <input type="text" class="information form-control" id="school" value="School Name" readonly>
                     <div class="input-group-addon">
                         <button class="edit-btn btn-primary btn-lg" id ="edit-btn3" onClick='editButton3()'>Edit</button>
@@ -94,7 +97,7 @@
             </div>
             <hr class="line">
         </div>
-  
+        <h1 class="listings"><b>Your Listings</b></h1>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

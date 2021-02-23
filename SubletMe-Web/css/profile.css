@@ -8,7 +8,8 @@
 .find {
   padding: 8px 60px;
 }
-/* for profile*/
+
+/******** For Profile *********/
 .profile-box {
   width: 800px;
   height: 1000px;
@@ -42,7 +43,6 @@
 }
 
 .line {
-  /* background-color: rgb(165, 161, 161); */
   border-bottom: 6px solid gray;
   border-radius: 10px;
   width: 95%;
@@ -51,6 +51,11 @@
   margin-bottom: 35px;
 }
 
+/* For Listings */
+.listings {
+  text-align: left;
+  padding-left: 20px;
+}
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 .find:hover {
   color: #0d6efd !important;

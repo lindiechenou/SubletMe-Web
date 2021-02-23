@@ -10,6 +10,9 @@
   padding: 8px 60px;
 }
 
+.dropdown-menu {
+  width: 100px
+}
 /************For Filters Column************/
 /***** Sort by *****/
 .sorting {
@@ -36,10 +39,7 @@
   border-radius: 6px;
   margin-right: 5px;
 }
-/* .radio {
-  background: none;
-  border: none;
-} */
+
 /***** Price Range *****/
 .price-range {
   margin-bottom: 35px;
