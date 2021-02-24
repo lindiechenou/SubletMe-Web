@@ -155,4 +155,4 @@ function greet(addressDict, imageDict) {
 }
 setTimeout(() => {
   greet(addressDict, imageDict);
-}, 200);
+}, 1000);

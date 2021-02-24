@@ -122,10 +122,12 @@ img {
 
 .start {
   font-size: 15px;
+  margin-bottom: 0;
 }
 
 .end {
   font-size: 15px;
+  margin-bottom: 0;
 }
 
 /***** Filters *****/
