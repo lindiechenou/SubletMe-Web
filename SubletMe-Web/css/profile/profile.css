@@ -10,6 +10,7 @@
   padding: 8px 60px;
 }
 
+/******** Dropdown Menu *********/
 .dropdown-menu {
   width: 250px;
   left: -270%;
@@ -18,22 +19,20 @@
 .dropdown-item:hover {
   background-color: rgb(235, 232, 232);
 }
+
 /******** For Profile *********/
 .personal-box {
   width: 800px;
   height: 1000px;
   border: 18px solid rgb(212, 211, 211);
-  /* padding: 10px; */
   border-radius: 20px;
 }
-
 .personal-info {
   text-align: left;
   padding-top: 15px;
   padding-left: 20px;
   margin-bottom: 45px;
 }
-
 .link {
   display: flex;
   justify-content: center;
@@ -46,7 +45,6 @@
 .info-block {
   width: 100%;
 }
-
 .info-block p {
   display: inline-block;
   vertical-align: middle;
@@ -64,19 +62,6 @@
   padding-right: 20px;
   padding-top: 22px;
 }
-.information {
-  border: none;
-  width: 50%;
-  margin-left: 20px;
-}
-
-.edit-btn {
-  background: none;
-  border: none;
-  color: #0d6efd;
-  margin-right: 20px;
-}
-
 .line {
   border-bottom: 3px solid gray;
   margin-top: 0px;
