@@ -1,0 +1,56 @@
+/* Classes */
+.titleName {
+  padding: 0 60px;
+}
+.navbar {
+  padding: 1rem 0 1rem;
+}
+.find {
+  padding: 8px 60px;
+}
+
+/******** Dropdown Menu *********/
+.dropdown-menu {
+  width: 250px;
+  left: -270%;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(235, 232, 232);
+}
+/* not something you want to do. Bootstrap navbar was blocking the change. */
+
+.find:hover {
+  color: #0d6efd !important;
+}
+
+.container-fluid {
+  padding: 0.5% 2%;
+}
+
+.nav-item {
+  padding: 0 5px;
+}
+
+.length {
+  height: 100px;
+}
+
+.fontawesome:hover {
+  color: #0d6efd;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 30px;
+  font-weight: 400;
+}
+
+.fa-arrow-left {
+  padding-right: 10px;
+}
+
+.line {
+  margin-left: -30px;
+  margin-right: -30px;
+}
