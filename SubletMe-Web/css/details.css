@@ -10,6 +10,16 @@
 .find {
   padding: 8px 60px;
 }
+
+/******** Dropdown Menu *********/
+.dropdown-menu {
+  width: 250px;
+  left: -270%;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(235, 232, 232);
+}
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 
 .find:hover {

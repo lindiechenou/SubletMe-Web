@@ -19,5 +19,7 @@ function myFunction() {
   document.getElementById("end").max = end;
 }
 function postProperty() {
-  window.location = "property.html";
+  //window.location = "property.html";
+  var street = document.getElementById("menAllowed").value;
+  console.log(street);
 }

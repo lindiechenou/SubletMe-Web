@@ -16,6 +16,16 @@ img {
   padding: 8px 60px;
 }
 
+/******** Dropdown Menu *********/
+.dropdown-menu {
+  width: 250px;
+  left: -270%;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(235, 232, 232);
+}
+
 /************For Filters Column************/
 /***** Sort by *****/
 .sorting {
@@ -42,10 +52,7 @@ img {
   border-radius: 6px;
   margin-right: 5px;
 }
-/* .radio {
-  background: none;
-  border: none;
-} */
+
 /***** Price Range *****/
 .price-range {
   margin-bottom: 35px;
@@ -125,10 +132,12 @@ img {
 
 .start {
   font-size: 15px;
+  margin-bottom: 0;
 }
 
 .end {
   font-size: 15px;
+  margin-bottom: 0;
 }
 
 /***** Filters *****/

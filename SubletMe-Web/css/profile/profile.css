@@ -1,0 +1,100 @@
+/* Classes */
+.titleName {
+  padding: 0 60px;
+  font-size: 30px;
+}
+.navbar {
+  padding: 1rem 0 1rem;
+}
+.find {
+  padding: 8px 60px;
+}
+
+/******** Dropdown Menu *********/
+.dropdown-menu {
+  width: 250px;
+  left: -270%;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(235, 232, 232);
+}
+
+/******** For Profile *********/
+.personal-box {
+  width: 800px;
+  height: 1000px;
+  border: 18px solid rgb(212, 211, 211);
+  border-radius: 20px;
+}
+.personal-info {
+  text-align: left;
+  padding-top: 15px;
+  padding-left: 20px;
+  margin-bottom: 45px;
+}
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+.link:hover {
+  background-color: rgb(235, 232, 232);
+}
+.info-block {
+  width: 100%;
+}
+.info-block p {
+  display: inline-block;
+  vertical-align: middle;
+}
+.label {
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-top: 15px;
+}
+.info {
+  padding-top: 15px;
+}
+.arrow {
+  padding-right: 20px;
+  padding-top: 22px;
+}
+.line {
+  border-bottom: 3px solid gray;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* For Listings */
+.listings {
+  text-align: left;
+  padding-left: 20px;
+}
+/* not something you want to do. Bootstrap navbar was blocking the change. */
+.find:hover {
+  color: #0d6efd !important;
+}
+
+.container-fluid {
+  padding: 0.5% 2%;
+}
+
+.nav-item {
+  padding: 0 5px;
+}
+
+.length {
+  height: 100px;
+}
+
+.fontawesome:hover {
+  color: #0d6efd;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 100px;
+}
