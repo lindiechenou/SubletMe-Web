@@ -11,14 +11,15 @@ body {
   width: 95%;
   font-size: 15px;
   /* max-height: auto; */
-  border-radius: 10px;
-  box-shadow: 2px 2px 7px 15px rgb(48, 131, 255);
+  border-radius: 20px;
+  box-shadow: 2px 2px 7px 15px rgb(193, 196, 199);
 }
 .title {
   font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
   font-weight: 700;
   font-size: 36px;
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 .property {
   background-color: #f2f6f8;
@@ -46,7 +47,7 @@ body {
 .input-group-text {
   padding: 2px;
   border: 0px;
-  background-color: white;
+  background-color: #f2f6f8;
 }
 .form-check-input {
   height: 18px;
@@ -71,4 +72,18 @@ body {
 
 .imgInput {
   margin: 20px auto 10px;
+}
+.description {
+  margin-top: 20px;
+  width: 300px;
+}
+.find {
+  font-size: 28px;
+  margin: 0 20px;
+  font-family: "Times New Roman", Times, serif;
+  /* bottom: 0px; */
+}
+.cancel {
+  margin-left: 80%;
+  padding: 10px;
 }

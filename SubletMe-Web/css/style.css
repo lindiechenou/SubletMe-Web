@@ -1,6 +1,6 @@
 img {
   width: 100%;
-  height: 278px;
+  height: 264px;
   border-radius: 2%;
 }
 
@@ -216,7 +216,7 @@ html {
 }
 
 .placard-header {
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
   var(--bs-font-sans-serif);
   font-weight: bold;
   letter-spacing: 0.25px;
@@ -225,7 +225,7 @@ html {
   text-align: left;
 }
 .placard-photo-1 {
-  background: url(https://images.rentable.co/35034/7837940/large.jpg) 50% 50%;
+  /* background: url(https://images.rentable.co/35034/7837940/large.jpg) 50% 50%; */
   background-size: auto;
   height: 278px;
   width: 100%;
@@ -236,11 +236,15 @@ html {
 }
 
 .left {
-  float: left;
+  font-size: 15px;
 }
 .right {
-  float: right;
+  font-size: 13px;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+  font-weight: 600;
 }
-.clear {
-  overflow: auto;
+.clear2 {
+  color: #0d6efd;
+  text-align: right;
+  /* padding-bottom: 10px; */
 }
