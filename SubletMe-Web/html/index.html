@@ -107,20 +107,20 @@
         <!-- Sort by-->
         <div class="sorting">
           <h5>
-            <i class="fas fa-sort"></i>
+            <i class="fas fa-sort font"></i>
             <b>Sort by:</b>
           </h5>
           <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+            <input type="checkbox" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
             <label class="btn btn-outline-primary radio" for="btnradio1">Price- High to Low </label>
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <input type="checkbox" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
             <label class="btn btn-outline-primary radio" for="btnradio2">Price- Low to High</label>
           </div>
         </div>
         <!-- Price Range -->
         <div class="price-range">
           <h5 class="form-label">
-            <i class="fas fa-dollar-sign"></i>
+            <i class="fas fa-dollar-sign font"></i>
             <b>Price range</b>
           </h5>
           <div class="price-slider">
@@ -135,23 +135,25 @@
               <line x1="4" y1="0" x2="300" y2="0" stroke="#212121" stroke-width="12" stroke-dasharray="1 10"
                 margin-top="-7"></line>
             </svg>
+            <!-- <input class="form-control" placeholder="Min" required="required" id="Min">
+            <input class="form-control" placeholder="Max" required="required" id="Max"> -->
           </div>
         </div>
         <!-- Dates Available -->
         <div class='dates'>
           <h5>
-            <i class="fas fa-calendar-alt"></i>
+            <i class="fas fa-calendar-alt font"></i>
             <b>Lease Dates</b>
           </h5>
           <p class="start">Start Date:</p>
-          <input type="date" id="start" name="start-date" required>
+          <input class="form-control" type="date" id="start" required="required">
           <p class="end">End Date:</p>
-          <input type="date" id="end" name="end-date" required>
+          <input class="form-control" type="date" id="start" required="required">
         </div>
         <!-- Filters -->
         <div class="filters">
           <h5 class='filters-label'>
-            <i class="fas fa-filter"></i>
+            <i class="fas fa-filter font"></i>
             <b>Filters:</b>
           </h5>
           <div class="form-check form-switch">
