@@ -1,6 +1,6 @@
 img {
   width: 100%;
-  height: 278px;
+  height: 264px;
   border-radius: 2%;
 }
 
@@ -33,6 +33,19 @@ img {
   margin-bottom: 35px;
 }
 
+.radio {
+  border: 0px;
+  box-shadow: 0px;
+  font-size: 18px;
+}
+.btn-check{
+  border: 0;
+  box-shadow: 0px;
+}
+.form-control{
+  width: 90%;
+  border-radius: 10px;
+}
 .fa-sort {
   background: rgb(212, 211, 211);
   padding-left: 12px;
@@ -64,6 +77,11 @@ img {
   text-align: left;
   position: relative;
   height: 6em;
+}
+.divider {
+  text-align: center;
+  font-size: 18px;
+  margin: 0;
 }
 
 /*aligns sliders*/
@@ -117,7 +135,7 @@ img {
 
 /***** Dates Available *****/
 .dates {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .fa-calendar-alt {
@@ -131,12 +149,12 @@ img {
 }
 
 .start {
-  font-size: 15px;
+  font-size: 18px;
   margin-bottom: 0;
 }
 
 .end {
-  font-size: 15px;
+  font-size: 18px;
   margin-bottom: 0;
 }
 
@@ -172,7 +190,10 @@ img {
 .length {
   height: 100px;
 }
-
+.font{
+  font-size: 15px;
+  background-color: rgb(240, 240, 240);
+}
 .fontawesome:hover {
   color: #0d6efd;
 }
@@ -216,7 +237,7 @@ html {
 }
 
 .placard-header {
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
   var(--bs-font-sans-serif);
   font-weight: bold;
   letter-spacing: 0.25px;
@@ -225,7 +246,7 @@ html {
   text-align: left;
 }
 .placard-photo-1 {
-  background: url(https://images.rentable.co/35034/7837940/large.jpg) 50% 50%;
+  /* background: url(https://images.rentable.co/35034/7837940/large.jpg) 50% 50%; */
   background-size: auto;
   height: 278px;
   width: 100%;
@@ -236,11 +257,15 @@ html {
 }
 
 .left {
-  float: left;
+  font-size: 15px;
 }
 .right {
-  float: right;
+  font-size: 13px;
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+  font-weight: 600;
 }
-.clear {
-  overflow: auto;
+.clear2 {
+  color: #0d6efd;
+  text-align: right;
+  /* padding-bottom: 10px; */
 }

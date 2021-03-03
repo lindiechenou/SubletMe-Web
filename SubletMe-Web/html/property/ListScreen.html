@@ -128,6 +128,10 @@
                         <span class="checkboxLabel">Is it furnished</span>
                     </label>
                 </div>
+                <div class="description">
+                    <label for="housing-type" class="addresslabel">Description:</label>
+                    <textarea id="story" name="story" rows="6" cols="45"></textarea>
+                </div>
                 <div class="imgInput">
                     <form action="/action_page.php">
                         <label for="myfile">Select the Primary Image (.jpg) for Your Lease: </label>
@@ -141,8 +145,14 @@
                     </form>
                 </div>
 
+
             </div>
-            <button type="button" class="btn btn-primary" onClick='postProperty()'>Submit</button>
+            <div class="cancel">
+                <!-- <button type="button" class="btn btn-link" onClick='postProperty()'>Submit</button> -->
+                <!-- <a class="navbar-brand find" onClick='postProperty()'>Find a Sublet</a> -->
+                <a class="navbar-brand find" href="property.html" onClick='check()'>Submit</a>
+                <a class="navbar-brand find" href="property.html">Cancel</a>
+            </div>
         </div>
 
     </div>
