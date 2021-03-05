@@ -1,298 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SubletMe</title>
+    <!-- CSS Bootstrap StyleSheet -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/93543d97f2.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SubletMe</title>
-  <!-- CSS Bootstrap StyleSheet -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" href="../css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="./style.css">
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/93543d97f2.js" crossorigin="anonymous"></script>
-  <!-- Bootstrap Scripts -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-    integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
-    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-</head>
+  <body>
+    <section class="colored-section" id="title">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand titleName text-primary" href="auth/login.html"
+            >ULease</a
+          >
+          <a class="navbar-brand find" href="index.html">Find a Sublet</a>
+          <a class="navbar-brand find" href="Details.html">Saved Properties</a>
 
-<body>
-  <section class="colored-section" id="title">
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand titleName text-primary" href="auth/login.html">ULease</a>
-        <a class="navbar-brand find" href="index.html">Find a Sublet</a>
-        <a class="navbar-brand find" href="Details.html">Saved Properties</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link text-end find" href="./property/property.html">List your Property</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-end" href="messages.html">
-                <i class="far fa-envelope fontawesome"></i>
-              </a>
-            </li>
-            <!-- Dropdown Menu -->
-            <li class="nav-item dropdown">
-              <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenu"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="far fa-user"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                <li>
-                  <p class="text-center"><b>FirstName LastName</b> <br>Email@university.edu</p>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item profile" href="profile/profile.html"
-                    style="text-decoration: none; color: inherit;"><i class="fas fa-user-circle"></i> Your Profile</a>
-                </li>
-                <li><a class="dropdown-item profile" href="property/property.html"
-                    style="text-decoration: none; color: inherit;"><i class="fas fa-building"></i> Your Listing</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link text-end find"
+                  href="./property/property.html"
+                  >List your Property</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-end" href="messages.html">
+                  <i class="far fa-envelope fontawesome"></i>
+                </a>
+              </li>
+              <!-- Dropdown Menu -->
+              <li class="nav-item dropdown">
+                <button
+                  class="btn btn-outline-dark dropdown-toggle"
+                  type="button"
+                  id="dropdownMenu"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-user"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                  <li>
+                    <p class="text-center">
+                      <b>FirstName LastName</b> <br />Email@university.edu
+                    </p>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item profile"
+                      href="profile/profile.html"
+                      style="text-decoration: none; color: inherit"
+                      ><i class="fas fa-user-circle"></i> Your Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item profile"
+                      href="property/property.html"
+                      style="text-decoration: none; color: inherit"
+                      ><i class="fas fa-building"></i> Your Listing</a
+                    >
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
 
-                <!-- Button trigger modal -->
-                <li><button class="dropdown-item sign-out" type="button" data-bs-toggle="modal"
-                    data-bs-target="#SignOutModal"><i class="fas fa-sign-out-alt"></i> Sign Out</button> </li>
-              </ul>
-              <!-- Modal -->
-              <div class="modal fade" id="SignOutModal" tabindex="-1" aria-labelledby="SignOutModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title w-100 text-center" id="SignOutModalLabel">Are you sure you want to log out?
-                      </h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="d-grid gap-2 col-6 mx-auto">
-                        <button type="button" class="btn btn-danger" onclick="location.href='auth/login.html'">Log
-                          Out</button>
-                        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+                  <!-- Button trigger modal -->
+                  <li>
+                    <button
+                      class="dropdown-item sign-out"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#SignOutModal"
+                    >
+                      <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </button>
+                  </li>
+                </ul>
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="SignOutModal"
+                  tabindex="-1"
+                  aria-labelledby="SignOutModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5
+                          class="modal-title w-100 text-center"
+                          id="SignOutModalLabel"
+                        >
+                          Are you sure you want to log out?
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                          <button
+                            type="button"
+                            class="btn btn-danger"
+                            onclick="location.href='auth/login.html'"
+                          >
+                            Log Out
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary"
+                            data-bs-dismiss="modal"
+                          >
+                            Cancel
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </section>
-  <section id="colunms">
-    <div class="row align-items-start">
-      <div class="col-2 length">
-        <h5><b>SUBLETS NEAR</b></h5>
-        <!-- Sort by-->
-        <div class="sorting">
-          <h5>
-            <i class="fas fa-sort font"></i>
-            <b>Sort by:</b>
-          </h5>
-          <div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-            <label class="btn btn-outline-primary radio" for="btnradio1">Price- High to Low </label>
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-            <label class="btn btn-outline-primary radio" for="btnradio2">Price- Low to High</label>
+              </li>
+            </ul>
           </div>
-        </div>
-        <!-- Price Range -->
-        <div class="price-range">
-          <h5 class="form-label">
-            <i class="fas fa-dollar-sign font"></i>
-            <b>Price range</b>
-          </h5>
-          <div class="price-slider">
-            <input class="form-control price-value" placeholder="Min" required="required" id="Min" type="number">
-            <input class="form-control price-value" placeholder="Max" required="required" id="Max" type="number">
-            <input value="0" min="0" max="2000" step="50" type="range" />
-            <input value="2000" min="0" max="2000" step="50" type="range" />
-            <!-- <svg width="75%" height="24">
+        </nav>
+      </div>
+    </section>
+    <section id="colunms">
+      <div class="row align-items-start">
+        <div class="col-2 length">
+          <h5><b>SUBLETS NEAR</b></h5>
+          <!-- Sort by-->
+          <div class="sorting">
+            <h5>
+              <i class="fas fa-sort font"></i>
+              <b>Sort by:</b>
+            </h5>
+            <div
+              class="btn-group-vertical"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                name="btnradio"
+                id="btnradio1"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-primary radio" for="btnradio1"
+                >Price- High to Low
+              </label>
+              <input
+                type="radio"
+                class="btn-check"
+                name="btnradio"
+                id="btnradio2"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-primary radio" for="btnradio2"
+                >Price- Low to High</label
+              >
+            </div>
+          </div>
+          <!-- Price Range -->
+          <div class="price-range">
+            <h5 class="form-label">
+              <i class="fas fa-dollar-sign font"></i>
+              <b>Price range</b>
+            </h5>
+            <div class="price-slider">
+              <input
+                class="form-control price-value"
+                placeholder="Min"
+                required="required"
+                id="Min"
+                type="number"
+              />
+              <input
+                class="form-control price-value"
+                placeholder="Max"
+                required="required"
+                id="Max"
+                type="number"
+              />
+              <input value="0" min="0" max="2000" step="50" type="range" />
+              <input value="2000" min="0" max="2000" step="50" type="range" />
+              <!-- <svg width="75%" height="24">
               <line x1="4" y1="0" x2="300" y2="0" stroke="#212121" stroke-width="12" stroke-dasharray="1 10"
                 margin-top="-7"></line>
             </svg> -->
-          </div>
-        </div>
-        <!-- Dates Available -->
-        <div class='dates'>
-          <h5>
-            <i class="fas fa-calendar-alt font"></i>
-            <b>Lease Dates</b>
-          </h5>
-          <p class="start">Start Date:</p>
-          <input class="form-control" type="date" id="start" required="required">
-          <p class="end">End Date:</p>
-          <input class="form-control" type="date" id="start" required="required">
-        </div>
-        <!-- Filters -->
-        <div class="filters">
-          <h5 class='filters-label'>
-            <i class="fas fa-filter font"></i>
-            <b>Filters:</b>
-          </h5>
-          <div class="form-check form-switch">
-            <label class="form-check-label washer" for="flexSwitchCheckDefault">Washer/Dryer</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
-          </div>
-          <div class="form-check form-switch">
-            <label class="form-check-label pool" for="flexSwitchCheckDefault">Pool</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
-          </div>
-          <div class="form-check form-switch">
-            <label class="form-check-label pet" for="flexSwitchCheckDefault">Pets Allowed</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
-          </div>
-          <div class="form-check form-switch">
-            <label class="form-check-label parking" for="flexSwitchCheckDefault">Free Parking</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
-          </div>
-        </div>
-      </div>
-      <div class="col-4 length">
-        <div class="search">
-          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-            <div class="input-group">
-              <input type="search" placeholder="Search for sublets near you" aria-describedby="button-addon1"
-                class="form-control border-0 bg-light" />
-              <div class="input-group-append">
-                <button id="button-addon1" type="submit" class="btn btn-link text-primary">
-                  <i class="fa fa-search"></i>
-                </button>
-              </div>
             </div>
           </div>
-          <div id="left" data-bs-toggle="modal" data-bs-target="#leaseDetails">
-            <div class="placard-apt-1">
-              <div class="placard-header clear">
-                <div class="left">
-                  <div>Shared Room in Apartment</div>
-                  <div class="right">123 Street Address, Louisville, KY, 40214</div>
-                  <div class="clear2">$500/month</div>
+          <!-- Dates Available -->
+          <div class="dates">
+            <h5>
+              <i class="fas fa-calendar-alt font"></i>
+              <b>Lease Dates</b>
+            </h5>
+            <p class="start">Start Date:</p>
+            <input
+              class="form-control"
+              type="date"
+              id="start"
+              required="required"
+            />
+            <p class="end">End Date:</p>
+            <input
+              class="form-control"
+              type="date"
+              id="start"
+              required="required"
+            />
+          </div>
+          <!-- Filters -->
+          <div class="filters">
+            <h5 class="filters-label">
+              <i class="fas fa-filter font"></i>
+              <b>Filters:</b>
+            </h5>
+            <div class="form-check form-switch">
+              <label
+                class="form-check-label washer"
+                for="flexSwitchCheckDefault"
+                >Washer/Dryer</label
+              >
+              <input class="form-check-input" type="checkbox" id="flexSwitch" />
+            </div>
+            <div class="form-check form-switch">
+              <label class="form-check-label pool" for="flexSwitchCheckDefault"
+                >Pool</label
+              >
+              <input class="form-check-input" type="checkbox" id="flexSwitch" />
+            </div>
+            <div class="form-check form-switch">
+              <label class="form-check-label pet" for="flexSwitchCheckDefault"
+                >Pets Allowed</label
+              >
+              <input class="form-check-input" type="checkbox" id="flexSwitch" />
+            </div>
+            <div class="form-check form-switch">
+              <label
+                class="form-check-label parking"
+                for="flexSwitchCheckDefault"
+                >Free Parking</label
+              >
+              <input class="form-check-input" type="checkbox" id="flexSwitch" />
+            </div>
+          </div>
+        </div>
+        <div class="col-4 length">
+          <div class="search">
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+              <div class="input-group">
+                <input
+                  type="search"
+                  placeholder="Search for sublets near you"
+                  aria-describedby="button-addon1"
+                  class="form-control border-0 bg-light"
+                />
+                <div class="input-group-append">
+                  <button
+                    id="button-addon1"
+                    type="submit"
+                    class="btn btn-link text-primary"
+                  >
+                    <i class="fa fa-search"></i>
+                  </button>
                 </div>
               </div>
-              <div class="placard-photo-1 left"><img src="../images/image.jpg"></div>
+            </div>
+            <div
+              id="left"
+              data-bs-toggle="modal"
+              data-bs-target="#leaseDetails"
+            >
+              <div class="placard-apt-1">
+                <div class="placard-header clear">
+                  <div class="left">
+                    <div>Shared Room in Apartment</div>
+                    <div class="right">
+                      123 Street Address, Louisville, KY, 40214
+                    </div>
+                    <div class="clear2">$500/month</div>
+                  </div>
+                </div>
+                <div class="placard-photo-1 left">
+                  <img src="../images/image.jpg" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="col-6 length">
+          <h3>Map</h3>
+        </div>
       </div>
-      <div class="col-6 length">
-        <h3>Map</h3>
+    </section>
+    <!-- Section that represent the modal for each lease tab -->
+    <div
+      class="modal fade"
+      id="leaseDetails"
+      tabindex="-1"
+      aria-labelledby="SignOutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div onclick="clickw()">
+              <i class="far fa-bookmark save"></i>
+            </div>
+            <h5 class="modal-title w-100 text-center" id="SignOutModalLabel">
+              Property Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row align-items-start">
+              <div class="col-6">
+                <!-- adding the carousel here -->
+                <div class="placard-photo-1 left">
+                  <img src="../images/ulease.png" />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="set">
+                  <div class="first-section">
+                    <p class="initial">
+                      <strong> Room in Apartment with 1 Roomate</strong>
+                    </p>
+                    <p class="initial">
+                      4416 Turtle Creek Way, Louisville, KY, 40509
+                    </p>
+                  </div>
+                  <div class="row second-section">
+                    <div class="col-6">
+                      <p class="apt">Rent Apartment</p>
+                      <p class="cost">$500/month</p>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                      <button type="button" class="btn btn-primary message-btn">
+                        Message
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="third-section">
+                  <p class="date">Availability Feb 19 2021 to Apr 24 2021</p>
+                </div>
+                <div class="fouth-section">
+                  <div class="row">
+                    <div class="pets col-6">
+                      <i class="fas fa-dog"></i>
+                      <b>Pets allowed</b>
+                    </div>
+                    <div class="pets col-6">
+                      <i class="fas fa-tshirt"></i>
+                      <b>Washer and Dryer</b>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="pets col-6">
+                      <i class="fas fa-bed"></i>
+                      <b>Furnished</b>
+                    </div>
+                    <div class="pets col-6">
+                      <i class="fas fa-swimmer"></i>
+                      <b>Pool available</b>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="pets col-6">
+                      <i class="fas fa-parking"></i>
+                      <b>Free Parking</b>
+                    </div>
+                    <div class="pets col-6">
+                      <i class="fas fa-biking"></i>
+                      <b>Fitness Center</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="last-section">
+                  <p class="initial">Gender Preferences</p>
+                  <div class="gender-label">
+                    <span class="gender">men</span>
+                    <span class="gender">non-binary</span>
+                    <span class="gender">women</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-  <!-- Section that represent the modal for each lease tab -->
-  <div class="modal fade" id="leaseDetails" tabindex="-1" aria-labelledby="SignOutModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div onclick="clickw()">
-            <i class="far fa-bookmark save"></i>
-          </div>
-          <h5 class="modal-title w-100 text-center" id="SignOutModalLabel">Property Details
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row align-items-start">
-            <div class="col-6">
-              <!-- adding the carousel here -->
-              <div class="placard-photo-1 left"><img src="../images/ulease.png"></div>
-            </div>
-            <div class="col-6">
-              <div class="set">
-                <div class="first-section">
-                  <p class="initial"><strong> Room in Apartment with 1 Roomate</strong></p>
-                  <p class="initial">4416 Turtle Creek Way, Louisville,
-                    KY, 40509</p>
-                </div>
-                <div class="row second-section">
-                  <div class="col-6">
-                    <p class="apt">Rent Apartment</p>
-                    <p class="cost">$500/month</p>
-                  </div>
-                  <div class="d-grid gap-2 col-6 mx-auto">
-                    <button type="button" class="btn btn-primary message-btn">Message</button>
-                  </div>
-                </div>
-              </div>
-              <div class="third-section">
-                <p class="date">Availability Feb 19 2021 to Apr 24 2021</p>
-              </div>
-              <div class="fouth-section">
-                <div class="row">
-                  <div class="pets col-6">
-                    <i class="fas fa-dog"></i>
-                    <b>Pets allowed</b>
-                  </div>
-                  <div class="pets col-6">
-                    <i class="fas fa-tshirt"></i>
-                    <b>Washer and Dryer</b>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="pets col-6">
-                    <i class="fas fa-bed"></i>
-                    <b>Furnished</b>
-                  </div>
-                  <div class="pets col-6">
-                    <i class="fas fa-swimmer"></i>
-                    <b>Pool available</b>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="pets col-6">
-                    <i class="fas fa-parking"></i>
-                    <b>Free Parking</b>
-                  </div>
-                  <div class="pets col-6">
-                    <i class="fas fa-biking"></i>
-                    <b>Fitness Center</b>
-                  </div>
-                </div>
-              </div>
-              <div class="last-section">
-                <p class="initial">Gender Preferences</p>
-                <div class="gender-label">
-                  <span class="gender">men</span>
-                  <span class="gender">non-binary</span>
-                  <span class="gender">women</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
-  <script src="../js/index.js" charset="utf-8"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-  <script src="function.js"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/index.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="function.js"></script>
+  </body>
 </html>
