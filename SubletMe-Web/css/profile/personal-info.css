@@ -23,11 +23,13 @@
   position: relative;
   width: 400px;
   height: 300px;
-  border: 1px solid rgb(212, 211, 211);
+  background: #fff;
+  border: 2px solid #ddd;
+  box-shadow: 7px 7px 7px rgb(140, 185, 252);
   border-radius: 15px;
 }
 
-.box-label {
+.form-label {
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
@@ -35,6 +37,15 @@
   margin-bottom: 8px;
   padding-top: 15px;
   padding-left: 20px;
+}
+.input-label {
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+.input {
+  margin-left: 20px;
+  border-radius: 7px;
 }
 
 .buttons {
@@ -49,18 +60,9 @@
   color: #0d6efd;
 }
 
-/****** For Name Section *******/
-.name {
-  padding-top: 15px;
-  padding-left: 20px;
-}
-
-.name-input {
-  margin-left: 20px;
-}
-
 .radio {
-  margin-left: 20px;
+  margin-left: 30px;
+  margin-top: 20px;
 }
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 

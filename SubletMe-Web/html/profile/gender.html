@@ -48,6 +48,7 @@
                                 <i class="far fa-envelope fontawesome"></i>
                             </a>
                         </li>
+                        <!-- Dropdown Menu -->
                         <li class="nav-item dropdown">
                             <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="far fa-user"></i>
@@ -56,7 +57,7 @@
                               <li><p class="text-center"><b>FirstName LastName</b> <br>Email@university.edu</p></li>
                               <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdown-item profile" href="profile.html" style="text-decoration: none; color: inherit;"><i class="fas fa-user-circle"></i> Your Profile</a></li>
-                              <li><button class="dropdown-item" type="button"><i class="fas fa-building"></i> Your Listings</button> </li>
+                              <li><button class="dropdown-item" type="button"><i class="fas fa-building"></i> Your Listing</button> </li>
                               <li><hr class="dropdown-divider"></li>
                               
                               <!-- Button trigger modal -->
@@ -90,19 +91,27 @@
     
     <div class="info-box" style="margin:0 auto;">
         <form>
-            <div class="box-label">Change Gender</div>
-            <div class="radio form-check">
-                <input class="form-check-input" type="radio" name="MaleRadio" id="MaleRadio">
-                <label class="form-check-label" for="MaleRadio">
-                  Male
-                </label>
-              </div>
-              <div class="radio form-check">
-                <input class="form-check-input" type="radio" name="FemaleRadio" id="FemaleRadio" checked>
-                <label class="form-check-label" for="FemaleRadio">
-                  Female
-                </label>
-              </div>
+            <div class="form-label">Change Gender</div>
+            <div class= "radio"> 
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="MaleRadio">
+                    <label class="form-check-label" for="MaleRadio">
+                      Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="FemaleRadio">
+                    <label class="form-check-label" for="FemaleRadio">
+                     Female
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="NonBinaryRadio">
+                    <label class="form-check-label" for="NonBinaryRadio">
+                     Non-Binary
+                    </label>
+                </div>
+            </div>
             <div class="buttons">
                 <button type="button" class="cancel-btn btn btn-outline-primary" style="border: none;" onclick="location.href='profile.html'">Cancel</button>
                 <button type="button" class="btn btn-primary" onclick="location.href='profile.html'">Save</button>
