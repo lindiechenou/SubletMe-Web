@@ -23,15 +23,17 @@
 /******** For Profile *********/
 .personal-box {
   width: 800px;
-  height: 1000px;
-  border: 18px solid rgb(212, 211, 211);
+  height: 357px;
+  border: 5px solid rgb(140, 185, 252);
   border-radius: 20px;
+  margin: auto;
+  margin-bottom: 30px;
 }
 .personal-info {
   text-align: left;
   padding-top: 15px;
   padding-left: 20px;
-  margin-bottom: 45px;
+  margin-bottom: 35px;
 }
 .link {
   display: flex;
@@ -39,7 +41,18 @@
   align-items: center;
   height: 60px;
 }
+.link-last {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 .link:hover {
+  background-color: rgb(235, 232, 232);
+}
+.link-last:hover {
   background-color: rgb(235, 232, 232);
 }
 .info-block {
@@ -68,10 +81,21 @@
   margin-bottom: 0px;
 }
 
-/* For Listings */
+/******** For Listings ********/
+.listing-box {
+  width: 800px;
+  height: 360px;
+  border: 5px solid rgb(140, 185, 252);
+  border-radius: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
 .listings {
   text-align: left;
+  padding-top: 15px;
   padding-left: 20px;
+  margin-bottom: 45px;
 }
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 .find:hover {

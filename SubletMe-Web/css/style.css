@@ -42,6 +42,10 @@ img {
   border: 0;
   box-shadow: 0px;
 }
+.radio:hover{
+  background-color: rgb(241, 241, 241);
+  color: #0d6efd;
+}
 .form-control{
   width: 90%;
   border-radius: 10px;
@@ -56,6 +60,7 @@ img {
   margin-right: 5px;
 }
 
+/***** Price Range *****/
 .fa-dollar-sign {
   background: rgb(212, 211, 211);
   padding-left: 12px;
@@ -66,7 +71,6 @@ img {
   margin-right: 5px;
 }
 
-/***** Price Range *****/
 .price-range {
   margin-bottom: 35px;
 }
@@ -78,11 +82,6 @@ img {
   position: relative;
   height: 6em;
 }
-.divider {
-  text-align: center;
-  font-size: 18px;
-  margin: 0;
-}
 
 /*aligns sliders*/
 .price-slider svg,
@@ -92,23 +91,20 @@ img {
   bottom: 0;
 }
 
-.price-slider input[type=number] {
-  border: 1px solid black;
-  text-align: center;
-  font-size: 15px;
-  width: 70px;
+.price-value {
+  width: 65%;
+  margin-bottom: 5px;
 }
 
 /*highlights input box in red when outside of range*/
-.price-slider input[type=number]:invalid,
-.price-slider input[type=number]:out-of-range {
+/* .price-value:invalid{
   border: 4px solid #e60023;
-}
+} */
 
 /*changes appearance of slider*/
 .price-slider input[type=range] {
   -webkit-appearance: none;
-  width: 75%;
+  width: 65%;
   outline: none;
 }
 
