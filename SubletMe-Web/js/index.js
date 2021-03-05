@@ -34,125 +34,59 @@
   });
 })();
 
-// var addressDict = [];
-// var imageDict = [];
+//Connection to the BackEnd
+function findImages(images) {
+  var image = "";
+  if (images.length == 0) {
+    return image;
+  }
+  for (i = 0; i < images.length; i++) {
+    if (images[i].is_primary == "true") {
+      image = lease.image[i].image;
+      return image;
+    }
+  }
+  image = images[0].image;
+  return image;
+}
+async function findLease() {
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = "json";
+    xhr.onload = function () {
+      resolve(this.response);
+    };
+    xhr.onerror = reject;
+    xhr.open("GET", "http://localhost:8000/api/sublet/");
+    xhr.send();
+  });
+}
 
-// function findLease(url) {
-//   return new Promise(function (resolve, reject) {
-//     var xhr = new XMLHttpRequest();
-//     xhr.responseType = "json";
-//     xhr.onload = function () {
-//       resolve(this.response);
-//     };
-//     xhr.onerror = reject;
-//     xhr.open("GET", url);
-//     xhr.send();
-//   });
-// }
+async function renderLease() {
+  let leases = await findLease();
+  let html = "";
+  leases.forEach((lease) => {
+    images = lease.images;
+    console.log(images);
+    var link = findImages(images);
+    console.log(link);
+    let htmlSegment = `<div class="placard-apt-1" onclick="click1(${lease.cost_per_month})">
+                              <div class="placard-header clear">
+                                  <div class="left">
+                                      <div>${lease.room_type} Room in ${lease.housing_type}</div>
+                                      <div class="right">${lease.address.street}, ${lease.address.city}, ${lease.address.state}, ${lease.address.zipcode}</div>
+                                      <div class="clear2">$${lease.cost_per_month}/month</div>
+                                  </div>
+                              </div>
+                              <div class="placard-photo-1 left"><img src="${link}" onerror="this.src='../images/ulease.png'"> </div>
+                        </div>`;
+    html += htmlSegment;
+  });
+  let container = document.getElementById("left");
+  container.innerHTML = html;
+}
 
-// function findAddress(url, albumID, cost) {
-//   return new Promise(function (resolve, reject) {
-//     var xhr = new XMLHttpRequest();
-//     xhr.responseType = "json";
-//     xhr.onload = function (e) {
-//       var dict = {
-//         address: this.response,
-//         imageUrl: albumID,
-//         cost_per_month: cost,
-//       };
-//       addressDict.push(dict);
-//       resolve(this.response);
-//     };
-//     xhr.onerror = reject;
-//     xhr.open("GET", url);
-//     xhr.send();
-//   });
-// }
-// console.log("ajax resutl: ", addressDict);
-
-// function findPictureLink(url, albumID) {
-//   return new Promise(function (resolve, reject) {
-//     var xhr = new XMLHttpRequest();
-//     xhr.responseType = "json";
-//     xhr.onload = function () {
-//       var dict = {
-//         album: albumID,
-//         imageUrl: this.response[0].image,
-//       };
-//       imageDict.push(dict);
-//       resolve(this.response);
-//     };
-//     xhr.onerror = reject;
-//     xhr.open("GET", url);
-//     xhr.send();
-//   });
-// }
-// console.log("ajax resutl4: ", imageDict);
-// var i = 0;
-
-// function getLease(firstCallback, secondCallback) {
-//   findLease("http://localhost:8000/sublet/api/sublet").then(function (result) {
-//     while (i < result.length) {
-//       firstCallback(
-//         result[i].address,
-//         result[i].album,
-//         result[i].cost_per_month
-//       );
-//       secondCallback(result[i].album);
-//       i++;
-//     }
-//   });
-// }
-// function getAddress(addressID, albumID, cost) {
-//   findAddress(
-//     `http://localhost:8000/sublet/api/address/${addressID}/`,
-//     albumID,
-//     cost
-//   );
-// }
-// function getImage(albumID) {
-//   findPictureLink(
-//     `http://localhost:8000/sublet/api/image?album=${albumID}&primary=true`,
-//     albumID
-//   );
-// }
-
-// getLease(getAddress, getImage);
-
-// function greet(addressDict, imageDict) {
-//   let html = "";
-//   for (var x = 0; x < addressDict.length; x++) {
-//     console.log(addressDict[x].address);
-//     var address = addressDict[x].address;
-//     var url = addressDict[x].imageUrl;
-//     var cost = addressDict[x].cost_per_month;
-
-//     for (var i = 0; i < imageDict.length; i++) {
-//       if (url == imageDict[i].album) {
-//         console.log(url, imageDict[i].album);
-//         image = imageDict[i].imageUrl;
-//         console.log(image);
-//         let htmlSegment = `<div class="placard-apt-1">
-//                               <div class="placard-header clear">
-//                                   <div class="left">
-//                                       <div>${address.street}</div>
-//                                       <div>$${cost}/month</div>
-//                                   </div>
-//                                   <div class="right">
-//                                       <div>${address.city}</div>
-//                                       <div>${address.state}, ${address.zipcode}</div>
-//                                   </div>
-
-//                               </div>
-//                               <div class="placard-photo-1 left"><img src="${image}"> </div>
-//                           </div>`;
-//         html += htmlSegment;
-//       }
-//     }
-//   }
-//   let container = document.getElementById("left");
-//   container.innerHTML = html;
-// }
-// setTimeout(() => {
-//   greet(addressDict, imageDict);
-// }, 1000);
+function click1(cost) {
+  console.log(cost);
+}
+renderLease();

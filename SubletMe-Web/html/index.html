@@ -162,7 +162,7 @@
             <input class="form-check-input" type="checkbox" id="flexSwitch">
           </div>
           <div class="form-check form-switch">
-            <label class="form-check-label pets" for="flexSwitchCheckDefault">Pets Allowed</label>
+            <label class="form-check-label pet" for="flexSwitchCheckDefault">Pets Allowed</label>
             <input class="form-check-input" type="checkbox" id="flexSwitch">
           </div>
           <div class="form-check form-switch">
@@ -184,19 +184,14 @@
               </div>
             </div>
           </div>
-          <div id="left">
+          <div id="left" data-bs-toggle="modal" data-bs-target="#leaseDetails">
             <div class="placard-apt-1">
               <div class="placard-header clear">
                 <div class="left">
                   <div>Shared Room in Apartment</div>
                   <div class="right">123 Street Address, Louisville, KY, 40214</div>
                   <div class="clear2">$500/month</div>
-
                 </div>
-                <!-- <div class="right">
-                  <div>Louisville</div>
-                  <div>KY, 40214</div>
-                </div> -->
               </div>
               <div class="placard-photo-1 left"><img src="../images/image.jpg"></div>
             </div>
@@ -208,7 +203,90 @@
       </div>
     </div>
   </section>
-
+  <!-- Section that represent the modal for each lease tab -->
+  <div class="modal fade" id="leaseDetails" tabindex="-1" aria-labelledby="SignOutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div onclick="clickw()">
+            <i class="far fa-bookmark save"></i>
+          </div>
+          <h5 class="modal-title w-100 text-center" id="SignOutModalLabel">Property Details
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row align-items-start">
+            <div class="col-6">
+              <!-- adding the carousel here -->
+              <div class="placard-photo-1 left"><img src="../images/ulease.png"></div>
+            </div>
+            <div class="col-6">
+              <div class="set">
+                <div class="first-section">
+                  <p class="initial"><strong> Room in Apartment with 1 Roomate</strong></p>
+                  <p class="initial">4416 Turtle Creek Way, Louisville,
+                    KY, 40509</p>
+                </div>
+                <div class="row second-section">
+                  <div class="col-6">
+                    <p class="apt">Rent Apartment</p>
+                    <p class="cost">$500/month</p>
+                  </div>
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="button" class="btn btn-primary message-btn">Message</button>
+                  </div>
+                </div>
+              </div>
+              <div class="third-section">
+                <p class="date">Availability Feb 19 2021 to Apr 24 2021</p>
+              </div>
+              <div class="fouth-section">
+                <div class="row">
+                  <div class="pets col-6">
+                    <i class="fas fa-dog"></i>
+                    <b>Pets allowed</b>
+                  </div>
+                  <div class="pets col-6">
+                    <i class="fas fa-tshirt"></i>
+                    <b>Washer and Dryer</b>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="pets col-6">
+                    <i class="fas fa-bed"></i>
+                    <b>Furnished</b>
+                  </div>
+                  <div class="pets col-6">
+                    <i class="fas fa-swimmer"></i>
+                    <b>Pool available</b>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="pets col-6">
+                    <i class="fas fa-parking"></i>
+                    <b>Free Parking</b>
+                  </div>
+                  <div class="pets col-6">
+                    <i class="fas fa-biking"></i>
+                    <b>Fitness Center</b>
+                  </div>
+                </div>
+              </div>
+              <div class="last-section">
+                <p class="initial">Gender Preferences</p>
+                <div class="gender-label">
+                  <span class="gender">men</span>
+                  <span class="gender">non-binary</span>
+                  <span class="gender">women</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
