@@ -87,7 +87,33 @@ async function renderLease() {
 }
 
 function click1(lease) {
-  var header = lease.description +" in " +lease.housing_type +" with " +lease.num_roomates +" Roomate ";
+  console.log(lease);
+  let imageHtml = '';
+  let htmlSegment = '';
+  if (lease.images.length == 0){
+    imageHtml = `<div class="carousel-item active">
+                            <img src="../images/ulease.png" class="d-block w-100" alt="../images/ulease.png">
+                        </div>`;
+  }
+  for (var i=0; i<lease.images.length; i++){
+    if (i==0){
+      htmlSegment = `<div class="carousel-item active">
+                            <img src="${lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
+                        </div>`;
+    }
+    else{
+      htmlSegment = `<div class="carousel-item">
+                            <img src="${lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
+                        </div>`;
+    }
+    imageHtml += htmlSegment;
+  }
+  let carousel = document.getElementById("image-carousel");
+  carousel.innerHTML = imageHtml;
+  let descriptionHtml = `<strong>Lease Description: </strong>${lease.description}`;
+  let desHtml = document.getElementById("leaseDescription");
+  desHtml.innerHTML = descriptionHtml;
+  var header = lease.housing_type +" with " +lease.num_roomates +" Roomate ";
   var leaseAddress = lease.address.street +", " +lease.address.city +", " +lease.address.state +", " +lease.address.zipcode;
   var leaseCost = "$" + lease.cost_per_month + "/month";
   var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -132,6 +158,7 @@ function click1(lease) {
   $("#leaseAddress").html(leaseAddress);
   $("#leaseCost").html(leaseCost);
   $("#leaseDate").html(totalDate);
+
 }
 var myModalEl = document.getElementById('leaseDetails')
 myModalEl.addEventListener('hidden.bs.modal', function (event) {

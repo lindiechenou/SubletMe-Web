@@ -265,6 +265,9 @@ html {
 }
 
 /* Modal Design */
+.leaseDescription{
+  margin: 8px 0;
+}
 .initial {
   margin: 0;
 }
