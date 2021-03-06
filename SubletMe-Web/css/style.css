@@ -223,7 +223,7 @@ html {
 .placard-apt-1 {
   background: #fff;
   border: 2px solid #ddd;
-  border-radius: 7px;
+  border-radius: 15px;
   box-shadow: 7px 7px 7px rgb(140, 185, 252);
   margin: auto auto 20px auto;
   position: relative;
