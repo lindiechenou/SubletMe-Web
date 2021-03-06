@@ -262,7 +262,6 @@ html {
 .clear2 {
   color: #0d6efd;
   text-align: right;
-  /* padding-bottom: 10px; */
 }
 
 /* Modal Design */
@@ -297,7 +296,7 @@ html {
   margin: 10px 0 0;
 }
 .pets {
-  color: blue;
+  color: #cadfff;
   font: 0.85rem "Fira Sans", sans-serif;
 }
 .fouth-section .row {
@@ -311,7 +310,7 @@ html {
   border: 1px solid;
   border-radius: 15px;
   padding: 5px;
-  color: #0d6efd;
+  color: #cadfff;
   background-color: rgb(233, 240, 245);
 }
 .save {
