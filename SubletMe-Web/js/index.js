@@ -113,7 +113,7 @@ function click1(lease) {
   let descriptionHtml = `<strong>Lease Description: </strong>${lease.description}`;
   let desHtml = document.getElementById("leaseDescription");
   desHtml.innerHTML = descriptionHtml;
-  var header = lease.housing_type +" with " +lease.num_roomates +" Roomate ";
+  var header = lease.room_type + " Room in " + lease.housing_type +" with " +lease.num_roomates +" Roomate ";
   var leaseAddress = lease.address.street +", " +lease.address.city +", " +lease.address.state +", " +lease.address.zipcode;
   var leaseCost = "$" + lease.cost_per_month + "/month";
   var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
