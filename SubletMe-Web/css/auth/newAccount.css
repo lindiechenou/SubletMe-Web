@@ -1,0 +1,9 @@
+.content-box {
+  position: relative;
+  text-align: center;
+}
+
+.line {
+  border: 238px solid rgb(13, 110, 253);
+  margin-bottom: -20px;
+}
