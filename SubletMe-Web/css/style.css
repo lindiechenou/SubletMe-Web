@@ -223,7 +223,7 @@ html {
 .placard-apt-1 {
   background: #fff;
   border: 2px solid #ddd;
-  border-radius: 7px;
+  border-radius: 15px;
   box-shadow: 7px 7px 7px rgb(140, 185, 252);
   margin: auto auto 20px auto;
   position: relative;
@@ -262,10 +262,12 @@ html {
 .clear2 {
   color: #0d6efd;
   text-align: right;
-  /* padding-bottom: 10px; */
 }
 
 /* Modal Design */
+.leaseDescription{
+  margin: 8px 0;
+}
 .initial {
   margin: 0;
 }
@@ -297,7 +299,7 @@ html {
   margin: 10px 0 0;
 }
 .pets {
-  color: blue;
+  color: #cadfff;
   font: 0.85rem "Fira Sans", sans-serif;
 }
 .fouth-section .row {
@@ -311,7 +313,7 @@ html {
   border: 1px solid;
   border-radius: 15px;
   padding: 5px;
-  color: #0d6efd;
+  color: #cadfff;
   background-color: rgb(233, 240, 245);
 }
 .save {
