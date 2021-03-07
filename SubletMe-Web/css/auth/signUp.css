@@ -63,3 +63,8 @@ input:focus {
 .log-in:hover {
   text-decoration: underline;
 }
+
+.error-message {
+  color: red;
+  background-color: red;
+}
