@@ -38,15 +38,15 @@
                 <!-- <form action="" method="post"> -->
                 <div class="formed">
                     <!-- <h2 class="text-center">Log in</h2> -->
+                    <div class="error-message" id="error-message"></div>
                     <div class="mb-3 input-group input-group-lg">
-                        <input type="email" class="form-control" placeholder="Email" required="required" id="email">
+                        <input id="loginEmail" type="email" class="form-control" placeholder="Email" required="required">
                     </div>
                     <div class="mb-3 input-group input-group-lg">
-                        <input type="password" class="form-control" placeholder="Password" required="required"
-                            id="password">
+                        <input id="loginPassword" type="password" class="form-control" placeholder="Password" required="required">
                     </div>
                     <div class="mb-3 d-grid gap-2">
-                        <button type="submit" class="btn btn-primary" onClick='authenticate()'>Log in</button>
+                        <button type="submit" class="btn btn-primary" onclick="login()">Log in</button>
                     </div>
                     <div class="text-center">
                         <!-- <a href="#" class="password">Forgot Password?</a> -->

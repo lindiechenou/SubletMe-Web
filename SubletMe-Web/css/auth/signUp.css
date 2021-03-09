@@ -65,6 +65,6 @@ input:focus {
 }
 
 .error-message {
-  color: red;
+  color: black;
   background-color: red;
 }
