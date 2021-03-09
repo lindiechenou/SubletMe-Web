@@ -35,11 +35,53 @@ input:focus {
   color: #aaa;
   transition: 0.3s;
 }
+.input select {
+  padding-left: 40px;
+  border: 0px;
+  outline: none;
+  margin: 2px 0;
+  color: rgb(116, 115, 115);
+}
+
+.input {
+  border: 2px solid rgb(13, 110, 253);
+  border-radius: 20px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+.input i {
+  position: absolute;
+  left: 0;
+  top: -5px;
+  padding: 15px 10px;
+  color: #aaa;
+  transition: 0.3s;
+}
 
 .fontawesome {
   font-size: 20px;
 }
+.inputWithIcon .font {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
+span.field-icon {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  right: 1rem;
+  top: 1.4rem;
+  z-index: 2;
+  font-size: 20px;
+  color: rgb(109, 109, 109);
+}
+
 .inputWithIcon input:focus + i {
+  color: dodgerBlue;
+}
+.inputWith select:focus + i {
   color: dodgerBlue;
 }
 .formed {
