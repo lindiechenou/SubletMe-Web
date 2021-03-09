@@ -168,6 +168,9 @@ img {
   border-radius: 6px;
   margin-right: 5px;
 }
+.btn-outline-light{
+  color: #0d6efd;
+}
 
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 
@@ -190,6 +193,10 @@ img {
   font-size: 15px;
   background-color: rgb(240, 240, 240);
 }
+.font1{
+  font-size: 26px;
+  background-color: rgb(240, 240, 240);
+}
 .fontawesome:hover {
   color: #0d6efd;
 }
@@ -208,7 +215,7 @@ img {
 }
 
 #left {
-  height: 750px;
+  height: 900px;
   overflow: scroll;
 }
 html {
