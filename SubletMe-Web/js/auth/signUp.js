@@ -1,5 +1,5 @@
 async function createUser() {
-  //form fields
+  //signup fields
   const params = {
     email: (document.querySelector("#signupEmail").value).toLowerCase(),
     password1: document.querySelector("#signupPassword").value,
@@ -18,7 +18,7 @@ async function createUser() {
     if (this.status == 201) {
       window.location.href = "../../html/auth/newAccount.html";
     } else {
-      document.getElementById("error-message").innerHTML = xhr.responseText;
+      // document.getElementById("error-message").innerHTML = xhr.responseText;
       console.log(xhr.status);
     }
   };
