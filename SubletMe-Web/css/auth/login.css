@@ -54,3 +54,8 @@ hr {
   text-decoration: underline;
   color: black;
 }
+
+.error-message {
+  color: black;
+  background-color: red;
+}

@@ -36,12 +36,12 @@
   text-transform: uppercase;
   color: #5f6368;
   margin-bottom: 8px;
-  padding-top: 15px;
-  padding-left: 20px;
+  margin-top: 15px;
+  margin-left: 20px;
 }
 .input-label {
-  padding-top: 15px;
-  padding-left: 20px;
+  margin-top: 15px;
+  margin-left: 20px;
 }
 
 .input {
@@ -61,9 +61,18 @@
   color: #0d6efd;
 }
 
-.radio {
-  margin-left: 30px;
-  margin-top: 20px;
+/******** Password page *********/
+.logo {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.text {
+  margin-left: 20px;
+}
+
+.password-label {
+  margin-left: 20px;
 }
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 
