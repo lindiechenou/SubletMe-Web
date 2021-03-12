@@ -21,6 +21,47 @@ async function login() {
   };
 }
 
+var emailBox = document.getElementById("loginEmail");
+var passwordBox = document.getElementById("loginPassword");
+var emailLabel = document.getElementById("email-label");
+var passwordLabel = document.getElementById("password-label");
+
+emailBox.addEventListener("focusout", emailFocusOut);
+passwordBox.addEventListener("focusout", passwordFocusOut);
+
+//Keeps label above input box when text is inside
+function emailFocusOut() {
+  if (emailBox.value.length > 0) {
+    emailBox.classList.add("not-empty");
+  } else {
+    emailBox.classList.remove("not-empty");
+  }
+}
+function passwordFocusOut() {
+  if (passwordBox.value.length > 0) {
+    passwordBox.classList.add("not-empty");
+  } else {
+    passwordBox.classList.remove("not-empty");
+  }
+}
+
+//allow focus for input boxes even on click of input labels
+emailLabel.onclick = function () {
+  emailBox.focus();
+};
+passwordLabel.onclick = function () {
+  passwordBox.focus();
+};
+
+$(".toggle-password").click(function () {
+  const password = document.getElementById("loginPassword");
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  if (password.getAttribute("type") == "password") {
+    password.setAttribute("type", "text");
+  } else {
+    password.setAttribute("type", "password");
+  }
+});
 // var loggedIn = false;
 
 // function authenticate() {
