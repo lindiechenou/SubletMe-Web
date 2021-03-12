@@ -57,8 +57,10 @@
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                 <li>
-                  <p class="text-center"><b>FirstName LastName</b> <br>Email@university.edu</p>
-                </li>
+                  <p class="text-center"><b id="userName">FirstName LastName</b>
+                    <br>
+                    <a id="userEmail">Email@university.edu</a>
+                  </p>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -88,7 +90,7 @@
                     </div>
                     <div class="modal-body">
                       <div class="d-grid gap-2 col-6 mx-auto">
-                        <button type="button" class="btn btn-danger" onclick="location.href='auth/login.html'">Log
+                        <button type="button" class="btn btn-danger" onclick="signOutWeb()">Log
                           Out</button>
                         <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
                       </div>
@@ -344,7 +346,7 @@
     crossorigin="anonymous"></script>
   <script src="../js/index.js" charset="utf-8"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-  <script src="function.js"></script>
+  <script src="../js/information.js"></script>
 </body>
 
 </html>
