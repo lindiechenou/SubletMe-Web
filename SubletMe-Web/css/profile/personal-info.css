@@ -1,3 +1,8 @@
+/*Global variables*/
+:root {
+  --ulease-blue: #0d6efd;
+}
+
 /* Classes */
 .titleName {
   padding: 0 60px;
@@ -21,6 +26,7 @@
 
 /******** Information div's *********/
 .info-box {
+  margin: auto;
   position: relative;
   width: 400px;
   height: 300px;
@@ -35,20 +41,42 @@
   font-weight: bold;
   text-transform: uppercase;
   color: #5f6368;
-  margin-bottom: 8px;
-  margin-top: 15px;
-  margin-left: 20px;
-}
-.input-label {
   margin-top: 15px;
   margin-left: 20px;
 }
 
-.input {
+#input-label {
+  margin-top: 60px;
+  margin-left: 20px;
+  padding: 0 5px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  background-color: #fff;
+  color: #999;
+  transition: 0.2s;
+}
+
+#input-box {
+  margin-top: 20px;
   margin-left: 20px;
   border-radius: 7px;
+  padding: 10px;
+  border: 1px solid #999;
+  outline: none;
+  width: 75%;
 }
-
+#input-box:focus {
+  border-color: var(--ulease-blue);
+}
+#input-box:focus + #input-label {
+  color: var(--ulease-blue);
+}
+#input-box:focus + #input-label,
+#input-box.not-empty + #input-label {
+  top: -13px;
+  left: 5px;
+}
 .buttons {
   position: absolute;
   bottom: 0;
@@ -58,9 +86,41 @@
 }
 .cancel-btn:hover {
   background-color: rgb(241, 241, 241);
-  color: #0d6efd;
+  color: var(--ulease-blue);
 }
 
+/******** Name page *********/
+#lname-box {
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 7px;
+  padding: 10px;
+  border: 1px solid #999;
+  outline: none;
+  width: 75%;
+}
+#lname-label {
+  margin-top: 126px;
+  margin-left: 20px;
+  padding: 0 5px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  background-color: #fff;
+  color: #999;
+  transition: 0.2s;
+}
+#lname-box:focus {
+  border-color: var(--ulease-blue);
+}
+#lname-box:focus + #lname-label {
+  color: var(--ulease-blue);
+}
+#lname-box:focus + #lname-label,
+#lname-box.not-empty + #lname-label {
+  top: -13px;
+  left: 5px;
+}
 /******** Password page *********/
 .logo {
   font-size: 30px;
@@ -77,7 +137,7 @@
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 
 .find:hover {
-  color: #0d6efd !important;
+  color: var(--ulease-blue) !important;
 }
 
 .container-fluid {
@@ -93,7 +153,7 @@
 }
 
 .fontawesome:hover {
-  color: #0d6efd;
+  color: var(--ulease-blue);
 }
 
 h2 {
