@@ -90,20 +90,19 @@ async function renderLease() {
 
 function leaseInformation(lease) {
   console.log(lease);
-  let imageHtml = '';
-  let htmlSegment = '';
-  if (lease.images.length == 0){
+  let imageHtml = "";
+  let htmlSegment = "";
+  if (lease.images.length == 0) {
     imageHtml = `<div class="carousel-item active">
                             <img src="../images/ulease.png" class="d-block w-100" alt="../images/ulease.png">
                         </div>`;
   }
-  for (var i=0; i<lease.images.length; i++){
-    if (i==0){
+  for (var i = 0; i < lease.images.length; i++) {
+    if (i == 0) {
       htmlSegment = `<div class="carousel-item active">
                             <img src="${lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
                         </div>`;
-    }
-    else{
+    } else {
       htmlSegment = `<div class="carousel-item">
                             <img src="${lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
                         </div>`;
@@ -115,18 +114,44 @@ function leaseInformation(lease) {
   let descriptionHtml = `<strong>Lease Description: </strong>${lease.description}`;
   let desHtml = document.getElementById("leaseDescription");
   desHtml.innerHTML = descriptionHtml;
-  var header = lease.room_type + " Room in " + lease.housing_type +" with " +lease.num_roomates +" Roomate ";
-  var leaseAddress = lease.address.street +", " +lease.address.city +", " +lease.address.state +", " +lease.address.zipcode;
+  var header =
+    lease.room_type +
+    " Room in " +
+    lease.housing_type +
+    " with " +
+    lease.num_roomates +
+    " Roomate ";
+  var leaseAddress =
+    lease.address.street +
+    ", " +
+    lease.address.city +
+    ", " +
+    lease.address.state +
+    ", " +
+    lease.address.zipcode;
   var leaseCost = "$" + lease.cost_per_month + "/month";
-  var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-  var start_day = parseInt(lease.start_lease.slice(8,10))
-  var start_month = parseInt(lease.start_lease.slice(5,7));
-  var start_year = parseInt(lease.start_lease.slice(0,4))
-  var end_day = parseInt(lease.end_lease.slice(8,10))
-  var end_month = parseInt(lease.end_lease.slice(5,7));
-  var end_year = parseInt(lease.end_lease.slice(0,4));
-  var start_date = monthNames[start_month] + " " + start_day + ", " + start_year;
+  var monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  var start_day = parseInt(lease.start_lease.slice(8, 10));
+  var start_month = parseInt(lease.start_lease.slice(5, 7));
+  var start_year = parseInt(lease.start_lease.slice(0, 4));
+  var end_day = parseInt(lease.end_lease.slice(8, 10));
+  var end_month = parseInt(lease.end_lease.slice(5, 7));
+  var end_year = parseInt(lease.end_lease.slice(0, 4));
+  var start_date =
+    monthNames[start_month] + " " + start_day + ", " + start_year;
   var end_date = monthNames[end_month] + " " + end_day + ", " + end_year;
   var totalDate = start_date + " to " + end_date;
   if (lease.men_allowed == true) {
@@ -167,4 +192,3 @@ myModalEl.addEventListener("hidden.bs.modal", function (event) {
   $("#leaseDetails .pets").css("color", "#cadfff");
 });
 renderLease();
-
