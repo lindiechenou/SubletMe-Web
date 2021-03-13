@@ -1,3 +1,8 @@
+/*Global variables*/
+:root {
+  --ulease-blue: #0d6efd;
+}
+
 body {
   background: #f5f5f5;
 }
@@ -17,11 +22,7 @@ body {
 .login-form h2 {
   margin: 0 0 15px;
 }
-.form-control,
-.btn {
-  min-height: 50px;
-  border-radius: 6px;
-}
+
 .btn {
   font-size: 20px;
   font-weight: bold;
@@ -32,7 +33,7 @@ body {
   padding-right: 100px;
 }
 .title h1 {
-  color: #0d6efd;
+  color: var(--ulease-blue);
   font-size: 50px;
   font-weight: bold;
   font-family: Verdana, sans-serif;
@@ -58,4 +59,78 @@ hr {
 .error-message {
   color: black;
   background-color: red;
+}
+
+/********Email input box*************/
+#email-label {
+  font-size: 20px;
+  padding: 0 5px;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background-color: #fff;
+  color: grey;
+  transition: 0.2s;
+}
+
+#loginEmail {
+  padding: 10px;
+  outline: none;
+  min-height: 50px;
+  border-radius: 6px;
+  border: 1px solid lightgrey;
+  width: 100%;
+}
+#loginEmail:focus {
+  border-color: var(--ulease-blue);
+}
+#loginEmail:focus + #email-label {
+  color: var(--ulease-blue);
+}
+#loginEmail:focus + #email-label,
+#loginEmail.not-empty + #email-label {
+  top: -15px;
+  left: 12px;
+}
+
+/********Password input box*************/
+#password-label {
+  font-size: 20px;
+  padding: 0 5px;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background-color: #fff;
+  color: grey;
+  transition: 0.2s;
+}
+
+#loginPassword {
+  padding: 10px;
+  outline: none;
+  min-height: 50px;
+  border-radius: 6px;
+  border: 1px solid lightgrey;
+  width: 100%;
+}
+#loginPassword:focus {
+  border-color: var(--ulease-blue);
+}
+#loginPassword:focus + #password-label {
+  color: var(--ulease-blue);
+}
+#loginPassword:focus + #password-label,
+#loginPassword.not-empty + #password-label {
+  top: -15px;
+  left: 12px;
+}
+
+.toggle-password {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  color: grey;
+  font-size: 20px;
+  right: 1rem;
+  top: 1rem;
 }

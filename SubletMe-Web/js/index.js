@@ -34,6 +34,8 @@
   });
 })();
 
+//Connecting filters to sublease search
+function filter() {}
 //Connection to the BackEnd
 function findImages(images) {
   var image = "";
@@ -70,7 +72,7 @@ async function renderLease() {
     images = lease.images;
     var link = findImages(images);
     var myLease = JSON.stringify(lease);
-    let htmlSegment = `<div class="placard-apt-1" onclick='click1(${myLease})'>
+    let htmlSegment = `<div class="placard-apt-1" onclick='leaseInformation(${myLease})'>
                               <div class="placard-header clear">
                                   <div class="left">
                                       <div>${lease.room_type} Room in ${lease.housing_type}</div>
@@ -86,7 +88,7 @@ async function renderLease() {
   container.innerHTML = html;
 }
 
-function click1(lease) {
+function leaseInformation(lease) {
   console.log(lease);
   let imageHtml = '';
   let htmlSegment = '';
@@ -127,43 +129,42 @@ function click1(lease) {
   var start_date = monthNames[start_month] + " " + start_day + ", " + start_year;
   var end_date = monthNames[end_month] + " " + end_day + ", " + end_year;
   var totalDate = start_date + " to " + end_date;
-  if (lease.men_allowed == true){
+  if (lease.men_allowed == true) {
     $("#men-gender").css("color", "#0d6efd");
   }
-  if (lease.women_allowed == true){
+  if (lease.women_allowed == true) {
     $("#women-gender").css("color", "#0d6efd");
   }
-  if (lease.nb_other_allowed == true){
+  if (lease.nb_other_allowed == true) {
     $("#nb-gender").css("color", "#0d6efd");
   }
-  if (lease.pets_allowed == true){
+  if (lease.pets_allowed == true) {
     $("#leasePet").css("color", "#0d6efd");
   }
-  if (lease.washer_dryer == true){
+  if (lease.washer_dryer == true) {
     $("#leaseWasher").css("color", "#0d6efd");
   }
-  if (lease.is_furnished == true){
+  if (lease.is_furnished == true) {
     $("#leaseFurnishe").css("color", "#0d6efd");
   }
-  if (lease.pool_available == true){
+  if (lease.pool_available == true) {
     $("#leasePool").css("color", "#0d6efd");
   }
-  if (lease.free_parking == true){
+  if (lease.free_parking == true) {
     $("#leaseParking").css("color", "#0d6efd");
   }
-  if (lease.fitness_center == true){
+  if (lease.fitness_center == true) {
     $("#leaseFitness").css("color", "#0d6efd");
   }
   $("#roomate").html(header);
   $("#leaseAddress").html(leaseAddress);
   $("#leaseCost").html(leaseCost);
   $("#leaseDate").html(totalDate);
-
 }
-var myModalEl = document.getElementById('leaseDetails')
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-  $('#leaseDetails .gender').css("color", "#cadfff");
-  $('#leaseDetails .pets').css("color", "#cadfff");
-})
+var myModalEl = document.getElementById("leaseDetails");
+myModalEl.addEventListener("hidden.bs.modal", function (event) {
+  $("#leaseDetails .gender").css("color", "#cadfff");
+  $("#leaseDetails .pets").css("color", "#cadfff");
+});
 renderLease();
 
