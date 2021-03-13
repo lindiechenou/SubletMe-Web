@@ -1,3 +1,4 @@
+localStorage.setItem("info", "");    
 async function login() {
   //login fields
   var email = document.querySelector("#loginEmail").value;
@@ -12,13 +13,29 @@ async function login() {
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.send(JSON.stringify(params));
   xhr.onreadystatechange = function () {
-    console.log(xhr.status);
     if (this.status == 200) {
-      window.location.href = "../../html/index.html";
+      var token = JSON.parse(xhr.responseText);
+      // console.log(token.key);
+      profileInfo(token.key);
     } else {
       // document.getElementById("error-message").innerHTML = xhr.responseText;
     }
   };
+}
+
+function profileInfo(tok){
+  let xhr1 = new XMLHttpRequest();
+  xhr1.open('GET', 'http://localhost:8000/api/rest-auth/user/');
+  xhr1.setRequestHeader('Authorization', `Token ${tok}`);
+  xhr1.send();
+  xhr1.onreadystatechange = function() {
+    if (this.status == 200) {
+        console.log(xhr1.responseText);
+        localStorage.setItem("info", xhr1.responseText);
+        window.location.href = "../../html/index.html";
+    }
+
+  }
 }
 
 var emailBox = document.getElementById("loginEmail");
@@ -62,35 +79,3 @@ $(".toggle-password").click(function () {
     password.setAttribute("type", "password");
   }
 });
-// var loggedIn = false;
-
-// function authenticate() {
-//   var email = document.getElementById("email").value;
-//   var password = document.getElementById("password").value;
-
-//   loggedIn = login(password, email);
-//   status();
-// }
-
-// function login(password, email) {
-//   var storeEmail = "subletme@email.com";
-//   var storedPassword = "subletme";
-
-//   return password == storedPassword && email == storeEmail;
-// }
-
-// function status() {
-//   if (loggedIn) {
-//     window.location = "../index.html";
-//   } else {
-//     console.log("You are not in :(");
-//   }
-// }
-
-// function passwordReset() {
-//   alert("Your link has been set");
-// }
-
-// function signUp() {
-//   window.location = "../index.html";
-// }

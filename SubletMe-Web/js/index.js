@@ -72,7 +72,7 @@ async function renderLease() {
     images = lease.images;
     var link = findImages(images);
     var myLease = JSON.stringify(lease);
-    let htmlSegment = `<div class="placard-apt-1" onclick='click1(${myLease})'>
+    let htmlSegment = `<div class="placard-apt-1" onclick='leaseInformation(${myLease})'>
                               <div class="placard-header clear">
                                   <div class="left">
                                       <div>${lease.room_type} Room in ${lease.housing_type}</div>
@@ -88,7 +88,7 @@ async function renderLease() {
   container.innerHTML = html;
 }
 
-function click1(lease) {
+function leaseInformation(lease) {
   console.log(lease);
   let imageHtml = "";
   let htmlSegment = "";

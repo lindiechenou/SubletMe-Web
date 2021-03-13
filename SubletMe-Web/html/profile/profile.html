@@ -56,7 +56,10 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                                 <li>
-                                    <p class="text-center"><b>FirstName LastName</b> <br>Email@university.edu</p>
+                                    <p class="text-center"><b id="userName">FirstName LastName</b>
+                                        <br>
+                                        <a id="userEmail">Email@university.edu</a>
+                                    </p>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -75,7 +78,7 @@
                                 <!-- Button trigger modal -->
                                 <li><button class="dropdown-item sign-out" type="button" data-bs-toggle="modal"
                                         data-bs-target="#SignOutModal">
-                                        <i class="fas fa-sign-out-alt"></i> 
+                                        <i class="fas fa-sign-out-alt"></i>
                                         Sign Out
                                     </button> </li>
                             </ul>
@@ -92,8 +95,9 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="d-grid gap-2 col-6 mx-auto">
-                                                <button type="button" class="btn btn-danger"
-                                                    onclick="location.href='../auth/login.html'">Log Out</button>
+                                                <a type="button" class="btn btn-danger" onclick="signOutWeb()"
+                                                    href="auth/login.html">Log
+                                                    Out</a>
                                                 <button type="button" class="btn btn-outline-primary"
                                                     data-bs-dismiss="modal">Cancel</button>
                                             </div>
@@ -154,6 +158,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
     <script src="../../js/profile.js" charset="utf-8"></script>
+    <script src="../../js/information.js" charset="utf-8"></script>
 </body>
 
 </html>
