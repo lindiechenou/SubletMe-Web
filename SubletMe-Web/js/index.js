@@ -38,22 +38,24 @@
 function filter() {}
 //Connection to the BackEnd
 function findImages(images) {
+  const BaseURL = "http://localhost:8000";
   var image = "";
   if (images.length == 0) {
     return image;
   }
   for (i = 0; i < images.length; i++) {
     if (images[i].is_primary == "true") {
-      image = lease.image[i].image;
+      image = BaseURL + lease.image[i].image;
       return image;
     }
   }
-  image = images[0].image;
+  image = BaseURL + images[0].image;
   return image;
 }
 
 async function findLease() {
   return new Promise(function (resolve, reject) {
+    var Token = localStorage.getItem("Token");
     var xhr = new XMLHttpRequest();
     xhr.responseType = "json";
     xhr.onload = function () {
@@ -61,6 +63,7 @@ async function findLease() {
     };
     xhr.onerror = reject;
     xhr.open("GET", "http://localhost:8000/api/sublet/");
+    xhr.setRequestHeader('Authorization', `Token ${Token}`);
     xhr.send();
   });
 }
@@ -89,6 +92,7 @@ async function renderLease() {
 }
 
 function leaseInformation(lease) {
+  const BaseURL = "http://localhost:8000";
   console.log(lease);
   let imageHtml = "";
   let htmlSegment = "";
@@ -100,11 +104,11 @@ function leaseInformation(lease) {
   for (var i = 0; i < lease.images.length; i++) {
     if (i == 0) {
       htmlSegment = `<div class="carousel-item active">
-                            <img src="${lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
+                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
                         </div>`;
     } else {
       htmlSegment = `<div class="carousel-item">
-                            <img src="${lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
+                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
                         </div>`;
     }
     imageHtml += htmlSegment;
