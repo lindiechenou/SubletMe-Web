@@ -57,7 +57,7 @@
   transition: 0.2s;
 }
 
-#input-box {
+.input-box {
   margin-top: 20px;
   margin-left: 20px;
   border-radius: 7px;
@@ -65,15 +65,16 @@
   border: 1px solid #999;
   outline: none;
   width: 75%;
+  font-size: 18px;
 }
-#input-box:focus {
+.input-box:focus {
   border-color: var(--ulease-blue);
 }
-#input-box:focus + #input-label {
+.input-box:focus + #input-label {
   color: var(--ulease-blue);
 }
-#input-box:focus + #input-label,
-#input-box.not-empty + #input-label {
+.input-box:focus + #input-label,
+.input-box.not-empty + #input-label {
   top: -13px;
   left: 5px;
 }
@@ -90,15 +91,6 @@
 }
 
 /******** Name page *********/
-#lname-box {
-  margin-top: 20px;
-  margin-left: 20px;
-  border-radius: 7px;
-  padding: 10px;
-  border: 1px solid #999;
-  outline: none;
-  width: 75%;
-}
 #lname-label {
   margin-top: 126px;
   margin-left: 20px;
@@ -120,7 +112,7 @@
 #lname-box.not-empty + #lname-label {
   top: -13px;
   left: 5px;
-}
+} 
 /******** Password page *********/
 .logo {
   font-size: 30px;

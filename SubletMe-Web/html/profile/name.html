@@ -54,7 +54,11 @@
                                 <i class="far fa-user"></i>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                              <li><p class="text-center"><b>FirstName LastName</b> <br>Email@university.edu</p></li>
+                              <li><p class="text-center"><b id="userName">FirstName LastName</b> 
+                                    <br>
+                                    <text id="userEmail">Email@university.edu</text>
+                                  </p>
+                              </li>
                               <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdown-item profile" href="profile.html" style="text-decoration: none; color: inherit;"><i class="fas fa-user-circle"></i> Your Profile</a></li>
                               <li><button class="dropdown-item" type="button"><i class="fas fa-building"></i> Your Listing</button> </li>
@@ -92,9 +96,9 @@
     
     <div class="info-box">
         <div class="form-label">Change Name</div>
-        <input id="input-box" type="text"/>
+        <input id="fname-box" class="input-box" type="text"/>
         <div id="input-label">First Name</div>
-        <input id="lname-box" type="text">
+        <input id="lname-box" class="input-box" type="text">
         <div id="lname-label">Last Name</div>
         <div class="buttons">
             <button type="button" class="cancel-btn btn btn-outline-primary" style="border: none;" onclick="location.href='profile.html'">Cancel</button>
@@ -108,5 +112,7 @@
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
     <script src="../../js/profile.js" charset="utf-8"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="../../js/information.js"></script>
 </body>
 </html>
