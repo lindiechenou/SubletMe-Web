@@ -110,5 +110,65 @@ img {
   border-radius: 4%;
 }
 
+/* Modal Design */
+.initial {
+  margin: 0;
+}
+.set {
+  border-bottom: 2px solid #ddd;
+}
+.second-section {
+  margin-top: 20px;
+}
+.message-btn {
+  padding: 0;
+  width: 102px;
+  height: 40px;
+}
+.apt {
+  margin: 0;
+  font-weight: lighter;
+}
+.cost {
+  margin: 0;
+  font-weight: bold;
+}
+
+.date {
+  text-align: center;
+  margin: 10px 0 5px;
+}
+.fouth-section {
+  margin: 10px 0 0;
+}
+.pets {
+  color: blue;
+  font: 0.85rem "Fira Sans", sans-serif;
+}
+.fouth-section .row {
+  margin-bottom: 8px;
+}
+.gender-label {
+  margin-top: 5px;
+}
+.gender {
+  margin: 0 10px 0 0;
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 5px;
+  color: #0d6efd;
+  background-color: rgb(233, 240, 245);
+}
+.save {
+  font-size: 23px;
+  cursor: pointer;
+}
+.save-button {
+  border: none;
+  outline: none;
+  padding: 0px;
+  color: #0d6efd;
+  background-color: white;
+}
 
 
