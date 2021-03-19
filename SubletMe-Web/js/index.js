@@ -149,10 +149,10 @@ function leaseInformation(lease) {
     "Dec",
   ];
   var start_day = parseInt(lease.start_lease.slice(8, 10));
-  var start_month = parseInt(lease.start_lease.slice(5, 7));
+  var start_month = parseInt(lease.start_lease.slice(5, 7))-1;
   var start_year = parseInt(lease.start_lease.slice(0, 4));
   var end_day = parseInt(lease.end_lease.slice(8, 10));
-  var end_month = parseInt(lease.end_lease.slice(5, 7));
+  var end_month = parseInt(lease.end_lease.slice(5, 7))-1;
   var end_year = parseInt(lease.end_lease.slice(0, 4));
   var start_date =
     monthNames[start_month] + " " + start_day + ", " + start_year;
@@ -189,10 +189,43 @@ function leaseInformation(lease) {
   $("#leaseAddress").html(leaseAddress);
   $("#leaseCost").html(leaseCost);
   $("#leaseDate").html(totalDate);
+
+  document.getElementById("saveToggle").onclick = function() {
+    var Token = localStorage.getItem("Token");
+    if($("#saveToggle").hasClass("far")){
+      $("#saveToggle").removeClass("far")
+      $("#saveToggle").addClass("fas")
+      fetch(`http://localhost:8000/api/saved/${lease.id}/`,{
+          method: 'patch',
+          headers:  new Headers({
+            'Authorization':  `Token ${Token}`
+          })
+      }).then(response => {
+        return response.text();
+      }).then(parsed_result => {
+        console.log(parsed_result);
+      })
+
+    }
+
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function(toastEl) {
+    // Creates an array of toasts (it only initializes them)
+      return new bootstrap.Toast(toastEl) // No need for options; use the default options
+    });
+    toastList.forEach(toast => toast.show()); // This show them
+  };
+
+
+
+
 }
 var myModalEl = document.getElementById("leaseDetails");
 myModalEl.addEventListener("hidden.bs.modal", function (event) {
   $("#leaseDetails .gender").css("color", "#cadfff");
   $("#leaseDetails .pets").css("color", "#cadfff");
 });
+
 renderLease();
+
+
