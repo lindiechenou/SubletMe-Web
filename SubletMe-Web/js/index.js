@@ -92,6 +92,7 @@ async function renderLease() {
 }
 
 function leaseInformation(lease) {
+  var Token = localStorage.getItem("Token");
   const BaseURL = "http://localhost:8000";
   console.log(lease);
   let imageHtml = "";
@@ -190,12 +191,26 @@ function leaseInformation(lease) {
   $("#leaseCost").html(leaseCost);
   $("#leaseDate").html(totalDate);
 
-  document.getElementById("saveToggle").onclick = function() {
-    var Token = localStorage.getItem("Token");
-    if($("#saveToggle").hasClass("far")){
-      $("#saveToggle").removeClass("far")
-      $("#saveToggle").addClass("fas")
-      fetch(`http://localhost:8000/api/saved/${lease.id}/`,{
+  $("#saveToggle").click(function() {
+    $(this).toggleClass('far fa-bookmark fas fa-bookmark');
+    if($("#saveToggle").hasClass("fas")){
+      
+      // saveLease(lease.id, Token);
+      var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+      var toastList = toastElList.map(function(toastEl) {
+      // Creates an array of toasts (it only initializes them)
+        return new bootstrap.Toast(toastEl) // No need for options; use the default options
+      });
+      toastList.forEach(toast => toast.show()); // This show them
+      }
+    else{
+
+    }
+  })
+
+}
+function saveLease(leaseID, Token){
+  fetch(`http://localhost:8000/api/saved/${leaseID}/`,{
           method: 'patch',
           headers:  new Headers({
             'Authorization':  `Token ${Token}`
@@ -208,22 +223,14 @@ function leaseInformation(lease) {
 
     }
 
-    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    var toastList = toastElList.map(function(toastEl) {
-    // Creates an array of toasts (it only initializes them)
-      return new bootstrap.Toast(toastEl) // No need for options; use the default options
-    });
-    toastList.forEach(toast => toast.show()); // This show them
-  };
-
-
-
-
-}
 var myModalEl = document.getElementById("leaseDetails");
 myModalEl.addEventListener("hidden.bs.modal", function (event) {
   $("#leaseDetails .gender").css("color", "#cadfff");
   $("#leaseDetails .pets").css("color", "#cadfff");
+  
+  if($("#saveToggle").hasClass("fas")){
+    $(this).find('#saveToggle').toggleClass('fas fa-bookmark far fa-bookmark');
+  }
 });
 
 renderLease();
