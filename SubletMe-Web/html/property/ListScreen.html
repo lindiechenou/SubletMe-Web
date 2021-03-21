@@ -35,10 +35,11 @@
                 <div class="subTitle">Listing information</div>
                 <div class="address">
                     <label for="addressName" class="addresslabel">Property address</label>
-                    <input class="form-control" placeholder="Street Address" required="required" id="streetName"><input
-                        class="form-control" placeholder="City" required="required" id="cityName">
-                    <input class="form-control" placeholder="State" required="required" id="stateName">
-                    <input class="form-control" placeholder="Zipcode" required="required" id="zipcodeName">
+                    <input class="form-control address" placeholder="Street Address" required="required"
+                        id="streetName"><input class="form-control address" placeholder="City" required="required"
+                        id="cityName">
+                    <input class="form-control address" placeholder="State" required="required" id="stateName">
+                    <input class="form-control address" placeholder="Zipcode" required="required" id="zipcodeName">
 
                 </div>
                 <div class="address">
@@ -46,9 +47,9 @@
                     <input class="form-control" required="required" id="monthlyRent">
                 </div>
                 <!-- <div class="address">
-                    <label for="unitInput" class="addresslabel">Unit Number</label>
-                    <input class="form-control" placeholder="Unit Number" id="unitInput">
-                </div> -->
+                                <label for="unitInput" class="addresslabel">Unit Number</label>
+                                <input class="form-control" placeholder="Unit Number" id="unitInput">
+                            </div> -->
                 <div class="address">
                     <label for="room-type" class="addresslabel">Room type:</label>
                     <select class="form-select" id="room-type">
@@ -88,49 +89,61 @@
                 </div>
                 <div class="check">
                     <label class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox">
+                        <input class="form-check-input mt-0" type="checkbox" id="womenAllowed">
                         <span class="checkboxLabel">Woman allowed</span>
                     </label>
                 </div>
                 <div class="check">
                     <label class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox">
+                        <input class="form-check-input mt-0" type="checkbox" id="nbAllowed">
+                        <span class="checkboxLabel">Non-Binary allowed</span>
+                    </label>
+                </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox" id="lgbtFriendly">
+                        <span class="checkboxLabel">LGBT Friendly</span>
+                    </label>
+                </div>
+                <div class="check">
+                    <label class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox" id="petAllowed">
                         <span class="checkboxLabel">Pets allowed</span>
                     </label>
                 </div>
                 <div class="check">
                     <label class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox">
+                        <input class="form-check-input mt-0" type="checkbox" id="washerDryer">
                         <span class="checkboxLabel">Washer dryer</span>
                     </label>
                 </div>
                 <div class="check">
                     <label class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox">
+                        <input class="form-check-input mt-0" type="checkbox" id="poolAvailable">
                         <span class="checkboxLabel">Pool available</span>
                     </label>
                 </div>
                 <div class="check">
                     <label class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox">
+                        <input class="form-check-input mt-0" type="checkbox" id="freeParking">
                         <span class="checkboxLabel">Free parking</span>
                     </label>
                 </div>
                 <div class="check">
                     <label class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox">
+                        <input class="form-check-input mt-0" type="checkbox" id="fitnessCenter">
                         <span class="checkboxLabel">Fitness center</span>
                     </label>
                 </div>
                 <div class="check">
                     <label class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox">
+                        <input class="form-check-input mt-0" type="checkbox" id="isFurnished">
                         <span class="checkboxLabel">Is it furnished</span>
                     </label>
                 </div>
                 <div class="description">
                     <label for="housing-type" class="addresslabel">Description:</label>
-                    <textarea id="story" name="story" rows="6" cols="45"></textarea>
+                    <textarea id="story" name="story" rows="6" cols="45" maxlength="150"></textarea>
                 </div>
                 <div class="imgInput">
                     <form action="/action_page.php">
@@ -150,7 +163,8 @@
             <div class="cancel">
                 <!-- <button type="button" class="btn btn-link" onClick='postProperty()'>Submit</button> -->
                 <!-- <a class="navbar-brand find" onClick='postProperty()'>Find a Sublet</a> -->
-                <a class="navbar-brand find" href="property.html" onClick='check()'>Submit</a>
+                <!-- <a class="navbar-brand find" href="property.html" onClick='check()'>Submit</a> -->
+                <a class="navbar-brand find" onclick=createLease()>Submit</a>
                 <a class="navbar-brand find" href="property.html">Cancel</a>
             </div>
         </div>
@@ -159,7 +173,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
-    <script src="../../js/property.js" charset="utf-8"></script>
+    <script src="../../js/property/listScreen.js" charset="utf-8"></script>
 </body>
 
 </html>
