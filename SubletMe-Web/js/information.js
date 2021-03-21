@@ -13,8 +13,8 @@ else{
     window.location.href="auth/login.html";
 }
 
-// function signOutWeb() {
-//     var passedJson = localStorage.setItem("info", "");
-//     console.log(passedJson);
-//     // window.location.href = "/Users/lindiechenou/Desktop/Spring 2021/Software Engineering/SubletMe-Web/SubletMe-Web/html/auth/login.html";
-// }
+function signOutWeb() {
+    localStorage.setItem("info", "");
+    localStorage.setItem("Token", "");
+    // window.location.href = "/Users/lindiechenou/Desktop/Spring 2021/Software Engineering/SubletMe-Web/SubletMe-Web/html/auth/login.html";
+}

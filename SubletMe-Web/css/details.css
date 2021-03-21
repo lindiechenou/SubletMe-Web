@@ -61,13 +61,13 @@ h1 {
 .placard-apt-1 {
   background: #fff;
   border: 2px solid #ddd;
-  border-radius: 7px;
+  border-radius: 17px;
   box-shadow: 7px 7px 7px rgb(140, 185, 252);
   margin: auto auto 20px auto;
   position: relative;
   text-align: center;
   height: 350px;
-  width: auto/3;
+  width: 565px !important;
 }
 
 .placard-photo-1 {
@@ -77,7 +77,7 @@ h1 {
   text-align: left;
   z-index: 2;
   background-repeat: no-repeat;
-  border-radius: 2%;
+  border-radius: 5%;
 }
 
 .placard-header {
@@ -106,9 +106,83 @@ h1 {
 
 img {
   width: 100%;
-  height: 264px;
-  border-radius: 4%;
+  height: 266px;
+  border-radius: 5%;
+}
+
+.delete{
+  font-size: 23px;
+  color: #fd1d0d;
+  align-content: end;
+  cursor: pointer;
+}
+
+.info{
+  margin: 0 0 6px;
 }
 
 
+/* Modal Design */
+.leaseDescription{
+  margin: 8px 0;
+}
+.initial {
+  margin: 0;
+}
+.set {
+  border-bottom: 2px solid #ddd;
+}
+.second-section {
+  margin-top: 20px;
+}
+.message-btn {
+  padding: 0;
+  width: 102px;
+  height: 40px;
+}
+.apt {
+  margin: 0;
+  font-weight: lighter;
+}
+.cost {
+  margin: 0;
+  font-weight: bold;
+}
 
+.date {
+  text-align: center;
+  margin: 10px 0 5px;
+}
+.fouth-section {
+  margin: 10px 0 0;
+}
+.pets {
+  color: #cadfff;
+  font: 0.85rem "Fira Sans", sans-serif;
+}
+.fouth-section .row {
+  margin-bottom: 8px;
+}
+.gender-label {
+  margin-top: 5px;
+}
+.gender {
+  margin: 0 10px 0 0;
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 5px;
+  color: #cadfff;
+  background-color: rgb(233, 240, 245);
+}
+.save {
+  font-size: 23px;
+  color: Dodgerblue;
+  cursor: pointer;
+}
+/* .save-button {
+  border: none;
+  outline: none;
+  padding: 0px;
+  color: #0d6efd;
+  background-color: white;
+} */

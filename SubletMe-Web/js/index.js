@@ -37,6 +37,10 @@
 //Connecting filters to sublease search
 function filter() {}
 //Connection to the BackEnd
+var Token = localStorage.getItem("Token");
+var ownerEmail = localStorage.getItem("info");
+ownerEmail = JSON.parse(ownerEmail)
+ownerEmail = ownerEmail.email;
 function findImages(images) {
   const BaseURL = "http://localhost:8000";
   var image = "";
@@ -55,7 +59,6 @@ function findImages(images) {
 
 async function findLease() {
   return new Promise(function (resolve, reject) {
-    var Token = localStorage.getItem("Token");
     var xhr = new XMLHttpRequest();
     xhr.responseType = "json";
     xhr.onload = function () {
@@ -67,32 +70,49 @@ async function findLease() {
     xhr.send();
   });
 }
-
 async function renderLease() {
   let leases = await findLease();
   let html = "";
   leases.forEach((lease) => {
-    images = lease.images;
-    var link = findImages(images);
-    var myLease = JSON.stringify(lease);
-    let htmlSegment = `<div class="placard-apt-1" onclick='leaseInformation(${myLease})'>
-                              <div class="placard-header clear">
-                                  <div class="left">
-                                      <div>${lease.room_type} Room in ${lease.housing_type}</div>
-                                      <div class="right">${lease.address.street}, ${lease.address.city}, ${lease.address.state}, ${lease.address.zipcode}</div>
-                                      <div class="clear2">$${lease.cost_per_month}/month</div>
+    if (lease.owner != ownerEmail){
+        images = lease.images;
+        var link = findImages(images);
+        var myLease = JSON.stringify(lease);
+        var leaseID = JSON.stringify(lease.id);
+        let htmlSegment = `<div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
+                                  <div class="placard-header clear">
+                                      <div class="left">
+                                          <div>${lease.room_type} Room in ${lease.housing_type}</div>
+                                          <div class="right">${lease.address.street}, ${lease.address.city}, ${lease.address.state}, ${lease.address.zipcode}</div>
+                                          <div class="clear2">$${lease.cost_per_month}/month</div>
+                                      </div>
                                   </div>
-                              </div>
-                              <div class="placard-photo-1 left"><img src="${link}" onerror="this.src='../images/ulease.png'"> </div>
-                        </div>`;
-    html += htmlSegment;
+                                  <div class="placard-photo-1 left"><img src="${link}" onerror="this.src='../images/ulease.png'"> </div>
+                            </div>`;
+        html += htmlSegment;
+    }
   });
   let container = document.getElementById("left");
   container.innerHTML = html;
 }
 
-function leaseInformation(lease) {
-  var Token = localStorage.getItem("Token");
+async function getLeaseInformation(leaseID) {
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = "json";
+    xhr.onload = function () {
+      resolve(this.response);
+    };
+    xhr.onerror = reject;
+    xhr.open("GET", `http://localhost:8000/api/sublet/${leaseID}`);
+    xhr.setRequestHeader('Authorization', `Token ${Token}`);
+    xhr.send();
+  });
+}
+
+
+async function leaseInformation(leaseID) {
+  lease = await getLeaseInformation(leaseID);
   const BaseURL = "http://localhost:8000";
   console.log(lease);
   let imageHtml = "";
@@ -195,7 +215,7 @@ function leaseInformation(lease) {
     $(this).toggleClass('far fa-bookmark fas fa-bookmark');
     if($("#saveToggle").hasClass("fas")){
       
-      // saveLease(lease.id, Token);
+      saveLease(lease.id);
       var toastElList = [].slice.call(document.querySelectorAll('.toast'))
       var toastList = toastElList.map(function(toastEl) {
       // Creates an array of toasts (it only initializes them)
@@ -209,9 +229,9 @@ function leaseInformation(lease) {
   })
 
 }
-function saveLease(leaseID, Token){
-  fetch(`http://localhost:8000/api/saved/${leaseID}/`,{
-          method: 'patch',
+function saveLease(leaseID){
+  fetch(`http://localhost:8000/api/saved/${leaseID}/add_saved/`,{
+          method: 'post',
           headers:  new Headers({
             'Authorization':  `Token ${Token}`
           })
