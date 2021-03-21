@@ -31,6 +31,7 @@ function create_UUID(){
 
 var leaseID = create_UUID();
 var addressID = create_UUID();
+localStorage.setItem("ListingID", leaseID);
 var Token = localStorage.getItem('token');
 var ownerEmail = localStorage.getItem("info");
 ownerEmail = JSON.parse(ownerEmail)

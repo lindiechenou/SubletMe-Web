@@ -1,3 +1,4 @@
+localStorage.setItem("ListingID", "");
 // alert("Home");
 (function () {
   var parent = document.querySelector(".price-slider"); //acts as parent and holds a node list for everything in the HTML <div>
@@ -90,6 +91,9 @@ async function renderLease() {
                                   <div class="placard-photo-1 left"><img src="${link}" onerror="this.src='../images/ulease.png'"> </div>
                             </div>`;
         html += htmlSegment;
+    }
+    else{
+      localStorage.setItem("ListingID", lease.id);
     }
   });
   let container = document.getElementById("left");

@@ -115,11 +115,142 @@
         </div>
     </section>
     <!-- <h1>Property</h1> -->
-    <!-- <div class="d-grid gap-2 col-6 mx-auto">
+    <!-- <div class="d-grid gap-2 col-6 mx-auto" id="addListing">
         <button type="button" class="btn btn-primary addlist" onClick='createProperty()'>Log in</button>
     </div> -->
-    <div class="mb-3 d-grid gap-2">
+    <div id="addListing">
         <a href="ListScreen.html" class="btn btn-primary addlist">Add a Property</a>
+    </div>
+    <div class="listing" id="editListing">
+        <h1>Your Listing</h1>
+        <div class="row justify-content-center" id="grid-container">
+            <div class="col-lg-4 col-md-6 col-sm-12" data-bs-toggle="modal" data-bs-target="#leaseDetail">
+                <div class="placard-apt-1">
+                    <div class="placard-header clear">
+                        <div class="left row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <p class="info">Shared Room in Apartment</p>
+                                <p class="info right">123 Street Address, Louisville, KY, 40214</p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <p class="clear2 info"><i class="fas fa-edit edit"></i></p>
+                                <p class="clear2 info">$500/month</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="placard-photo-1 left">
+                        <img src="../../images/image.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="leaseDetail" tabindex="-1" aria-labelledby="SignOutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title w-100 text-center" id="SignOutModalLabel">Property Details
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row align-items-start">
+                        <div class="col-6">
+                            <!-- adding the carousel here -->
+                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner" id="image-carousel">
+                                    <div class="carousel-item active">
+                                        <img src="../images/ulease.png" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/image.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../images/ulease.png" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                    <!-- <span class="visually-hidden">Previous</span> -->
+                                </a>
+                                <a class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </a>
+                            </div>
+                            <p id="leaseDescription" class="leaseDescription"><strong>Lease Description:
+                                </strong>Description here</p>
+                        </div>
+                        <div class="col-6">
+                            <div class="set">
+                                <div class="first-section">
+                                    <p class="initial"><strong id="roomate"> Room in Apartment with 1 Roomate</strong>
+                                    </p>
+                                    <p id="leaseAddress" class="initial">4416 Turtle Creek Way, Louisville,
+                                        KY, 40509</p>
+                                </div>
+                                <div class="row second-section justify-content-center">
+                                    <div class="col-6">
+                                        <p class="apt">Rent Apartment</p>
+                                        <p id="leaseCost" class="cost">$500/month</p>
+                                    </div>
+                                    <!-- <div class="d-grid gap-2 col-6 mx-auto">
+                                        <button type="button" class="btn btn-primary message-btn">Message</button>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="third-section">
+                                <p class="date">Availability: <strong id="leaseDate">Feb 19, 2021 to Apr 24,
+                                        2021</strong>
+                                </p>
+                            </div>
+                            <div class="fouth-section">
+                                <div class="row">
+                                    <div class="pets col-6" id="leasePet">
+                                        <i class="fas fa-dog"></i>
+                                        <b>Pets allowed</b>
+                                    </div>
+                                    <div class="pets col-6" id="leaseWasher">
+                                        <i class="fas fa-tshirt"></i>
+                                        <b>Washer and Dryer</b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="pets col-6" id="leaseFurnishe">
+                                        <i class="fas fa-bed"></i>
+                                        <b>Furnished</b>
+                                    </div>
+                                    <div class="pets col-6" id="leasePool">
+                                        <i class="fas fa-swimmer"></i>
+                                        <b>Pool available</b>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="pets col-6" id="leaseParking">
+                                        <i class="fas fa-parking"></i>
+                                        <b>Free Parking</b>
+                                    </div>
+                                    <div class="pets col-6" id="leaseFitness">
+                                        <i class="fas fa-biking"></i>
+                                        <b>Fitness Center</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="last-section">
+                                <p class="initial">Gender Preferences</p>
+                                <div class="gender-label">
+                                    <span class="gender" id="men-gender">men</span>
+                                    <span class="gender" id="nb-gender">non-binary</span>
+                                    <span class="gender" id="women-gender">women</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
