@@ -44,7 +44,7 @@
                 </div>
                 <div class="address">
                     <label for="monthlyRent" class="addresslabel">Cost per Month</label>
-                    <input class="form-control" required="required" id="monthlyRent">
+                    <input class="form-control" required id="monthlyRent">
                 </div>
                 <!-- <div class="address">
                                 <label for="unitInput" class="addresslabel">Unit Number</label>
@@ -67,7 +67,8 @@
                 <div class="address">
                     <label for="roomates" class="addresslabel">Number of roomates</label>
                     <select class="form-select" id="roomates">
-                        <option value="1" selected>One</option>
+                        <option value="0" selected>Zero</option>
+                        <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                         <option value="4">Four</option>
@@ -75,11 +76,11 @@
                 </div>
                 <div class="address">
                     <label for="start" class="addresslabel">Start Lease</label>
-                    <input class="form-control" type="date" id="start" required="required" onchange="myFunction()">
+                    <input class="form-control" type="date" id="start" required onchange="myFunction()">
                 </div>
                 <div class="address">
                     <label for="end" class="addresslabel">End Lease</label>
-                    <input class="form-control" type="date" id="end" required="required">
+                    <input class="form-control" type="date" id="end" required>
                 </div>
                 <div class="check">
                     <label class="input-group-text">

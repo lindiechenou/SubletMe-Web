@@ -37,51 +37,65 @@ ownerEmail = JSON.parse(ownerEmail)
 ownerEmail = ownerEmail.email;
 
 function createLease() {
-    fetch('http://localhost:8000/api/sublet/',{
-    method: 'post',
-    headers:  new Headers({
-      'Content-type':  'application/json',
-      'Authorization':  'Token 0244c3baa6d10af7754706cfb6d88b8f801b577e'
-    }),
-    body: JSON.stringify({
-      address:  {
-        city: document.getElementById("cityName").value,
-        id: addressID,
-        lattitude: null,
-        longitude: null,
-        state: document.getElementById("stateName").value,
-        street: document.getElementById("streetName").value,
-        street2:  "",
-        zipcode:  document.getElementById("zipcodeName").value,
-      },
-      description: document.getElementById("story").value,
-      cost_per_month: document.getElementById("monthlyRent").value,
-      num_roomates: document.getElementById("roomates").value,
-      start_lease: document.getElementById("start").value,
-      end_lease: document.getElementById("end").value,
-      men_allowed: document.getElementById("menAllowed").value,
-      women_allowed: document.getElementById("womenAllowed").value,
-      nb_other_allowed: document.getElementById("nbAllowed").value,
-      pets_allowed: document.getElementById("petAllowed").value,
-      washer_dryer: document.getElementById("washerDryer").value,
-      is_furnished: document.getElementById("isFurnished").value,
-      pool_available: document.getElementById("poolAvailable").value,
-      lgbt_friendly: document.getElementById("lgbtFriendly").value,
-      free_parking: document.getElementById("freeParking").value,
-      fitness_center: document.getElementById("fitnessCenter").value,
-      owner:  ownerEmail,
-      id: leaseID,
-    })
-  }).then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      else{
-          throw new Error('Please fill out all of the field');
-      }
-  }).then(parsed_result => {
-      console.log(parsed_result);
-  }).catch((error) => {
-      console.log(error)
-  });
+  //  console.log(document.getElementById("end").value);
+  var addressStreet = document.getElementById("streetName").value;
+  var addressCity = document.getElementById("cityName").value;
+  var addressState = document.getElementById("stateName").value;
+  var addressZipcode = document.getElementById("zipcodeName").value;
+  var leaseDescription = document.getElementById("story").value;
+  var leaseCost = document.getElementById("monthlyRent").value;
+  var leaseEnd = document.getElementById("end").value;
+  if(addressStreet !="" && addressCity !="" && addressState !="" && addressZipcode !="" && leaseDescription !="" && leaseCost !="" &&  leaseEnd !=""){
+      fetch('http://localhost:8000/api/sublet/',{
+      method: 'post',
+      headers:  new Headers({
+        'Content-type':  'application/json',
+        'Authorization':  'Token 0244c3baa6d10af7754706cfb6d88b8f801b577e'
+      }),
+      body: JSON.stringify({
+        address:  {
+          city: addressCity,
+          id: addressID,
+          lattitude: null,
+          longitude: null,
+          state: addressState,
+          street: addressStreet,
+          street2:  "",
+          zipcode:  addressZipcode,
+        },
+        description: leaseDescription,
+        cost_per_month: leaseCost,
+        num_roomates: document.getElementById("roomates").value,
+        start_lease: document.getElementById("start").value,
+        end_lease: leaseEnd,
+        men_allowed: document.getElementById("menAllowed").checked,
+        women_allowed: document.getElementById("womenAllowed").checked,
+        nb_other_allowed: document.getElementById("nbAllowed").checked,
+        pets_allowed: document.getElementById("petAllowed").checked,
+        washer_dryer: document.getElementById("washerDryer").checked,
+        is_furnished: document.getElementById("isFurnished").checked,
+        pool_available: document.getElementById("poolAvailable").checked,
+        lgbt_friendly: document.getElementById("lgbtFriendly").checked,
+        free_parking: document.getElementById("freeParking").checked,
+        fitness_center: document.getElementById("fitnessCenter").checked,
+        owner:  ownerEmail,
+        id: leaseID,
+      })
+    }).then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        else{
+            throw new Error('Please fill out all of the field');
+        }
+    }).then(parsed_result => {
+        console.log(parsed_result);
+        window.location = "property.html";
+    }).catch((error) => {
+        console.log(error)
+    });
+  }
+  else{
+    alert("Please fill out all of the field");
+  }
 }
