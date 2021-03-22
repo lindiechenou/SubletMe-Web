@@ -325,12 +325,13 @@ html {
 }
 .save {
   font-size: 23px;
+  color: Dodgerblue;
   cursor: pointer;
 }
-.save-button {
+/* .save-button {
   border: none;
   outline: none;
   padding: 0px;
   color: #0d6efd;
   background-color: white;
-}
+} */
