@@ -49,7 +49,7 @@ async function renderLease(){
   var addressID = JSON.stringify(addressID);
   let htmlSegment = `<a class="navbar-brand find" onclick='patchLease(${addressID})'>Save</a>
                     <a class="navbar-brand find" href="property.html">Cancel</a>
-                    <a class="navbar-brand find find2" href="property.html">Delete</a>`;
+                    <a class="navbar-brand find find2" onclick='deleteLease(${addressID})'>Delete</a>`;
   html += htmlSegment;
   let container = document.getElementById("cancel");
   container.innerHTML = html;
@@ -148,6 +148,37 @@ function updateAddress(addressID){
             window.location = "property.html";
     })
 
+}
+
+function deleteLease(addressID){
+    console.log(leaseID);
+     console.log(addressID);
+    //  deleteAddress(addressID);
+    fetch(`http://localhost:8000/api/sublet/${leaseID}/`,{
+    method: 'delete',
+    headers:  new Headers({
+      'Authorization':  `Token ${Token}`
+    })
+  }).then(response => {
+    // return response.json();
+  }).then(parsed_result => {
+    deleteAddress(addressID);
+  })
+}
+
+function deleteAddress(addressID){
+    console.log(addressID);
+    fetch(`http://localhost:8000/api/address/${addressID}/`,{
+    method: 'delete',
+    headers:  new Headers({
+      'Authorization':  `Token ${Token}`
+    })
+  }).then(response => {
+    // return response.json();
+  }).then(parsed_result => {
+    localStorage.setItem("ListingID", "");
+    window.location = "property.html";
+  })
 }
 
 renderLease();

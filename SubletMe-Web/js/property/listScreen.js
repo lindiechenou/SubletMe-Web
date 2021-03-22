@@ -100,3 +100,8 @@ function createLease() {
     alert("Please fill out all of the field");
   }
 }
+
+function cancelLease(){
+  localStorage.setItem("ListingID", "");
+  window.location = "property.html";
+}
