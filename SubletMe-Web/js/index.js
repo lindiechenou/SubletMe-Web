@@ -36,12 +36,76 @@ localStorage.setItem("ListingID", "");
 })();
 
 //Connecting filters to sublease search
-function filter() {}
+async function filterLease() {
+  var parameters = ""
+  var washer = document.getElementById("washer-dryer").checked;
+  var pool = document.getElementById("pool-available").checked;
+  var pets = document.getElementById("pets-allowed").checked;
+  var parking = document.getElementById("free-parking").checked;
+  var furnished = document.getElementById("is-furnished").checked;
+  var fitness = document.getElementById("fitness-center").checked;
+  var women = document.getElementById("women-only").checked;
+  var men = document.getElementById("men-only").checked;
+  var nb_binary = document.getElementById("nb-binary").checked;
+  var costMin = document.getElementById("Min").value;
+  var costMax= document.getElementById("Max").value;
+  if(washer == true){
+    console.log(washer);
+    parameters += "laundry=True";
+  }
+  if(pool == true){
+    parameters += "&pool=True";
+  }
+  if(pets == true){
+    parameters += "&pets=True";
+  }
+  if(parking == true){
+    parameters += "&free_parking=True";
+  }
+  if(furnished == true){
+    parameters += "&is_furnished=True";
+  }
+  if(fitness == true){
+    parameters += "&fitness_center=True";
+  }
+  if(women == true){
+    parameters += "&women=True";
+  }
+  if(men == true){
+    parameters += "&men=True";
+  }
+  if(nb_binary == true){
+    parameters += "&nb=True";
+  }
+  if(costMin != ""){
+    parameters += `&cpm_min=${costMin}`;
+  }
+  if(costMax != ""){
+    parameters += `&cpm_max=${costMax}`;
+  }
+  if(parameters[0] == "&"){
+    parameters = parameters.slice(1);
+  }
+
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = "json";
+    xhr.onload = function () {
+      resolve(this.response);
+      console.log(this.response);
+    };
+    xhr.onerror = reject;
+    xhr.open("GET", `http://localhost:8000/api/sublet/?${parameters}`);
+    xhr.setRequestHeader('Authorization', `Token ${Token}`);
+    xhr.send();
+  });
+}
 //Connection to the BackEnd
 var Token = localStorage.getItem("Token");
 var ownerEmail = localStorage.getItem("info");
 ownerEmail = JSON.parse(ownerEmail)
 ownerEmail = ownerEmail.email;
+
 function findImages(images) {
   const BaseURL = "http://localhost:8000";
   var image = "";
@@ -58,22 +122,10 @@ function findImages(images) {
   return image;
 }
 
-async function findLease() {
-  return new Promise(function (resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    xhr.responseType = "json";
-    xhr.onload = function () {
-      resolve(this.response);
-    };
-    xhr.onerror = reject;
-    xhr.open("GET", "http://localhost:8000/api/sublet/");
-    xhr.setRequestHeader('Authorization', `Token ${Token}`);
-    xhr.send();
-  });
-}
 async function renderLease() {
-  let leases = await findLease();
+  let leases = await filterLease();
   let html = "";
+  // leases = await filterLease();
   leases.forEach((lease) => {
     if (lease.owner != ownerEmail){
         images = lease.images;

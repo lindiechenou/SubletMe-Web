@@ -156,15 +156,15 @@
           </h5>
           <div class="form-check form-switch">
             <label class="form-check-label women" for="flexSwitchCheckDefault">Women Only</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
+            <input class="form-check-input" type="checkbox" id="women-only">
           </div>
           <div class="form-check form-switch">
             <label class="form-check-label men" for="flexSwitchCheckDefault">Men Only</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
+            <input class="form-check-input" type="checkbox" id="men-only">
           </div>
           <div class="form-check form-switch">
             <label class="form-check-label nbOther" for="flexSwitchCheckDefault">Non-binary</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
+            <input class="form-check-input" type="checkbox" id="nb-binary">
           </div>
         </div>
         <!-- Filters -->
@@ -175,19 +175,27 @@
           </h5>
           <div class="form-check form-switch">
             <label class="form-check-label washer" for="flexSwitchCheckDefault">Washer/Dryer</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
+            <input class="form-check-input" type="checkbox" id="washer-dryer">
           </div>
           <div class="form-check form-switch">
             <label class="form-check-label pool" for="flexSwitchCheckDefault">Pool Available</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
+            <input class="form-check-input" type="checkbox" id="pool-available">
           </div>
           <div class="form-check form-switch">
             <label class="form-check-label pet" for="flexSwitchCheckDefault">Pets Allowed</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
+            <input class="form-check-input" type="checkbox" id="pets-allowed">
           </div>
           <div class="form-check form-switch">
             <label class="form-check-label parking" for="flexSwitchCheckDefault">Free Parking</label>
-            <input class="form-check-input" type="checkbox" id="flexSwitch">
+            <input class="form-check-input" type="checkbox" id="free-parking">
+          </div>
+          <div class="form-check form-switch">
+            <label class="form-check-label parking" for="flexSwitchCheckDefault">Is Furnished</label>
+            <input class="form-check-input" type="checkbox" id="is-furnished">
+          </div>
+          <div class="form-check form-switch">
+            <label class="form-check-label parking" for="flexSwitchCheckDefault">Fitness Center</label>
+            <input class="form-check-input" type="checkbox" id="fitness-center">
           </div>
         </div>
         <div class="reset">
@@ -196,7 +204,7 @@
               <button class="btn btn-outline-light" type="button">Reset all</button>
             </div>
             <div class="col-6">
-              <button class="btn btn-outline-light" type="button">Done</button>
+              <button class="btn btn-outline-light" onclick="renderLease()" type="button">Submit</button>
             </div>
           </div>
         </div>

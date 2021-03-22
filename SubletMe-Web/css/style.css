@@ -156,7 +156,7 @@ img {
 
 /***** Filters *****/
 .filters {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .fa-filter {
@@ -170,6 +170,10 @@ img {
 }
 .btn-outline-light{
   color: #0d6efd;
+}
+
+.reset .btn{
+  margin-bottom: 10px;
 }
 
 /* not something you want to do. Bootstrap navbar was blocking the change. */
@@ -215,7 +219,8 @@ img {
 }
 
 #left {
-  height: 900px;
+  height: 950px;
+  /* height: auto; */
   overflow: scroll;
 }
 html {
