@@ -10,12 +10,12 @@ document.getElementById("start").max = future;
 function myFunction() {
   x = document.getElementById("start").value;
   document.getElementById("end").min = x;
-  console.log(x);
+  // console.log(x);
   var year1 = parseInt(x.slice(0, 4)) + 1;
   var month1 = x.slice(5, 7);
   var day1 = x.slice(8, 10);
   end = year1 + "-" + month1 + "-" + day1;
-  console.log(end);
+  // console.log(end);
   document.getElementById("end").max = end;
 }
 
@@ -39,6 +39,7 @@ ownerEmail = ownerEmail.email;
 
 function createLease() {
   //  console.log(document.getElementById("end").value);
+
   var addressStreet = document.getElementById("streetName").value;
   var addressCity = document.getElementById("cityName").value;
   var addressState = document.getElementById("stateName").value;
@@ -47,54 +48,59 @@ function createLease() {
   var leaseCost = document.getElementById("monthlyRent").value;
   var leaseEnd = document.getElementById("end").value;
   if(addressStreet !="" && addressCity !="" && addressState !="" && addressZipcode !="" && leaseDescription !="" && leaseCost !="" &&  leaseEnd !=""){
+    var Token = localStorage.getItem('Token');
+    console.log(Token);
       fetch('http://localhost:8000/api/sublet/',{
-      method: 'post',
-      headers:  new Headers({
-        'Content-type':  'application/json',
-        'Authorization':  `Token ${Token}`
-      }),
-      body: JSON.stringify({
-        address:  {
-          city: addressCity,
-          id: addressID,
-          lattitude: null,
-          longitude: null,
-          state: addressState,
-          street: addressStreet,
-          street2:  "",
-          zipcode:  addressZipcode,
-        },
-        description: leaseDescription,
-        cost_per_month: leaseCost,
-        num_roomates: document.getElementById("roomates").value,
-        start_lease: document.getElementById("start").value,
-        end_lease: leaseEnd,
-        men_allowed: document.getElementById("menAllowed").checked,
-        women_allowed: document.getElementById("womenAllowed").checked,
-        nb_other_allowed: document.getElementById("nbAllowed").checked,
-        pets_allowed: document.getElementById("petAllowed").checked,
-        washer_dryer: document.getElementById("washerDryer").checked,
-        is_furnished: document.getElementById("isFurnished").checked,
-        pool_available: document.getElementById("poolAvailable").checked,
-        lgbt_friendly: document.getElementById("lgbtFriendly").checked,
-        free_parking: document.getElementById("freeParking").checked,
-        fitness_center: document.getElementById("fitnessCenter").checked,
-        owner:  ownerEmail,
-        id: leaseID,
-      })
-    }).then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        else{
-            throw new Error('Please fill out all of the field');
-        }
-    }).then(parsed_result => {
-        console.log(parsed_result);
-        window.location = "property.html";
-    }).catch((error) => {
-        console.log(error)
-    });
+          method: 'post',
+          headers:  new Headers({
+            'Content-type':  'application/json',
+            'Authorization':  `Token ${Token}`
+          }),
+          body: JSON.stringify({
+            address:  {
+              city: addressCity,
+              id: addressID,
+              lattitude: null,
+              longitude: null,
+              state: addressState,
+              street: addressStreet,
+              street2:  "",
+              zipcode:  addressZipcode,
+            },
+            description: leaseDescription,
+            cost_per_month: leaseCost,
+            num_roomates: document.getElementById("roomates").value,
+            start_lease: document.getElementById("start").value,
+            end_lease: leaseEnd,
+            men_allowed: document.getElementById("menAllowed").checked,
+            women_allowed: document.getElementById("womenAllowed").checked,
+            nb_other_allowed: document.getElementById("nbAllowed").checked,
+            pets_allowed: document.getElementById("petAllowed").checked,
+            washer_dryer: document.getElementById("washerDryer").checked,
+            is_furnished: document.getElementById("isFurnished").checked,
+            pool_available: document.getElementById("poolAvailable").checked,
+            lgbt_friendly: document.getElementById("lgbtFriendly").checked,
+            free_parking: document.getElementById("freeParking").checked,
+            fitness_center: document.getElementById("fitnessCenter").checked,
+            owner:  ownerEmail,
+            id: leaseID,
+          })
+        }).then(response => {
+            // if (response.ok) {
+            //   return response.json();
+            // }
+            // else{
+            //     throw new Error('Please fill out all of the field');
+            // }
+            return response.json();
+        }).then(parsed_result => {
+            console.log(parsed_result);
+            localStorage.setItem("ListingID", parsed_result.id);
+            // window.location = "property.html";
+        })
+        // .catch((error) => {
+        //     console.log(error)
+        // });
   }
   else{
     alert("Please fill out all of the field");
