@@ -51,9 +51,7 @@ async function renderLease(listingid){
   lease = await getUserListing(listingid);
   let html = "";
   images = lease.images;
-  console.log(images);
   var link = findImages(images);
-  console.log(link);
   var leaseID = JSON.stringify(lease.id);
   let htmlSegment = `<div class="col-lg-4 col-md-6 col-sm-12" data-bs-toggle="modal" data-bs-target="#leaseDetail">
                           <div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
@@ -64,7 +62,7 @@ async function renderLease(listingid){
                                           <p class="info right">${lease.address.street}, ${lease.address.city}, ${lease.address.state}, ${lease.address.zipcode}</p>
                                       </div>
                                       <div class="col-lg-3 col-md-2">
-                                          <p class="clear2 info"><i class="fas fa-edit edit"></i></p>
+                                          <p class="clear2 info"><i class="fas fa-edit edit" onclick='editLease()'></i></p>
                                           <p class="clear2 info">$${lease.cost_per_month}/month</p>
                                       </div>
                                   </div>
@@ -82,7 +80,6 @@ async function renderLease(listingid){
 async function leaseInformation(leaseID) {
   lease = await getUserListing(leaseID);
   const BaseURL = "http://localhost:8000";
-  console.log(lease);
   let imageHtml = "";
   let htmlSegment = "";
   if (lease.images.length == 0) {
@@ -185,3 +182,7 @@ myModalEl.addEventListener("hidden.bs.modal", function (event) {
   $("#leaseDetail .gender").css("color", "#cadfff");
   $("#leaseDetail .pets").css("color", "#cadfff");
 });
+
+function editLease() {
+  window.location.href = "editListing.html";
+}

@@ -51,7 +51,7 @@ function createLease() {
       method: 'post',
       headers:  new Headers({
         'Content-type':  'application/json',
-        'Authorization':  'Token 0244c3baa6d10af7754706cfb6d88b8f801b577e'
+        'Authorization':  `Token ${Token}`
       }),
       body: JSON.stringify({
         address:  {
