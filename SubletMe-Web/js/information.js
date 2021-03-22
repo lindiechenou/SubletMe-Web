@@ -1,15 +1,4 @@
-
-
-function signOutWeb() {
-    var passedJson = localStorage.setItem("info", "");
-    console.log(passedJson);
-    // window.location.href = "/Users/lindiechenou/Desktop/Spring 2021/Software Engineering/SubletMe-Web/SubletMe-Web/html/auth/login.html";
-}
-
-if (localStorage.getItem("info") ==""){
-    window.location.href="auth/login.html";
-}
-else{
+if (localStorage.getItem("info") !=""){
     var passedJson = localStorage.getItem("info");
     passedJson = JSON.parse(passedJson)
     console.log(passedJson);
@@ -18,4 +7,14 @@ else{
     fullname = first + " " + last;
     document.getElementById("userName").innerHTML = fullname;
     document.getElementById("userEmail").innerHTML = passedJson.email;
+    
+}
+else{
+    window.location.href="auth/login.html";
+}
+
+function signOutWeb() {
+    localStorage.setItem("info", "");
+    localStorage.setItem("Token", "");
+    // window.location.href = "/Users/lindiechenou/Desktop/Spring 2021/Software Engineering/SubletMe-Web/SubletMe-Web/html/auth/login.html";
 }
