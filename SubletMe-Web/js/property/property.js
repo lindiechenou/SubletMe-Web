@@ -90,11 +90,11 @@ async function leaseInformation(leaseID) {
   for (var i = 0; i < lease.images.length; i++) {
     if (i == 0) {
       htmlSegment = `<div class="carousel-item active">
-                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
+                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../../images/ulease.png">
                         </div>`;
     } else {
       htmlSegment = `<div class="carousel-item">
-                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
+                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../../images/ulease.png">
                         </div>`;
     }
     imageHtml += htmlSegment;
