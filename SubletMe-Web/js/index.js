@@ -293,6 +293,10 @@ function saveLease(leaseID){
 
     }
 
+
+function resetFilter(){
+  location.reload();
+}
 var myModalEl = document.getElementById("leaseDetails");
 myModalEl.addEventListener("hidden.bs.modal", function (event) {
   $("#leaseDetails .gender").css("color", "#cadfff");
