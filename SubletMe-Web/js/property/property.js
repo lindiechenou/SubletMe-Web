@@ -84,7 +84,7 @@ async function leaseInformation(leaseID) {
   let htmlSegment = "";
   if (lease.images.length == 0) {
     imageHtml = `<div class="carousel-item active">
-                            <img src="../images/ulease.png" class="d-block w-100" alt="../images/ulease.png">
+                            <img src="../../images/ulease.png" class="d-block w-100" alt="../../images/ulease.png">
                         </div>`;
   }
   for (var i = 0; i < lease.images.length; i++) {
