@@ -1,3 +1,4 @@
+localStorage.setItem("ListingID", "");
 // alert("Home");
 (function () {
   var parent = document.querySelector(".price-slider"); //acts as parent and holds a node list for everything in the HTML <div>
@@ -91,6 +92,9 @@ async function renderLease() {
                             </div>`;
         html += htmlSegment;
     }
+    else{
+      localStorage.setItem("ListingID", lease.id);
+    }
   });
   let container = document.getElementById("left");
   container.innerHTML = html;
@@ -112,6 +116,8 @@ async function getLeaseInformation(leaseID) {
 
 
 async function leaseInformation(leaseID) {
+  $("#saveToggle").show();
+  $("#saveToggle1").hide();
   lease = await getLeaseInformation(leaseID);
   const BaseURL = "http://localhost:8000";
   console.log(lease);
@@ -210,24 +216,16 @@ async function leaseInformation(leaseID) {
   $("#leaseAddress").html(leaseAddress);
   $("#leaseCost").html(leaseCost);
   $("#leaseDate").html(totalDate);
-
-  $("#saveToggle").click(function() {
-    $(this).toggleClass('far fa-bookmark fas fa-bookmark');
-    if($("#saveToggle").hasClass("fas")){
-      
-      saveLease(lease.id);
-      var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-      var toastList = toastElList.map(function(toastEl) {
-      // Creates an array of toasts (it only initializes them)
-        return new bootstrap.Toast(toastEl) // No need for options; use the default options
-      });
-      toastList.forEach(toast => toast.show()); // This show them
-      }
-    else{
-
-    }
+  $("#saveIcon").click(function(){
+    $("#saveToggle").hide();
+    $("#saveToggle1").show();
+    saveLease(lease.id);
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function(toastEl){
+      return new bootstrap.Toast(toastEl)
+    });
+    toastList.forEach(toast => toast.show());
   })
-
 }
 function saveLease(leaseID){
   fetch(`http://localhost:8000/api/saved/${leaseID}/add_saved/`,{
@@ -247,10 +245,6 @@ var myModalEl = document.getElementById("leaseDetails");
 myModalEl.addEventListener("hidden.bs.modal", function (event) {
   $("#leaseDetails .gender").css("color", "#cadfff");
   $("#leaseDetails .pets").css("color", "#cadfff");
-  
-  if($("#saveToggle").hasClass("fas")){
-    $(this).find('#saveToggle').toggleClass('fas fa-bookmark far fa-bookmark');
-  }
 });
 
 renderLease();

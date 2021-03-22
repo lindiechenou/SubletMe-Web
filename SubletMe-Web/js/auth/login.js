@@ -1,52 +1,43 @@
-localStorage.setItem("info", "");   
-function login() {
+localStorage.setItem("info", "");    
+async function login() {
   //login fields
   var email = document.querySelector("#loginEmail").value;
   var loginEmail = email.toLowerCase();
-  var password = document.querySelector("#loginPassword").value;
-  fetch('http://localhost:8000/api/rest-auth/login/', {
-      method  : 'post',
-      headers : new Headers({
-  //         'Authorization': 'Token 81dbe0ac1b0347974b01eb08627f493a0a23c75c'
-          'Content-type': 'application/json'
-      }),
-      body: JSON.stringify({
-      email: loginEmail,
-      password: password,
-    })
-  }).then( response => {
-      return response.json(); // server returned valid JSON
-  }).then( parsed_result => {
-      // console.log(parsed_result.key);
-      // localStorage.setItem("Token", parsed_result.key);
-      profileInfo(parsed_result.key);
-  });
-}
+  const params = {
+    email: loginEmail,
+    password: document.querySelector("#loginPassword").value,
+  };
 
-function profileInfo(token){
-  localStorage.setItem("Token", token);
-  fetch('http://localhost:8000/api/rest-auth/user/',{
-    method: 'get',
-    headers:  new Headers({
-      'Authorization':  `Token ${token}`
-    })
-  }).then(response => {
-    return response.json();
-  }).then(parsed_result => {
-    // console.log(parsed_result);
-    // console.log(localStorage.getItem("Token"));
-    const Information = {
-      id: parsed_result.id,
-      email: parsed_result.email,
-      first_name: parsed_result.first_name,
-      last_name: parsed_result.last_name,
-      university_choices: parsed_result.university_choices,
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost:8000/api/rest-auth/login/", true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.send(JSON.stringify(params));
+  xhr.onreadystatechange = function () {
+    if (this.status == 200) {
+      var token = JSON.parse(xhr.responseText);
+      // console.log(token.key);
+      profileInfo(token.key);
+    } else {
+      // document.getElementById("error-message").innerHTML = xhr.responseText;
     }
-    localStorage.setItem("info", JSON.stringify(Information));
-    window.location.href = "../../html/index.html";
-  })
+  };
 }
 
+function profileInfo(tok){
+  let xhr1 = new XMLHttpRequest();
+  localStorage.setItem("Token", tok);
+  xhr1.open('GET', 'http://localhost:8000/api/rest-auth/user/');
+  xhr1.setRequestHeader('Authorization', `Token ${tok}`);
+  xhr1.send();
+  xhr1.onreadystatechange = function() {
+    if (this.status == 200) {
+        console.log(xhr1.responseText);
+        localStorage.setItem("info", xhr1.responseText);
+        window.location.href = "../../html/index.html";
+    }
+
+  }
+}
 
 var emailBox = document.getElementById("loginEmail");
 var passwordBox = document.getElementById("loginPassword");

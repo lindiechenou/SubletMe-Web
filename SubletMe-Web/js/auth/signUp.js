@@ -1,30 +1,27 @@
-function createUser() {
-  //SignUp fields
-  var email = (document.querySelector("#signupEmail").value).toLowerCase();
-  var password1 = document.querySelector("#signupPassword").value;
-  var password2 = document.querySelector("#signupPassword2").value;
-  var university_choices = document.querySelector("#school").value;
-  var first_name = document.querySelector("#firstName").value;
-  var last_name = document.querySelector("#lastName").value;
-  fetch('http://localhost:8000/api/rest-auth/registration/', {
-      method  : 'post',
-      headers : new Headers({
-  //         'Authorization': 'Token 81dbe0ac1b0347974b01eb08627f493a0a23c75c'
-          'Content-type': 'application/json'
-      }),
-      body: JSON.stringify({
-      email: email,
-      password1: password1,
-      password2: password2,
-      university_choices: university_choices,
-      first_name: first_name,
-      last_name: last_name,
-    })
-  }).then( response => {
-      return response.json(); // server returned valid JSON
-  }).then( parsed_result => {
+async function createUser() {
+  //signup fields
+  const params = {
+    email: (document.querySelector("#signupEmail").value).toLowerCase(),
+    password1: document.querySelector("#signupPassword").value,
+    password2: document.querySelector("#signupPassword2").value,
+    university_choices: document.querySelector("#school").value,
+    first_name: document.querySelector("#firstName").value,
+    last_name: document.querySelector("#lastName").value,
+  };
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost:8000/api/rest-auth/registration/", true);
+  xhr.setRequestHeader("Content-type", "application/json");
+  xhr.send(JSON.stringify(params));
+  xhr.onreadystatechange = function () {
+    console.log(xhr.status);
+    if (this.status == 201) {
       window.location.href = "../../html/auth/newAccount.html";
-  });
+    } else {
+      // document.getElementById("error-message").innerHTML = xhr.responseText;
+      console.log(xhr.status);
+    }
+  };
 }
 
 $('select').on('change', function() {
