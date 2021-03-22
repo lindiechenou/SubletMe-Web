@@ -42,7 +42,7 @@ async function renderLease() {
     var link = findImages(images);
     // var myLease = JSON.stringify(lease);
     var leaseID = JSON.stringify(lease.id);
-    let htmlSegment = `<div class="col-lg-4 col-md-6 col-sm-12" data-bs-toggle="modal" data-bs-target="#leaseDetail">
+    let htmlSegment = `<div class="col-lg-6 col-md-6 col-sm-12" data-bs-toggle="modal" data-bs-target="#leaseDetail">
                           <div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
                               <div class="placard-header clear">
                                   <div class="left row">
