@@ -1,4 +1,3 @@
-
 // function postProperty() {
 //   window.location = "property.html";
 // }
@@ -7,12 +6,11 @@
 // }
 var Token = localStorage.getItem("Token");
 var listing = localStorage.getItem("ListingID");
-if(listing != ""){
+if (listing != "") {
   $("#addListing").hide();
   $("#editListing").show();
   renderLease(listing);
-}
-else{
+} else {
   $("#addListing").show();
   $("#editListing").hide();
 }
@@ -33,7 +31,7 @@ function findImages(images) {
   return image;
 }
 
-async function getUserListing(leaseID){
+async function getUserListing(leaseID) {
   return new Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = "json";
@@ -42,12 +40,12 @@ async function getUserListing(leaseID){
     };
     xhr.onerror = reject;
     xhr.open("GET", `http://localhost:8000/api/sublet/${leaseID}/`);
-    xhr.setRequestHeader('Authorization', `Token ${Token}`);
+    xhr.setRequestHeader("Authorization", `Token ${Token}`);
     xhr.send();
   });
 }
 
-async function renderLease(listingid){
+async function renderLease(listingid) {
   lease = await getUserListing(listingid);
   let html = "";
   images = lease.images;
@@ -76,7 +74,6 @@ async function renderLease(listingid){
   container.innerHTML = html;
 }
 
-
 async function leaseInformation(leaseID) {
   lease = await getUserListing(leaseID);
   const BaseURL = "http://localhost:8000";
@@ -90,11 +87,15 @@ async function leaseInformation(leaseID) {
   for (var i = 0; i < lease.images.length; i++) {
     if (i == 0) {
       htmlSegment = `<div class="carousel-item active">
-                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../../images/ulease.png">
+                            <img src="${
+                              BaseURL + lease.images[i].image
+                            }" class="d-block w-100" alt="../../images/ulease.png">
                         </div>`;
     } else {
       htmlSegment = `<div class="carousel-item">
-                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../../images/ulease.png">
+                            <img src="${
+                              BaseURL + lease.images[i].image
+                            }" class="d-block w-100" alt="../../images/ulease.png">
                         </div>`;
     }
     imageHtml += htmlSegment;
@@ -135,10 +136,10 @@ async function leaseInformation(leaseID) {
     "Dec",
   ];
   var start_day = parseInt(lease.start_lease.slice(8, 10));
-  var start_month = parseInt(lease.start_lease.slice(5, 7))-1;
+  var start_month = parseInt(lease.start_lease.slice(5, 7)) - 1;
   var start_year = parseInt(lease.start_lease.slice(0, 4));
   var end_day = parseInt(lease.end_lease.slice(8, 10));
-  var end_month = parseInt(lease.end_lease.slice(5, 7))-1;
+  var end_month = parseInt(lease.end_lease.slice(5, 7)) - 1;
   var end_year = parseInt(lease.end_lease.slice(0, 4));
   var start_date =
     monthNames[start_month] + " " + start_day + ", " + start_year;
