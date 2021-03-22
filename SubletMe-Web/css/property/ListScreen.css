@@ -81,9 +81,18 @@ body {
   font-size: 28px;
   margin: 0 20px;
   font-family: "Times New Roman", Times, serif;
+  cursor: pointer;
   /* bottom: 0px; */
 }
 .cancel {
   margin-left: 80%;
   padding: 10px;
+}
+
+.address {
+  margin-bottom: 3px;
+}
+
+.find2 {
+  color: red;
 }
