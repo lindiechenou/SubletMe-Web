@@ -32,7 +32,7 @@ function create_UUID(){
 var leaseID = create_UUID();
 var addressID = create_UUID();
 localStorage.setItem("ListingID", leaseID);
-var Token = localStorage.getItem('token');
+var Token = localStorage.getItem('Token');
 var ownerEmail = localStorage.getItem("info");
 ownerEmail = JSON.parse(ownerEmail)
 ownerEmail = ownerEmail.email;
@@ -86,21 +86,21 @@ function createLease() {
             id: leaseID,
           })
         }).then(response => {
-            // if (response.ok) {
-            //   return response.json();
-            // }
-            // else{
-            //     throw new Error('Please fill out all of the field');
-            // }
+            if (response.ok) {
+              return response.json();
+            }
+            else{
+                throw new Error('Please fill out all of the field');
+            }
             return response.json();
         }).then(parsed_result => {
             console.log(parsed_result);
             localStorage.setItem("ListingID", parsed_result.id);
-            // window.location = "property.html";
+            window.location = "property.html";
         })
-        // .catch((error) => {
-        //     console.log(error)
-        // });
+        .catch((error) => {
+            console.log(error)
+        });
   }
   else{
     alert("Please fill out all of the field");
