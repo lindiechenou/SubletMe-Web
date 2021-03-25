@@ -31,14 +31,24 @@ function create_UUID(){
 
 var leaseID = create_UUID();
 var addressID = create_UUID();
-localStorage.setItem("ListingID", leaseID);
+// localStorage.setItem("ListingID", leaseID);
 var Token = localStorage.getItem('Token');
 var ownerEmail = localStorage.getItem("info");
-ownerEmail = JSON.parse(ownerEmail)
+ownerEmail = JSON.parse(ownerEmail);
 ownerEmail = ownerEmail.email;
+var ownerUniversity = localStorage.getItem("info");
+ownerUniversity = JSON.parse(ownerUniversity);
+ownerUniversity = ownerUniversity.university_choices;
+var University = {
+  "UOFL":"University of Louisville",
+  "UK":"University of Kentucky",
+  "UC":"University of Cincinnati"
+}
+ownerUniversity = University[ownerUniversity];
+console.log(ownerUniversity);
 
 function createLease() {
-  //  console.log(document.getElementById("end").value);
+  //  console.log(document.getElementById("housing-type").value);
 
   var addressStreet = document.getElementById("streetName").value;
   var addressCity = document.getElementById("cityName").value;
@@ -59,7 +69,7 @@ function createLease() {
           body: JSON.stringify({
             address:  {
               city: addressCity,
-              id: addressID,
+              // id: addressID,
               lattitude: null,
               longitude: null,
               state: addressState,
@@ -67,8 +77,14 @@ function createLease() {
               street2:  "",
               zipcode:  addressZipcode,
             },
+            status: "Available",
+            saved_list: [],
+            images_set: [],
             description: leaseDescription,
             cost_per_month: leaseCost,
+            room_type: document.getElementById("room-type").value,
+            housing_type: document.getElementById("housing-type").value,
+            university_choices: ownerUniversity,
             num_roomates: document.getElementById("roomates").value,
             start_lease: document.getElementById("start").value,
             end_lease: leaseEnd,
@@ -83,7 +99,7 @@ function createLease() {
             free_parking: document.getElementById("freeParking").checked,
             fitness_center: document.getElementById("fitnessCenter").checked,
             owner:  ownerEmail,
-            id: leaseID,
+            // id: leaseID,
           })
         }).then(response => {
             if (response.ok) {
@@ -92,7 +108,7 @@ function createLease() {
             else{
                 throw new Error('Please fill out all of the field');
             }
-            return response.json();
+            // return response.json();
         }).then(parsed_result => {
             console.log(parsed_result);
             localStorage.setItem("ListingID", parsed_result.id);

@@ -88,6 +88,8 @@ function patchLease(addressID){
             // },
             description: leaseDescription,
             cost_per_month: leaseCost,
+            room_type: document.getElementById("room-type").value,
+            housing_type: document.getElementById("housing-type").value,
             num_roomates: document.getElementById("roomates").value,
             start_lease: document.getElementById("start").value,
             end_lease: leaseEnd,
