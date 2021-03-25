@@ -1,34 +1,14 @@
-// function postProperty() {
-//   window.location = "property.html";
-// }
-// function check() {
-//   console.log("got here");
-// }
-var Token = localStorage.getItem("Token");
 var listing = localStorage.getItem("ListingID");
+var Token = localStorage.getItem("Token");
+
+console.log(listing);
 if (listing != "") {
-  $("#addListing").hide();
-  $("#editListing").show();
+  $("#noProperty").hide();
+  $("#userProperty").show();
   renderLease(listing);
 } else {
-  $("#addListing").show();
-  $("#editListing").hide();
-}
-
-function findImages(images) {
-  const BaseURL = "http://localhost:8000";
-  var image = "";
-  if (images.length == 0) {
-    return image;
-  }
-  for (i = 0; i < images.length; i++) {
-    if (images[i].is_primary == "true") {
-      image = BaseURL + lease.image[i].image;
-      return image;
-    }
-  }
-  image = BaseURL + images[0].image;
-  return image;
+  $("#noProperty").show();
+  $("#userProperty").hide();
 }
 
 async function getUserListing(leaseID) {
@@ -45,13 +25,13 @@ async function getUserListing(leaseID) {
   });
 }
 
-async function renderLease(listingid) {
-  lease = await getUserListing(listingid);
+async function renderLease(listingID) {
+  lease = await getUserListing(listingID);
   let html = "";
   images = lease.images;
   var link = findImages(images);
   var leaseID = JSON.stringify(lease.id);
-  let htmlSegment = `<div class="col-lg-4 col-md-6 col-sm-12" data-bs-toggle="modal" data-bs-target="#leaseDetail">
+  let htmlSegment = `<data-bs-toggle="modal" data-bs-target="#leaseDetail">
                           <div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
                               <div class="placard-header clear">
                                   <div class="left row">
@@ -70,7 +50,7 @@ async function renderLease(listingid) {
                       </div>`;
   html += htmlSegment;
   console.log(lease);
-  let container = document.getElementById("grid-container");
+  let container = document.getElementById("userProperty");
   container.innerHTML = html;
 }
 
@@ -178,12 +158,24 @@ async function leaseInformation(leaseID) {
   $("#leaseDate").html(totalDate);
 }
 
+function findImages(images) {
+  const BaseURL = "http://localhost:8000";
+  var image = "";
+  if (images.length == 0) {
+    return image;
+  }
+  for (i = 0; i < images.length; i++) {
+    if (images[i].is_primary == "true") {
+      image = BaseURL + lease.image[i].image;
+      return image;
+    }
+  }
+  image = BaseURL + images[0].image;
+  return image;
+}
+
 var myModalEl = document.getElementById("leaseDetail");
 myModalEl.addEventListener("hidden.bs.modal", function (event) {
   $("#leaseDetail .gender").css("color", "#cadfff");
   $("#leaseDetail .pets").css("color", "#cadfff");
 });
-
-function editLease() {
-  window.location.href = "editListing.html";
-}

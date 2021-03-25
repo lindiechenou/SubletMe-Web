@@ -80,6 +80,7 @@ hr {
   border-radius: 6px;
   border: 1px solid lightgrey;
   width: 100%;
+  font-size: 20px;
 }
 #loginEmail:focus {
   border-color: var(--ulease-blue);
@@ -112,6 +113,7 @@ hr {
   border-radius: 6px;
   border: 1px solid lightgrey;
   width: 100%;
+  font-size: 20px;
 }
 #loginPassword:focus {
   border-color: var(--ulease-blue);
