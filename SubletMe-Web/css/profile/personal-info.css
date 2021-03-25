@@ -57,7 +57,7 @@
   transition: 0.2s;
 }
 
-#input-box {
+.input-box {
   margin-top: 20px;
   margin-left: 20px;
   border-radius: 7px;
@@ -65,15 +65,16 @@
   border: 1px solid #999;
   outline: none;
   width: 75%;
+  font-size: 18px;
 }
-#input-box:focus {
+.input-box:focus {
   border-color: var(--ulease-blue);
 }
-#input-box:focus + #input-label {
+.input-box:focus + #input-label {
   color: var(--ulease-blue);
 }
-#input-box:focus + #input-label,
-#input-box.not-empty + #input-label {
+.input-box:focus + #input-label,
+.input-box.not-empty + #input-label {
   top: -13px;
   left: 5px;
 }
@@ -90,15 +91,6 @@
 }
 
 /******** Name page *********/
-#lname-box {
-  margin-top: 20px;
-  margin-left: 20px;
-  border-radius: 7px;
-  padding: 10px;
-  border: 1px solid #999;
-  outline: none;
-  width: 75%;
-}
 #lname-label {
   margin-top: 126px;
   margin-left: 20px;
@@ -127,12 +119,173 @@
   margin-top: 15px;
 }
 
-.text {
-  margin-left: 20px;
+.container {
+  border: 1px solid #999;
+  border-radius: 7px;
+  width: fit-content;
+  height: 30px;
 }
 
-.password-label {
+.password-box {
+  margin: auto;
+  position: relative;
+  width: 400px;
+  height: 390px;
+  background: #fff;
+  border: 2px solid #ddd;
+  box-shadow: 7px 7px 7px rgb(140, 185, 252);
+  border-radius: 15px;
+}
+
+#password-input {
+  margin-top: 5px;
   margin-left: 20px;
+  border-radius: 7px;
+  padding: 10px;
+  border: 1px solid #999;
+  outline: none;
+  width: 80%;
+  font-size: 18px;
+}
+
+#password-label {
+  margin-top: 192px;
+  margin-left: 20px;
+  padding: 0 5px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  background-color: #fff;
+  color: #999;
+  transition: 0.2s;
+}
+
+#password-input:focus {
+  border-color: var(--ulease-blue);
+}
+#password-input:focus + #password-label {
+  color: var(--ulease-blue);
+}
+#password-input:focus + #password-label,
+#password-input.not-empty + #password-label {
+  top: -13px;
+  left: 5px;
+}
+.toggle-password {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  color: grey;
+  font-size: 20px;
+  right: 4.5rem;
+  top: 12.9rem;
+}
+
+.forgot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 22px;
+  margin-left: 25px;
+  text-decoration: none;
+}
+/******** New Password Page *********/
+.newPassword-box {
+  margin: auto;
+  position: relative;
+  width: 500px;
+  height: 350px;
+  background: #fff;
+  border: 2px solid #ddd;
+  box-shadow: 7px 7px 7px rgb(140, 185, 252);
+  border-radius: 15px;
+}
+
+#newPassword-input {
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 7px;
+  padding: 10px;
+  border: 1px solid #999;
+  outline: none;
+  width: 85%;
+  font-size: 18px;
+}
+#newPassword-label {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 0 5px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  background-color: #fff;
+  color: #999;
+  transition: 0.2s;
+}
+#newPassword-input:focus {
+  border-color: var(--ulease-blue);
+}
+#newPassword-input:focus + #newPassword-label {
+  color: var(--ulease-blue);
+}
+#newPassword-input:focus + #newPassword-label,
+#newPassword-input.not-empty + #newPassword-label {
+  top: -13px;
+  left: 5px;
+}
+
+.toggle-newPassword {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  color: grey;
+  font-size: 20px;
+  right: 4.5rem;
+  top: 2.2rem;
+}
+
+/*re-enter password*/
+#rePassword-input {
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 7px;
+  padding: 10px;
+  border: 1px solid #999;
+  outline: none;
+  width: 85%;
+  font-size: 18px;
+}
+#rePassword-label {
+  margin-top: 169px;
+  margin-left: 20px;
+  padding: 0 5px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  background-color: #fff;
+  color: #999;
+  transition: 0.2s;
+}
+#rePassword-input:focus {
+  border-color: var(--ulease-blue);
+}
+#rePassword-input:focus + #rePassword-label {
+  color: var(--ulease-blue);
+}
+#rePassword-input:focus + #rePassword-label,
+#rePassword-input.not-empty + #rePassword-label {
+  top: -13px;
+  left: 5px;
+}
+
+.toggle-rePassword {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  color: grey;
+  font-size: 20px;
+  right: 4.5rem;
+  top: 11.5rem;
 }
 /* not something you want to do. Bootstrap navbar was blocking the change. */
 
