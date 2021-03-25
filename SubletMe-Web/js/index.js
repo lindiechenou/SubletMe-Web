@@ -49,6 +49,10 @@ async function filterLease() {
   var nb_binary = document.getElementById("nb-binary").checked;
   var costMin = document.getElementById("Min").value;
   var costMax= document.getElementById("Max").value;
+  var highLow = document.getElementById("btnradio1").checked;
+  var lowHigh = document.getElementById("btnradio2").checked;
+  var startDate = document.getElementById("start").value;
+  var endDate = document.getElementById("end").value;
   if(washer == true){
     console.log(washer);
     parameters += "laundry=True";
@@ -82,6 +86,18 @@ async function filterLease() {
   }
   if(costMax != ""){
     parameters += `&cpm_max=${costMax}`;
+  }
+  if(highLow == true){
+    parameters += "&ordering=-cost_per_month";
+  }
+  if(lowHigh == true){
+    parameters += "&ordering=cost_per_month";
+  }
+  if(startDate != ""){
+    parameters += `&start_lease=${startDate}`;
+  }
+  if(endDate != ""){
+    parameters +=  `&end_lease=${endDate}`;
   }
   if(parameters[0] == "&"){
     parameters = parameters.slice(1);
