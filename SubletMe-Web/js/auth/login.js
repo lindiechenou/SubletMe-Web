@@ -1,4 +1,4 @@
-localStorage.setItem("info", "");    
+localStorage.setItem("info", "");
 async function login() {
   //login fields
   var email = document.querySelector("#loginEmail").value;
@@ -23,20 +23,19 @@ async function login() {
   };
 }
 
-function profileInfo(tok){
+function profileInfo(tok) {
   let xhr1 = new XMLHttpRequest();
   localStorage.setItem("Token", tok);
-  xhr1.open('GET', 'http://localhost:8000/api/rest-auth/user/');
-  xhr1.setRequestHeader('Authorization', `Token ${tok}`);
+  xhr1.open("GET", "http://localhost:8000/api/rest-auth/user/");
+  xhr1.setRequestHeader("Authorization", `Token ${tok}`);
   xhr1.send();
-  xhr1.onreadystatechange = function() {
+  xhr1.onreadystatechange = function () {
     if (this.status == 200) {
-        console.log(xhr1.responseText);
-        localStorage.setItem("info", xhr1.responseText);
-        window.location.href = "../../html/index.html";
+      console.log(xhr1.responseText);
+      localStorage.setItem("info", xhr1.responseText);
+      window.location.href = "../../html/index.html";
     }
-
-  }
+  };
 }
 
 var emailBox = document.getElementById("loginEmail");
