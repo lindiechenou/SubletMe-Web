@@ -75,11 +75,11 @@ if (document.title !== "Password" && document.title !== "New Password") {
   var nbox = document.getElementById("newPassword-input");
   var nlabel = document.getElementById("newPassword-label");
 
-  nbox.addEventListener("focusout", lonFocusOut);
+  nbox.addEventListener("focusout", lonFocusOut1);
 
-  function lonFocusOut() {
+  function lonFocusOut1() {
     if (nbox.value.length > 0) {
-      rbox.classList.add("not-empty");
+      nbox.classList.add("not-empty");
     } else {
       nbox.classList.remove("not-empty");
     }
