@@ -29,12 +29,25 @@
 
 <body>
     <div class="container">
+
         <div class="d-flex justify-content-center">
             <div class="col-xl-6 col-lg-6 col-md-9">
                 <div class="card my-5 formed">
                     <div class="card-body">
+                        <div class="toast-container position-absolute top-0 start-50 translate-middle-x p-3">
+                            <div class="toast text-white bg-primary border-0" role="alert" aria-live="assertive"
+                                aria-atomic="true" data-bs-delay="1500">
+                                <div class="d-flex">
+                                    <div class="toast-body" id="toastBody">
+                                        Error!
+                                    </div>
+                                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="p-5">
-                            <div class="text-center">
+                            <div class="text-center" id="text-center">
                                 <h1>ULease</h1>
                             </div>
                             <div class="mb-3 d-grid gap-2">
