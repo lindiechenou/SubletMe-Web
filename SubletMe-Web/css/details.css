@@ -11,6 +11,9 @@
   padding: 8px 60px;
 }
 
+.current-page{
+  color: #0d6efd !important;
+}
 /******** Dropdown Menu *********/
 .dropdown-menu {
   width: 250px;
