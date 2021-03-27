@@ -1,27 +1,49 @@
-async function createUser() {
-  //signup fields
-  const params = {
-    email: (document.querySelector("#signupEmail").value).toLowerCase(),
-    password1: document.querySelector("#signupPassword").value,
-    password2: document.querySelector("#signupPassword2").value,
-    university_choices: document.querySelector("#school").value,
-    first_name: document.querySelector("#firstName").value,
-    last_name: document.querySelector("#lastName").value,
-  };
-
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:8000/api/rest-auth/registration/", true);
-  xhr.setRequestHeader("Content-type", "application/json");
-  xhr.send(JSON.stringify(params));
-  xhr.onreadystatechange = function () {
-    console.log(xhr.status);
-    if (this.status == 201) {
-      window.location.href = "../../html/auth/newAccount.html";
-    } else {
-      // document.getElementById("error-message").innerHTML = xhr.responseText;
-      console.log(xhr.status);
-    }
-  };
+function createUser() {
+  var email = (document.querySelector("#signupEmail").value).toLowerCase();
+  var password1 = document.querySelector("#signupPassword").value
+  var password2 = document.querySelector("#signupPassword2").value
+  var university_choices = document.querySelector("#school").value
+  var first_name = document.querySelector("#firstName").value
+  var last_name = document.querySelector("#lastName").value
+  if(email !="" && password1 !="" && password2 !="" && university_choices !="" && first_name !="" && last_name !=""){
+      fetch('http://localhost:8000/api/rest-auth/registration/',{
+        method: 'post',
+        headers: new Headers({
+          'Content-Type': 'application/json',
+        }),
+        body: JSON.stringify({
+          email: email,
+          password1: password1,
+          password2: password2,
+          university_choices: university_choices,
+          first_name: first_name,
+          last_name: last_name,
+        })
+      }).then(response =>{
+        if (response.ok) return response.json();
+        return response.json().then(response => {
+          var text = Object.keys(response)[0]
+          throw new Error(response[text])})
+      }).then(response => {window.location.href = "../../html/auth/newAccount.html";})
+      // .catch(error => console.log(error))
+      .catch((error) => {
+        console.log(error.message)
+        document.getElementById('toastBody').innerHTML = error.message;
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl){
+          return new bootstrap.Toast(toastEl)
+        });
+        toastList.forEach(toast => toast.show());
+      })
+  }
+  else{
+    document.getElementById('toastBody').innerHTML = "Please fill out all the fields";
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function(toastEl){
+      return new bootstrap.Toast(toastEl)
+    });
+    toastList.forEach(toast => toast.show());
+  }
 }
 
 $('select').on('change', function() {
