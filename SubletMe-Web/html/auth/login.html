@@ -29,7 +29,19 @@
 
 <body>
     <div class="row title">
-        <div class="col-lg-6 title-desc text-end">
+        <div class="toast-container position-absolute top-0 start-50 translate-middle-x p-3">
+            <div class="toast text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true"
+                data-bs-delay="1500">
+                <div class="d-flex">
+                    <div class="toast-body" id="toastBody">
+                        Error!
+                    </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 title-desc text-end" id="text-end">
             <h1>ULease</h1>
             <p>Sublease Housing for University Students.</p>
         </div>
