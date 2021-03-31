@@ -127,3 +127,7 @@ if (document.title !== "Password" && document.title !== "New Password") {
     }
   });
 }
+
+function changeName() {
+  $(".toast").toast("show");
+}

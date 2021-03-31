@@ -37,7 +37,7 @@ localStorage.setItem("ListingID", "");
 
 //Connecting filters to sublease search
 async function filterLease() {
-  var parameters = ""
+  var parameters = "";
   var washer = document.getElementById("washer-dryer").checked;
   var pool = document.getElementById("pool-available").checked;
   var pets = document.getElementById("pets-allowed").checked;
@@ -48,58 +48,58 @@ async function filterLease() {
   var men = document.getElementById("men-only").checked;
   var nb_binary = document.getElementById("nb-binary").checked;
   var costMin = document.getElementById("Min").value;
-  var costMax= document.getElementById("Max").value;
+  var costMax = document.getElementById("Max").value;
   var highLow = document.getElementById("btnradio1").checked;
   var lowHigh = document.getElementById("btnradio2").checked;
   var startDate = document.getElementById("start").value;
   var endDate = document.getElementById("end").value;
-  if(washer == true){
+  if (washer == true) {
     console.log(washer);
     parameters += "laundry=True";
   }
-  if(pool == true){
+  if (pool == true) {
     parameters += "&pool=True";
   }
-  if(pets == true){
+  if (pets == true) {
     parameters += "&pets=True";
   }
-  if(parking == true){
+  if (parking == true) {
     parameters += "&free_parking=True";
   }
-  if(furnished == true){
+  if (furnished == true) {
     parameters += "&is_furnished=True";
   }
-  if(fitness == true){
+  if (fitness == true) {
     parameters += "&fitness_center=True";
   }
-  if(women == true){
+  if (women == true) {
     parameters += "&women=True";
   }
-  if(men == true){
+  if (men == true) {
     parameters += "&men=True";
   }
-  if(nb_binary == true){
+  if (nb_binary == true) {
     parameters += "&nb=True";
   }
-  if(costMin != ""){
+  if (costMin != "") {
     parameters += `&cpm_min=${costMin}`;
   }
-  if(costMax != ""){
+  if (costMax != "") {
     parameters += `&cpm_max=${costMax}`;
   }
-  if(highLow == true){
+  if (highLow == true) {
     parameters += "&ordering=-cost_per_month";
   }
-  if(lowHigh == true){
+  if (lowHigh == true) {
     parameters += "&ordering=cost_per_month";
   }
-  if(startDate != ""){
+  if (startDate != "") {
     parameters += `&start_lease=${startDate}`;
   }
-  if(endDate != ""){
-    parameters +=  `&end_lease=${endDate}`;
+  if (endDate != "") {
+    parameters += `&end_lease=${endDate}`;
   }
-  if(parameters[0] == "&"){
+  if (parameters[0] == "&") {
     parameters = parameters.slice(1);
   }
 
@@ -112,14 +112,14 @@ async function filterLease() {
     };
     xhr.onerror = reject;
     xhr.open("GET", `http://localhost:8000/api/sublet/?${parameters}`);
-    xhr.setRequestHeader('Authorization', `Token ${Token}`);
+    xhr.setRequestHeader("Authorization", `Token ${Token}`);
     xhr.send();
   });
 }
 //Connection to the BackEnd
 var Token = localStorage.getItem("Token");
 var ownerEmail = localStorage.getItem("info");
-ownerEmail = JSON.parse(ownerEmail)
+ownerEmail = JSON.parse(ownerEmail);
 ownerEmail = ownerEmail.email;
 
 function findImages(images) {
@@ -143,12 +143,12 @@ async function renderLease() {
   let html = "";
   // leases = await filterLease();
   leases.forEach((lease) => {
-    if (lease.owner != ownerEmail){
-        images = lease.images;
-        var link = findImages(images);
-        var myLease = JSON.stringify(lease);
-        var leaseID = JSON.stringify(lease.id);
-        let htmlSegment = `<div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
+    if (lease.owner != ownerEmail) {
+      images = lease.images;
+      var link = findImages(images);
+      var myLease = JSON.stringify(lease);
+      var leaseID = JSON.stringify(lease.id);
+      let htmlSegment = `<div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
                                   <div class="placard-header clear">
                                       <div class="left">
                                           <div>${lease.room_type} Room in ${lease.housing_type}</div>
@@ -158,9 +158,8 @@ async function renderLease() {
                                   </div>
                                   <div class="placard-photo-1 left"><img src="${link}" onerror="this.src='../images/ulease.png'"> </div>
                             </div>`;
-        html += htmlSegment;
-    }
-    else{
+      html += htmlSegment;
+    } else {
       localStorage.setItem("ListingID", lease.id);
     }
   });
@@ -177,13 +176,34 @@ async function getLeaseInformation(leaseID) {
     };
     xhr.onerror = reject;
     xhr.open("GET", `http://localhost:8000/api/sublet/${leaseID}`);
-    xhr.setRequestHeader('Authorization', `Token ${Token}`);
+    xhr.setRequestHeader("Authorization", `Token ${Token}`);
     xhr.send();
   });
 }
 
+async function checkSaved() {
+  return new Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = "json";
+    xhr.onload = function () {
+      var savedLeases = [];
+      var saved = this.response.saved;
 
+      saved.forEach((lease) => {
+        savedLeases.push(lease.id);
+      });
+      resolve(savedLeases);
+      //console.log(this.response);
+    };
+    xhr.onerror = reject;
+    xhr.open("GET", "http://localhost:8000/api/saved/");
+    xhr.setRequestHeader("Authorization", `Token ${Token}`);
+    xhr.send();
+  });
+}
 async function leaseInformation(leaseID) {
+  let saved = await checkSaved();
+
   $("#saveToggle").show();
   $("#saveToggle1").hide();
   lease = await getLeaseInformation(leaseID);
@@ -191,6 +211,13 @@ async function leaseInformation(leaseID) {
   console.log(lease);
   let imageHtml = "";
   let htmlSegment = "";
+  if (saved.includes(lease.id)) {
+    $("#saveToggle").hide();
+    $("#saveToggle1").show();
+  } else {
+    $("#saveToggle").show();
+    $("#saveToggle1").hide();
+  }
   if (lease.images.length == 0) {
     imageHtml = `<div class="carousel-item active">
                             <img src="../images/ulease.png" class="d-block w-100" alt="../images/ulease.png">
@@ -199,11 +226,15 @@ async function leaseInformation(leaseID) {
   for (var i = 0; i < lease.images.length; i++) {
     if (i == 0) {
       htmlSegment = `<div class="carousel-item active">
-                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
+                            <img src="${
+                              BaseURL + lease.images[i].image
+                            }" class="d-block w-100" alt="../images/ulease.png">
                         </div>`;
     } else {
       htmlSegment = `<div class="carousel-item">
-                            <img src="${BaseURL + lease.images[i].image}" class="d-block w-100" alt="../images/ulease.png">
+                            <img src="${
+                              BaseURL + lease.images[i].image
+                            }" class="d-block w-100" alt="../images/ulease.png">
                         </div>`;
     }
     imageHtml += htmlSegment;
@@ -244,10 +275,10 @@ async function leaseInformation(leaseID) {
     "Dec",
   ];
   var start_day = parseInt(lease.start_lease.slice(8, 10));
-  var start_month = parseInt(lease.start_lease.slice(5, 7))-1;
+  var start_month = parseInt(lease.start_lease.slice(5, 7)) - 1;
   var start_year = parseInt(lease.start_lease.slice(0, 4));
   var end_day = parseInt(lease.end_lease.slice(8, 10));
-  var end_month = parseInt(lease.end_lease.slice(5, 7))-1;
+  var end_month = parseInt(lease.end_lease.slice(5, 7)) - 1;
   var end_year = parseInt(lease.end_lease.slice(0, 4));
   var start_date =
     monthNames[start_month] + " " + start_day + ", " + start_year;
@@ -284,33 +315,33 @@ async function leaseInformation(leaseID) {
   $("#leaseAddress").html(leaseAddress);
   $("#leaseCost").html(leaseCost);
   $("#leaseDate").html(totalDate);
-  $("#saveIcon").click(function(){
+  $("#saveIcon").click(function () {
     $("#saveToggle").hide();
     $("#saveToggle1").show();
     saveLease(lease.id);
-    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    var toastList = toastElList.map(function(toastEl){
-      return new bootstrap.Toast(toastEl)
+    var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+    var toastList = toastElList.map(function (toastEl) {
+      return new bootstrap.Toast(toastEl);
     });
-    toastList.forEach(toast => toast.show());
-  })
+    toastList.forEach((toast) => toast.show());
+  });
 }
-function saveLease(leaseID){
-  fetch(`http://localhost:8000/api/saved/${leaseID}/add_saved/`,{
-          method: 'post',
-          headers:  new Headers({
-            'Authorization':  `Token ${Token}`
-          })
-      }).then(response => {
-        return response.text();
-      }).then(parsed_result => {
-        console.log(parsed_result);
-      })
+function saveLease(leaseID) {
+  fetch(`http://localhost:8000/api/saved/${leaseID}/add_saved/`, {
+    method: "post",
+    headers: new Headers({
+      Authorization: `Token ${Token}`,
+    }),
+  })
+    .then((response) => {
+      return response.text();
+    })
+    .then((parsed_result) => {
+      console.log(parsed_result);
+    });
+}
 
-    }
-
-
-function resetFilter(){
+function resetFilter() {
   location.reload();
 }
 var myModalEl = document.getElementById("leaseDetails");
@@ -320,5 +351,3 @@ myModalEl.addEventListener("hidden.bs.modal", function (event) {
 });
 
 renderLease();
-
-

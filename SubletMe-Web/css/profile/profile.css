@@ -89,6 +89,7 @@
   border-radius: 20px;
   margin: auto;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .listings {
@@ -97,7 +98,11 @@
   padding-left: 20px;
   margin-bottom: 25px;
 }
-
+.propertyText {
+  position:absolute;
+  left: 30%;
+  top: 50%;
+}
 .placard-apt-1 {
   background: #fff;
   border: 2px solid #ddd;
