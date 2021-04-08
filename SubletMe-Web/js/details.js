@@ -99,6 +99,9 @@ async function getLeaseInformation(leaseID) {
 async function leaseInformation(leaseID) {
   lease = await getLeaseInformation(leaseID);
   const BaseURL = "http://localhost:8000";
+  document.getElementById("email").onclick = function() {
+    window.open(`mailto:${lease.owner}?subject=Your Lease`);
+  }
   console.log(lease);
   let imageHtml = "";
   let htmlSegment = "";
