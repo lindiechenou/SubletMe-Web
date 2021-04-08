@@ -148,16 +148,18 @@ async function renderLease() {
       var link = findImages(images);
       var myLease = JSON.stringify(lease);
       var leaseID = JSON.stringify(lease.id);
-      let htmlSegment = `<div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
-                                  <div class="placard-header clear">
-                                      <div class="left">
-                                          <div>${lease.room_type} Room in ${lease.housing_type}</div>
-                                          <div class="right">${lease.address.street}, ${lease.address.city}, ${lease.address.state}, ${lease.address.zipcode}</div>
-                                          <div class="clear2">$${lease.cost_per_month}/month</div>
-                                      </div>
-                                  </div>
-                                  <div class="placard-photo-1 left"><img src="${link}" onerror="this.src='../images/ulease.png'"> </div>
-                            </div>`;
+      let htmlSegment = `<div class="col-lg-6 col-md-6 col-sm-12" data-bs-toggle="modal" data-bs-target="#leaseDetail">
+                              <div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
+                                    <div class="placard-header clear">
+                                        <div class="left">
+                                            <div>${lease.room_type} Room in ${lease.housing_type}</div>
+                                            <div class="right">${lease.address.street}, ${lease.address.city}, ${lease.address.state}, ${lease.address.zipcode}</div>
+                                            <div class="clear2">$${lease.cost_per_month}/month</div>
+                                        </div>
+                                    </div>
+                                    <div class="placard-photo-1 left"><img src="${link}" onerror="this.src='../images/ulease.png'"> </div>
+                              </div>
+                          </div>`;
       html += htmlSegment;
     } else {
       localStorage.setItem("ListingID", lease.id);
