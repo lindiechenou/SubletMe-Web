@@ -129,5 +129,47 @@ if (document.title !== "Password" && document.title !== "New Password") {
 }
 
 function changeName() {
-  $(".toast").toast("show");
+  var Token = localStorage.getItem("Token");
+  var passedJson = localStorage.getItem("info");
+  passedJson = JSON.parse(passedJson);
+
+  id = passedJson.id;
+  firstName = passedJson.first_name;
+  updateFirst = document.getElementById("fname-box").value;
+  lastName = passedJson.last_name;
+  updateLast = document.getElementById("lname-box").value;
+
+  if (updateFirst != firstName || updateLast != lastName) {
+    fetch(`http://localhost:8000/api/rest-auth/user/${id}/`, {
+      method: "patch",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: `Token ${Token}`,
+      }),
+      body: JSON.stringify({
+        first_name: updateFirst,
+        last_name: updateLast,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          document.getElementById("toast").innerHTML =
+            "Your change has been saved";
+          $(".toast").toast("show");
+          return response.json();
+        } else {
+          document.getElementById("toast").innerHTML =
+            "Something went wrong when trying to update";
+          $(".toast").toast("show");
+          console.log(response);
+          throw new Error("Something went wrong when trying to update");
+        }
+      })
+      .then((parsed_result) => {
+        console.log(parsed_result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 }
