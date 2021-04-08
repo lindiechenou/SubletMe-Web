@@ -148,7 +148,7 @@ async function renderLease() {
       var link = findImages(images);
       var myLease = JSON.stringify(lease);
       var leaseID = JSON.stringify(lease.id);
-      let htmlSegment = `<div class="col-lg-6 col-md-6 col-sm-12" data-bs-toggle="modal" data-bs-target="#leaseDetail">
+      let htmlSegment = `<div class="col-lg-6 col-md-6 col-sm-12" data-bs-toggle="modal" data-bs-target="#leaseDetails">
                               <div class="placard-apt-1" onclick='leaseInformation(${leaseID})'>
                                     <div class="placard-header clear">
                                         <div class="left">
@@ -206,11 +206,16 @@ async function checkSaved() {
 async function leaseInformation(leaseID) {
   let saved = await checkSaved();
 
+  
+
   $("#saveToggle").show();
   $("#saveToggle1").hide();
   lease = await getLeaseInformation(leaseID);
   const BaseURL = "http://localhost:8000";
   console.log(lease);
+  document.getElementById("email").onclick = function() {
+    window.open(`mailto:${lease.owner}?subject=Your Lease`);
+  }
   let imageHtml = "";
   let htmlSegment = "";
   if (saved.includes(lease.id)) {
