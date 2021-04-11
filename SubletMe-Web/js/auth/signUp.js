@@ -5,7 +5,11 @@ function createUser() {
   var university_choices = document.querySelector("#school").value
   var first_name = document.querySelector("#firstName").value
   var last_name = document.querySelector("#lastName").value
-  if(email !="" && password1 !="" && password2 !="" && university_choices !="" && first_name !="" && last_name !=""){
+  if(email.match('\\.edu$') == null){
+    quote = "Email must be a university email";
+    errorHandling(quote)
+  }
+  else if(email !="" && password1 !="" && password2 !="" && university_choices !="" && first_name !="" && last_name !=""){
       fetch('http://localhost:8000/api/rest-auth/registration/',{
         method: 'post',
         headers: new Headers({
@@ -25,25 +29,23 @@ function createUser() {
           var text = Object.keys(response)[0]
           throw new Error(response[text])})
       }).then(response => {window.location.href = "../../html/auth/newAccount.html";})
-      // .catch(error => console.log(error))
       .catch((error) => {
-        console.log(error.message)
-        document.getElementById('toastBody').innerHTML = error.message;
-        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        var toastList = toastElList.map(function(toastEl){
-          return new bootstrap.Toast(toastEl)
-        });
-        toastList.forEach(toast => toast.show());
+        errorHandling(error.message);
       })
   }
   else{
-    document.getElementById('toastBody').innerHTML = "Please fill out all the fields";
-    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    var toastList = toastElList.map(function(toastEl){
-      return new bootstrap.Toast(toastEl)
-    });
-    toastList.forEach(toast => toast.show());
+    quote = "Please fill out all the fields";
+    errorHandling(quote);
   }
+}
+
+function errorHandling(quote){
+  document.getElementById('toastBody').innerHTML = quote;
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function(toastEl){
+    return new bootstrap.Toast(toastEl)
+  });
+  toastList.forEach(toast => toast.show());
 }
 
 $('select').on('change', function() {
