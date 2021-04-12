@@ -2,7 +2,11 @@ localStorage.setItem("info", "");
 function login(){
   var email = (document.querySelector("#loginEmail").value).toLowerCase();
   var password = document.querySelector("#loginPassword").value;
-  if(email != "" && password != ""){
+  if (email.match('\\.edu$') == null){
+    quote = "Email must be a university email";
+    errorHandling(quote)
+  }
+  else if(email != "" && password != ""){
       fetch('http://localhost:8000/api/rest-auth/login/',{
         method: 'post',
         headers: new Headers({
@@ -20,23 +24,22 @@ function login(){
         })
       }).then(response =>{profileInfo(response.key)})
       .catch((error) => {
-        console.log(error.message)
-        document.getElementById('toastBody').innerHTML = error.message;
-        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        var toastList = toastElList.map(function(toastEl){
-          return new bootstrap.Toast(toastEl)
-        });
-        toastList.forEach(toast => toast.show());
+        errorHandling(error.message);
       })
   }
   else{
-    document.getElementById('toastBody').innerHTML = "Please fill out all the fields";
-    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    var toastList = toastElList.map(function(toastEl){
-      return new bootstrap.Toast(toastEl)
-    });
-    toastList.forEach(toast => toast.show());
+    quote = "Please fill out all the fields";
+    errorHandling(quote);
   }
+}
+
+function errorHandling(quote){
+  document.getElementById('toastBody').innerHTML = quote;
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function(toastEl){
+    return new bootstrap.Toast(toastEl)
+  });
+  toastList.forEach(toast => toast.show());
 }
 
 function profileInfo(keyID){
