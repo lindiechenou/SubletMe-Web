@@ -31,6 +31,17 @@
         <div class="formed">
             <div class="title">Edit Listing</div>
             <hr style="height: 2px;" />
+            <div class="toast-container position-absolute top-0 start-50 translate-middle-x p-3">
+                <div class="toast text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body" id="toastBody">
+                            Error!
+                        </div>
+                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
             <div class="property">
                 <div class="subTitle">Listing information</div>
                 <div class="address">
@@ -148,16 +159,17 @@
                 </div>
                 <div class="imgInput">
                     <form action="/action_page.php">
-                        <label for="myfile">Select the Primary Image (.jpg) for Your Lease: </label>
-                        <input type="file" id="myfile" name="myfile" required="required">
+                        <label for="myfile">Select the Primary Image for Your Lease: </label>
+                        <input type="file" id="myfile" name="myfile" required="required" accept="image/*">
                     </form>
                 </div>
-                <div class="imgInput">
+                <!-- <div class="imgInput">
                     <form action="/action_page.php">
-                        <label for="myfile">Select other Images (.jpg) you want other to see: </label>
-                        <input type="file" id="myfiles" name="myfile" required="required" multiple>
+                        <label for="myfile">Select other Images you want others to see: </label>
+                        <input type="file" id="myfiles" name="myfile" required="required" multiple accept="image/*">
                     </form>
-                </div>
+                </div> -->
+                <div class="row justify-content-start" id="grid-container"></div>
 
 
             </div>

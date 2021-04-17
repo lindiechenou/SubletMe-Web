@@ -49,7 +49,11 @@ console.log(ownerUniversity);
 
 function createLease() {
   //  console.log(document.getElementById("housing-type").value);
-
+  console.log(images.length)
+  if(images.length <3){
+    errorHandling(`Please upload ${3 - images.length} more image(s)`);
+    return;
+  }
   var addressStreet = document.getElementById("streetName").value;
   var addressCity = document.getElementById("cityName").value;
   var addressState = document.getElementById("stateName").value;
@@ -112,18 +116,127 @@ function createLease() {
         }).then(parsed_result => {
             console.log(parsed_result);
             localStorage.setItem("ListingID", parsed_result.id);
-            window.location = "property.html";
+            createImages(parsed_result.id);
+            // window.location = "property.html";
+
         })
         .catch((error) => {
             console.log(error)
         });
   }
   else{
-    alert("Please fill out all of the field");
+    alert("Please fill out all of the field including the pictures");
   }
 }
-
+function createImages(leaseID){
+  // image = document.getElementById("myfile").files || [];
+  // images = document.getElementById("myfiles").files || [];
+  for (var i = 0; i < images.length; i++) {
+    imgID = images[i].imageID;
+    isPrimary = document.getElementById(`primary${imgID}`).checked
+    const formData = new FormData();
+    formData.append('image', images[i].imageData);
+    formData.append('sublease', leaseID);
+    formData.append('is_primary', isPrimary);
+    // console.log('found file ' + i + ' = ' + image[i].name);
+    fetch('http://localhost:8000/api/image/', {
+    method: 'POST',
+    headers:  new Headers({
+      'Authorization':  `Token ${Token}`
+    }),
+    body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(error => {
+      console.error(error)
+    })
+  }
+  window.location = "property.html";
+}
 function cancelLease(){
   localStorage.setItem("ListingID", "");
   window.location = "property.html";
 }
+
+function errorHandling(quote){
+  document.getElementById('toastBody').innerHTML = quote;
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function(toastEl){
+    return new bootstrap.Toast(toastEl)
+  });
+  toastList.forEach(toast => toast.show());
+}
+
+images = []
+const trying = {}
+function readURL(er){
+    if (images.length < 10){
+        count = images.length;
+        var imageLink;
+        var file = er.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e){
+            if(trying[reader.result] ==1){
+                alert("No duplicate photos")
+            }
+            else{
+                dictionary(count, file, reader.result);
+            }
+        }
+    }
+    else{
+        alert("Only allowed 10 images");
+    }
+}
+function dictionary(id, info, link){
+    image ={
+        imageID: id,
+        imageData: info,
+        imageLink: link,
+    }
+    images.push(image);
+    loadFunction();
+}
+function loadFunction(){
+    console.log(images);
+    totalImage = images
+    let html = "";
+    totalImage.forEach((image) => {
+            let htmlSegment = `<div class="card" id="card${image.imageID}" style="width: 18rem;">
+                                    <img src="${image.imageLink}" class="card-img-top" atl="...">
+                                    <div class="card-body">
+                                        <div class="check">
+                                            <label class="input-group-text">
+                                                <input class="form-check-input mt-0" type="checkbox" id="primary${image.imageID}">
+                                                <span class="checkboxLabel">Primary Image</span>
+                                            </label>
+                                        </div>
+                                        <a class="btn btn-primary" onclick='deleteImage(${image.imageID})'>Delete</a>
+                                    </div>
+                            </div>`
+            html+=htmlSegment;
+            trying[image.imageLink] = 1
+    })
+    let container = document.getElementById("grid-container");
+    container.innerHTML = html;
+}
+
+function deleteImage(id){
+    deleteList = []
+    for(var i=0; i<images.length; i++){
+        if(images[i].imageID == id){
+            trying[images[i].imageLink] = 0
+        }
+        else{
+            deleteList.push(images[i])
+        }
+    }
+    images = deleteList;
+    loadFunction();
+}
+
+document.getElementById('myfile').addEventListener('change', readURL, false);

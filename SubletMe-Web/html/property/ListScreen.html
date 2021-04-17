@@ -31,6 +31,17 @@
         <div class="formed">
             <div class="title">Listing</div>
             <hr style="height: 2px;" />
+            <div class="toast-container position-absolute top-0 start-50 translate-middle-x p-3">
+                <div class="toast text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body" id="toastBody">
+                            Error!
+                        </div>
+                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
             <div class="property">
                 <div class="subTitle">Listing information</div>
                 <div class="address">
@@ -146,18 +157,22 @@
                     <label for="housing-type" class="addresslabel">Description:</label>
                     <textarea id="story" name="story" rows="6" cols="45" maxlength="150"></textarea>
                 </div>
+                <h1>Add Images</h1>
+                <h6>You must include 3 images. You can add up to 10 images. Primary image are the main images that will
+                    be displayed.</h6>
                 <div class="imgInput">
                     <form action="/action_page.php">
-                        <label for="myfile">Select the Primary Image (.jpg) for Your Lease: </label>
-                        <input type="file" id="myfile" name="myfile" required="required">
+                        <label for="myfile">Select an Image for Your Lease: </label>
+                        <input type="file" id="myfile" name="myfile" required="required" accept="image/*">
                     </form>
                 </div>
-                <div class="imgInput">
+                <!-- <div class="imgInput">
                     <form action="/action_page.php">
                         <label for="myfile">Select other Images (.jpg) you want other to see: </label>
-                        <input type="file" id="myfiles" name="myfile" required="required" multiple>
+                        <input type="file" id="myfiles" name="myfiles" required="required" multiple accept="image/*">
                     </form>
-                </div>
+                </div> -->
+                <div class="row justify-content-start" id="grid-container"></div>
 
 
             </div>
@@ -165,10 +180,29 @@
                 <!-- <button type="button" class="btn btn-link" onClick='postProperty()'>Submit</button> -->
                 <!-- <a class="navbar-brand find" onClick='postProperty()'>Find a Sublet</a> -->
                 <!-- <a class="navbar-brand find" href="property.html" onClick='check()'>Submit</a> -->
+                <!-- <a class="navbar-brand find" data-bs-toggle="modal" data-bs-target="#SignOutModal">Submit</a> -->
                 <a class="navbar-brand find" onclick=createLease()>Submit</a>
                 <a class="navbar-brand find" onclick=cancelLease()>Cancel</a>
             </div>
         </div>
+        <!-- <div class="modal fade" id="SignOutModal" tabindex="-1" aria-labelledby="SignOutModalLabel" aria-hidden="false">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title w-100 text-center" id="SignOutModalLabel">Are you
+                            sure you want to Submit the lease?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a class="btn btn-primary modal-btn" type="button" onclick=createLease()>Submit</a>
+                            <button class="btn btn-primary modal-btn" type="button" class="btn btn-outline-primary"
+                                data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
