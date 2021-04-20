@@ -21,9 +21,9 @@ function findImages(images) {
   if (images.length == 0) {
     return image;
   }
-  for (i = 0; i < images.length; i++) {
-    if (images[i].is_primary == "true") {
-      image = BaseURL + lease.image[i].image;
+  for (var i = 0; i < images.length; i++) {
+    if (images[i].is_primary == true) {
+      image = BaseURL + images[i].image;
       return image;
     }
   }
