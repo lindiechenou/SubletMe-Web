@@ -10,7 +10,6 @@ function findImages(images) {
   for (var i = 0; i < images.length; i++) {
     if (images[i].is_primary == true) {
       image = BaseURL + images[i].image;
-      console.log(image)
       return image;
     }
   }

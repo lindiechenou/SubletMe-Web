@@ -156,7 +156,7 @@ function changeName() {
           document.getElementById("toast").innerHTML =
             "Your change has been saved";
           $(".toast").toast("show");
-          return response.json();
+          return response.text();
         } else {
           document.getElementById("toast").innerHTML =
             "Something went wrong when trying to update";
@@ -166,6 +166,8 @@ function changeName() {
         }
       })
       .then((parsed_result) => {
+        localStorage.setItem("info", parsed_result);
+        window.location.href = "../../html/profile/profile.html";
         console.log(parsed_result);
       })
       .catch((error) => {
