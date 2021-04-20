@@ -140,7 +140,7 @@ function changeName() {
   updateLast = document.getElementById("lname-box").value;
 
   if (updateFirst != firstName || updateLast != lastName) {
-    fetch(`http://localhost:8000/api/rest-auth/user/${id}/`, {
+    fetch(`http://localhost:8000/api/rest-auth/user/`, {
       method: "patch",
       headers: new Headers({
         "Content-Type": "application/json",
